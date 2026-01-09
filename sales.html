@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gadget - NICEGENE TECHNOLOGIES</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="icon" href="nicegene-white.png" type="image/png">
+    <style>
+        /* --- GLOBAL RESET --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: #f4f7f9; color: #333; line-height: 1.6; }
+
+        /* --- NAVIGATION --- */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            height: 80px;
+            padding: 0 20px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+        }
+        .nav-container { max-width: 1200px; margin: 0 auto; width: 100%; display: flex; justify-content: space-between; align-items: center; }
+        .logo { height: 40px; }
+        
+        .nav-menu { 
+            display: flex; 
+            list-style: none; 
+            gap: 5px; 
+        }
+
+        .nav-link { 
+            text-decoration: none; 
+            color: #0b3d91; 
+            font-weight: 600; 
+            font-size: 15px;
+            padding: 8px 12px; 
+            transition: all 0.3s ease;
+            border-radius: 8px;
+        }
+
+        .nav-link:hover { 
+            background: #e1ecf4; 
+            color: #0b3d91; 
+        }
+
+        .nav-link.active { 
+            background: #0b3d91; 
+            color: white; 
+        }
+
+        /* --- PAGE HEADER --- */
+        .header-section { 
+            padding: 140px 20px 60px; 
+            text-align: center; 
+            background: linear-gradient(135deg, #0b3d91 0%, #0f6cd9 100%); 
+            color: white; 
+        }
+        .header-section h1 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 15px; font-weight: 800; }
+        .header-section p { opacity: 0.9; font-size: 1.2rem; max-width: 800px; margin: 0 auto; }
+
+        /* --- MAIN CONTAINER --- */
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+
+        /* --- SLIDER SECTION --- */
+        .slider-wrapper {
+            position: relative;
+            width: 100%;
+            height: 480px;
+            overflow: hidden;
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            background: white;
+            margin-bottom: 60px;
+        }
+
+        .slides {
+            display: flex;
+            /* 10 images total (9 + 1 duplicate) = 1000% width */
+            width: 1000%; 
+            height: 100%;
+            /* Adjusted time: 4s per slide x 10 = 40s total */
+            animation: slideAnimation 40s infinite; 
+        }
+
+        .slide {
+            width: 10%; /* 100 / 10 slides = 20% */
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            
+        }
+
+        .slide img { max-height: 250px; object-fit: contain; margin-bottom: 25px; transition: 5s; }
+        .slide:hover img { transform: scale(1.05); }
+        
+        .slide-info { text-align: center; max-width: 600px; }
+        .slide-info h3 { color: #0b3d91; font-size: 1.6rem; margin-bottom: 10px; }
+        .slide-info p { color: #555; font-size: 1.05rem; }
+
+
+                    @keyframes slideAnimation {
+                        /* Each slide takes 10% of the timeline (100% / 10 slides) */
+                        0%, 7%   { transform: translateX(0); }         /* Image 1 */
+                        10%, 17% { transform: translateX(-10%); }      /* Image 2 */
+                        20%, 27% { transform: translateX(-20%); }      /* Image 3 */
+                        30%, 37% { transform: translateX(-30%); }      /* Image 4 */
+                        40%, 47% { transform: translateX(-40%); }      /* Image 5 */
+                        50%, 57% { transform: translateX(-50%); }      /* Image 6 */
+                        60%, 67% { transform: translateX(-60%); }      /* Image 7 */
+                        70%, 77% { transform: translateX(-70%); }      /* Image 8 */
+                        80%, 87% { transform: translateX(-80%); }      /* Image 9 */
+                        90%, 97% { transform: translateX(-90%); }      /* Image 10 (Duplicate of 1) */
+                        100%     { transform: translateX(-90%); }      /* Hold then reset */
+                    }
+        /* --- PRODUCT GRID --- */
+        .grid-title { margin-top: 40px; margin-bottom: 30px; color: #0b3d91; border-left: 5px solid #ff9900; padding-left: 15px; font-weight: 800; font-size: 1.8rem; }
+        
+        .permanent-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #eee;
+            transition: 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .product-card:hover { 
+            transform: translateY(-10px); 
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08); 
+            border-color: #0f6cd9;
+        }
+
+               
+        .product-card img { width: 100%; height: 180px; object-fit: contain; margin-bottom: 15px; }
+        .product-card h4 { color: #333; margin-bottom: 8px; font-size: 1.1rem; }
+        .product-card p { font-size: 0.9rem; color: #777; margin-bottom: 10px; }
+        .product-card .price { color: #0b3d91; font-weight: 800; font-size: 1.3rem; margin-top: auto; }
+
+        /* --- FOOTER CTA --- */
+        .sales-cta { 
+            background: #fff; 
+            padding: 50px 20px; 
+            border-radius: 25px; 
+            text-align: center; 
+            margin-top: 60px; 
+            border: 2px dashed #0b3d91;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.02);
+        }
+        .sales-cta h3 { color: #0b3d91; margin-bottom: 15px; font-size: 1.8rem; }
+        .sales-cta p { max-width: 600px; margin: 0 auto 20px; }
+        
+        .btn-order { 
+            display: inline-flex; 
+            align-items: center;
+            gap: 10px;
+            background: #25D366; 
+            color: white; 
+            padding: 15px 35px; 
+            text-decoration: none; 
+            border-radius: 50px; 
+            font-weight: 700; 
+            margin-top: 10px; 
+            transition: 0.3s; 
+            font-size: 1.1rem;
+        }
+        .btn-order:hover { background: #128C7E; transform: scale(1.05); box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3); }
+
+        .back-link { display: block; text-align: center; margin-top: 40px; text-decoration: none; color: #0b3d91; font-weight: 700; transition: 0.2s; }
+        .back-link:hover { color: #ff9900; }
+
+        /* --- MOBILE ADJUSTMENTS --- */
+        @media (max-width: 768px) {
+            .navbar { height: 70px; padding: 0 10px; }
+            .nav-link { font-size: 11px; padding: 6px 8px; }
+            .nav-menu { gap: 2px; }
+            .slider-wrapper { height: 420px; }
+            .header-section { padding-top: 120px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html"><img src="nicegene-blue.png" alt="NICEGENE" class="logo"></a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="sales.html" class="nav-link active">Gadgets</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="header-section">
+        <h1>NICEGENE PREMIUM TECH SHOWROOM</h1>
+        <p>From MacBook Pro M3 chips to HP Spectre x360, NICEGENE TECHNOLOGIES stock premium machines for developers, creatives, and corporate professionals. 
+            We don't just sell gadgets; we provide the tools that power your productivity, creativity, and lifestyle.
+        </p>
+    </div>
+
+    <div class="container">
+        
+        <h2 class="grid-title">Top Tier Essentials</h2>
+        <div class="slider-wrapper">
+            <div class="slides">
+                <div class="slide">
+                    <img src="./images/EliteBook-845.jpg" alt="HP Elitebook 845">
+                    <div class="slide-info">
+                        <h3>High-Performance Laptops</h3>
+                        <p>Elitebook 845 G8 || 11th Gen || Ryzen 5pro || 2gb Vega graphics</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="./images/iphone14promax.jpeg" alt="iPhone 15">
+                    <div class="slide-info">
+                        <h3>Flagship Smartphones</h3>
+                        <p>Stay connected with the latest iOS and Android flagship devices. Experience the best cameras and fastest processors on the market.</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="./images/iphone14promax.png" alt="iPhone 15">
+                    <div class="slide-info">
+                        <h3>Flagship Smartphones</h3>
+                        <p>Stay connected with the latest iOS and Android flagship devices. Experience the best cameras and fastest processors on the market.</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="./images/z-book.jpg" alt="Workstation">
+                    <div class="slide-info">
+                        <h3>Engineering Workstations</h3>
+                        <p>Specialized Z-Books and Precision models built for AutoCAD, Revit, and heavy 3D rendering tasks.</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="./images/work.webp" alt="Workstation">
+                    <div class="slide-info">
+                        <h3>Engineering Workstations</h3>
+                        <p>Specialized HP-Probook and Precision models built for AutoCAD, Revit, and heavy 3D rendering tasks.</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="./images/omen1.jpg" alt="Gaming">
+                    <div class="slide-info">
+                        <h3>Gaming & Next-Gen Consoles</h3>
+                        <p>Experience zero lag with our Custom Gaming PCs and the latest Sony PlayStation 5 consoles and accessories.</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="./images/omen2.jpg" alt="Gaming">
+                    <div class="slide-info">
+                        <h3>Gaming & Next-Gen Consoles</h3>
+                        <p>Experience zero lag with our Custom Gaming PCs and the latest Sony PlayStation 5 consoles and accessories.</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="./images/victus.jpg" alt="Gaming">
+                    <div class="slide-info">
+                        <h3>Gaming & Next-Gen Consoles</h3>
+                        <p>Experience zero lag with our Custom Gaming PCs and the latest Sony PlayStation 5 consoles and accessories.</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="./images/victus2.jpg" alt="Gaming">
+                    <div class="slide-info">
+                        <h3>Gaming & Next-Gen Consoles</h3>
+                        <p>Experience zero lag with our Custom Gaming PCs and the latest Sony PlayStation 5 consoles and accessories.</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="./images/EliteBook-845.jpg" alt="HP Elitebook 845">
+                    <div class="slide-info">
+                        <h3>High-Performance Laptops</h3>
+                        <p>Elitebook 845 G8 || 11th Gen || Ryzen 5pro || 2gb Vega graphics</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="grid-title">Featured Products</h2>
+        <div class="permanent-grid">
+            <div class="product-card">
+                <img src="./images/omen.jpg" alt="Dell XPS">
+                <div>
+                    <h4><strong>Dell Allienware M18 R1</strong> Gaming PC</h4>
+                    <p>Intel Core i9 13900HX | 32GB RAM | 4TB SSD | RTX 4080 12GB</p>
+                    <p class="price">Available</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="./images/victus2.jpg" alt="PS5 Console">
+                <div>
+                    <h4>HP 15 Victus Gaming | 4GB Nvidia RTX 2050 WINS 11</h4>
+                    <p>12TH GEN INTEL Core i5 | 16GB RAM 512 SSD</p>
+                    <p class="price">Available</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="./images/z-book.jpg" alt="HP Z-Book">
+                <div>
+                    <h4>HP Z-Book 14 G7</h4>
+                    <p>Ultra-Sleek | 16GB RAM, 512GB SSD ROM| Core i7 | Touchscreen </p>
+                    <p class="price">Available</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="phone3.png" alt="iPhone 15">
+                <div>
+                    <h4>iPhone 15 Pro Max</h4>
+                    <p>256GB | Titanium Natural <br> & other phone brands</p>
+                    <p class="price">Available</p>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="grid-title">Why Shop With NICEGENE TECHNOLOGIES?</h2>
+        <div class="permanent-grid" style="margin-bottom: 40px;">
+            <div class="product-card">
+                <i class="fas fa-shield-alt" style="font-size: 2.5rem; color: #0b3d91; margin-bottom: 15px;"></i>
+                <h4>Authenticity Guaranteed</h4>
+                <p>Every product is 100% genuine and sourced from reputable distributors.</p>
+            </div>
+            <div class="product-card">
+                <i class="fas fa-tools" style="font-size: 2.5rem; color: #0b3d91; margin-bottom: 15px;"></i>
+                <h4>Technical Support</h4>
+                <p>We are a tech center. We provide expert advice on the best system for your workflow.</p>
+            </div>
+            <div class="product-card">
+                <i class="fas fa-truck" style="font-size: 2.5rem; color: #0b3d91; margin-bottom: 15px;"></i>
+                <h4>Nationwide Delivery</h4>
+                <p>Fast and secure shipping from our Yaba hub to your doorstep anywhere in Nigeria.</p>
+            </div>
+        </div>
+
+        <div class="sales-cta">
+            <h3>Custom Sourcing & Engineering Rigs</h3>
+            <p>Looking for a specific high-end workstation or a custom gaming build? Our technical team can source and configure the perfect machine for you.</p>
+            <a href="https://wa.me/2348060704412" class="btn-order">
+                <i class="fab fa-whatsapp"></i> Chat with a Sales Rep
+            </a>
+        </div>
+
+        <a href="services.html" class="back-link">← Back to All Services</a>
+    </div>
+
+    <footer style="text-align: center; padding: 40px 20px; font-size: 14px; color: #888; border-top: 1px solid #eee; margin-top: 40px;">
+        &copy; 2026 NICEGENE TECHNOLOGIES <br> All rights reserved!
+    </footer>
+
+</body>
+</html>

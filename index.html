@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NICEGENE TECHNOLOGIES</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="nicegene-white.png" type="image/png">
+    <style>
+        /* --- 1. GLOBAL RESET & BASE --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+            background: linear-gradient(135deg, #0b3d91 0%, #0f6cd9 50%, #ffffff 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            color: #123;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* --- 2. NAVIGATION --- */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            height: 80px;
+            padding: 0 20px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 40px;
+            width: auto;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 5px; /* Reduced space between buttons */
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #0b3d91;
+            font-weight: 600;
+            font-size: 15px;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        /* LIGHTER COLOR ON HOVER */
+        .nav-link:hover {
+            background: #e1ecf4; 
+            color: #0b3d91;
+        }
+
+        /* DISTINCT COLOR WHEN ACTIVE */
+        .nav-link.active {
+            background: #0b3d91;
+            color: white;
+        }
+
+        /* --- 3. HERO SECTION --- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 100px 20px 40px; 
+        }
+
+        .hero-content {
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(1.8rem, 8vw, 4.5rem);
+            color: white;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -1px;
+        }
+
+        .hero-content p {
+            font-size: clamp(1rem, 3vw, 1.3rem);
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 35px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #0b3d91;
+            padding: 16px 45px;
+            font-size: 18px;
+            font-weight: 700;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        /* --- 4. SERVICES SECTION --- */
+        .services {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .services h2 {
+            font-size: clamp(1.8rem, 5vw, 2.8rem);
+            color: white;
+            text-align: center;
+            margin-bottom: 60px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 25px;
+            box-shadow: 0 15px 45px rgba(0,0,0,0.15);
+            text-align: center;
+            transition: transform 0.4s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .card h3 {
+            color: #0b3d91;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .service-card-link {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        .service-card-link:hover {
+            color: #0f6cd9;
+        }
+
+        /* --- 5. FOOTER --- */
+        .footer {
+            background: rgba(0,0,0,0.9);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px;
+        }
+
+        /* --- 6. MOBILE SPECIFIC ADJUSTMENTS --- */
+        @media (max-width: 768px) {
+            .navbar {
+                height: 70px;
+                padding: 0 10px;
+            }
+            .nav-menu {
+                gap: 2px;
+            }
+            .nav-link {
+                font-size: 11px;
+                padding: 6px 6px;
+            }
+            .hero {
+                padding-top: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html"><img src="nicegene-blue.png" alt="NICEGENE LOGO" class="logo"></a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="sales.html" class="nav-link">Gadgets</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>NICEGENE TECHNOLOGIES</h1>
+            <p>Your leading technology firm in the heart of Lagos, Nigeria. We specialize in <strong>IT Consulting</strong>, 
+               <strong>Cloud Migration & Web-development, Digitization</strong>, <strong>Drone Services</strong>, <strong>Premium Gadgets Sales</strong> and <strong>Digital Academy</strong>.</p>
+            <a href="services.html" class="cta-button">Explore Services →</a>
+        </div>
+    </section>
+
+    <section class="services">
+        <h2>Our Core Services</h2>
+        <div class="cards">
+            <div class="card">
+                <span class="card-icon">📱</span>
+                <h3><a href="sales.html" class="service-card-link">Gadget Sales</a></h3>
+                <p>Premium Laptops and Smartphones from top brands. Quality guaranteed.</p>
+            </div>
+            <div class="card">
+                <span class="card-icon">🎨</span>
+                <h3><a href="Graphics-Design.html" class="service-card-link">Professional Graphics Design & Video Editing</a></h3>
+                <p>High-impact visual storytelling, from premium branding and logos to professional marketing collateral.</p>
+            </div>
+            <div class="card">
+                <span class="card-icon">☁️</span>
+                <h3><a href="AWS-Cloud.html" class="service-card-link">Cloud Solutions</a></h3>
+                <p>Enterprise-grade architecture and cost optimization for scaling businesses.</p>
+            </div>
+            <div class="card">
+                <span class="card-icon">💻</span>
+                <h3><a href="Web-Development.html" class="service-card-link">Web Development</a></h3>
+                <p>Responsive, secure websites built with modern frameworks.</p>
+            </div>
+            <div class="card">
+                <span class="card-icon">🎓</span>
+                <h3><a href="IT-training.html" class="service-card-link">Digital Skills / Training</a></h3>
+                <p>Hands-on bootcamps for AWS certification and Full-Stack development.</p>
+            </div>
+            <div class="card">
+                <span class="card-icon">🛰️</span>
+                <h3><a href="Drone-Services.html" class="service-card-link">Drone Services</a></h3>
+                <p>Precision aerial mapping and high-definition cinematography.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2026 NICEGENE TECHNOLOGIES <br> All rights reserved!</p>
+    </footer>
+
+</body>
+</html>

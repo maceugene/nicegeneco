@@ -7,80 +7,50 @@
      <link rel="icon" href="nicegene-white.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     
-    <style>
-        /* --- GLOBAL RESET --- */
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background-color: #ffffff; color: #333; line-height: 1.8; overflow-x: hidden; }
+<style>
+    /* --- GLOBAL RESET --- */
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+    body { background-color: #ffffff; color: #333; line-height: 1.8; overflow-x: hidden; }
 
-        /* --- NAVIGATION --- */
-        .navbar {
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            height: 80px;
-            padding: 0 20px;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
-        }
-        .nav-container { max-width: 1200px; margin: 0 auto; width: 100%; display: flex; justify-content: space-between; align-items: center; }
-        .logo { height: 40px; }
+    /* --- NAVIGATION --- */
+    .navbar {
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(10px);
+        height: 80px;
+        padding: 0 20px;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+    }
+    .nav-container { max-width: 1200px; margin: 0 auto; width: 100%; display: flex; justify-content: space-between; align-items: center; }
+    .logo { height: 40px; }
+    .nav-menu { display: flex; list-style: none; gap: 5px; }
+    .nav-link { text-decoration: none; color: #0b3d91; font-weight: 600; font-size: 15px; padding: 8px 12px; border-radius: 8px; transition: all 0.3s ease; }
+    .nav-link:hover { background: #e1ecf4; color: #0b3d91; }
+    .nav-link.active { background: #0b3d91; color: white; }
 
-        .nav-menu { 
-            display: flex; 
-            list-style: none; 
-            gap: 5px; /* Reduced gap for a tighter look */
-        }
+    /* --- HERO SECTION --- */
+    .about-hero {
+        padding: 140px 20px 40px;
+        background: #0b3d91; 
+        color: white;
+        text-align: center;
+    }
+    .about-hero h1 { font-size: clamp(2rem, 8vw, 3.5rem); margin-bottom: 10px; font-weight: 800; }
+    .about-hero p { font-size: clamp(1rem, 3vw, 1.2rem); opacity: 0.9; }
 
-        .nav-link { 
-            text-decoration: none; 
-            color: #0b3d91; 
-            font-weight: 600; 
-            font-size: 15px; 
-            padding: 8px 12px; 
-            border-radius: 8px; 
-            transition: all 0.3s ease; 
-        }
-
-        /* LIGHTER COLOR ON HOVER */
-        .nav-link:hover { 
-            background: #e1ecf4; 
-            color: #0b3d91; 
-        }
-
-        /* DISTINCT COLOR FOR ACTIVE PAGE */
-        .nav-link.active { 
-            background: #0b3d91; 
-            color: white; 
-        }
-
-        /* --- HERO SECTION --- */
-        .about-hero {
-            padding: 140px 20px 40px;
-            background: #0b3d91; 
-            color: white;
-            text-align: center;
-        }
-        .about-hero h1 { 
-            font-size: clamp(2rem, 8vw, 3.5rem); 
-            margin-bottom: 10px; 
-            font-weight: 800;
-        }
-        .about-hero p { 
-            font-size: clamp(1rem, 3vw, 1.2rem); 
-            opacity: 0.9; 
-        }
-
-        /* --- THE 4-IMAGE SLIDER --- */
-        .slider-section {
-            background: #0b3d91; 
-            padding-bottom: 50px;
-            padding-left: 20px;
-            padding-right: 20px;
-        }
+    /* --- OPTIMIZED SLIDER --- */
+    .slider-section {
+        background: #0b3d91; 
+        padding-bottom: 50px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+            /* --- UPDATED SLIDER SETTINGS --- */
         .slider-container {
             max-width: 1000px;
             margin: 0 auto;
@@ -91,84 +61,88 @@
             box-shadow: 0 15px 35px rgba(0,0,0,0.3);
             background: #051c44;
         }
-                .slider-wrapper {
-                    display: flex;
-                    width: 500%; /* Updated to 500% because you now have 5 divs */
-                    height: 100%; /* 5s per slide * 5 slides = 25s. 
-                    Changed to 'linear' to ensure the 'teleport' at the end is invisible */
-                    animation: slideAnimation 20s infinite linear;
-                }
+
+        .slider-wrapper {
+            display: flex;
+            width: 500%; /* For your 5 slides */
+            height: 100%; 
+            /* Use 'ease-in-out' for smoother stops, or 'linear' for constant motion */
+            animation: slideAnimation 25s infinite; 
+            will-change: transform;
+        }
 
         .slide {
             width: 20%;
             height: 100%;
             background-size: cover; 
             background-repeat: no-repeat;
+            /* FIX: 'top center' ensures heads are not cut off */
             background-position: top center; 
         }
-        
-                    @keyframes slideAnimation {
-                        /* Slide 1: Sits still from 0s to 4s, then moves at 5s */
-                        0%, 20% { transform: translateX(0%); }
 
-                        /* Slide 2: Sits still from 5s to 9s, then moves at 10s */
-                        25%, 45% { transform: translateX(-20%); }
+        /* --- THE SEAMLESS LOOP ANIMATION --- */
+        /* Each slide takes 20% of the timeline (100 / 5 = 20) */
+        @keyframes slideAnimation {
+            /* Slide 1 (NICEGENE TECH 2) */
+            0%, 15% { transform: translateX(0%); } 
 
-                        /* Slide 3: Sits still from 10s to 14s, then moves at 15s */
-                        50%, 70% { transform: translateX(-40%); }
+            /* Slide 2 (ESUT1) */
+            20%, 35% { transform: translateX(-20%); } 
 
-                        /* Slide 4: Sits still from 15s to 19s, then moves at 20s */
-                        75%, 95% { transform: translateX(-60%); }
+            /* Slide 3 (ESUT2) */
+            40%, 55% { transform: translateX(-40%); } 
 
-                        /* THE FINISH: Moves into the 5th slide (Duplicate).
-                        At 100%, it hits the duplicate and instantly restarts at Slide 1.
-                        Because they are identical, the 'blink' disappears. */
-                        100% { transform: translateX(-80%); }
-                    }
+            /* Slide 4 (buchi2) */
+            60%, 75% { transform: translateX(-60%); } 
 
-        /* --- STORY SECTION --- */
-        .section-container { max-width: 1100px; margin: 0 auto; padding: 80px 20px; }
-        .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
-        .story-text h2 { color: #0b3d91; margin-bottom: 20px; font-size: clamp(1.8rem, 5vw, 2.5rem); }
-        .story-image img { width: 100%; border-radius: 20px; box-shadow: 15px 15px 0px #0b3d91; }
+            /* Slide 5 (NICEGENE TECH 2 - Duplicate) */
+            80%, 95% { transform: translateX(-80%); } 
 
-        /* --- MISSION & VISION --- */
-        .mission-vision { background: #0b3d91; color: white; padding: 80px 20px; }
-        .mv-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
-        .mv-box { padding: 30px; border: 1px solid rgba(255,255,255,0.2); border-radius: 15px; }
-        .mv-box h3 { font-size: 24px; margin-bottom: 15px; color: #ff9900; }
-
-        /* --- TEAM SECTION --- */
-        .team-section { background: #f9f9f9; padding: 80px 20px; text-align: center; }
-        .team-header h2 { font-size: clamp(1.8rem, 5vw, 2.5rem); color: #0b3d91; margin-bottom: 40px; }
-        .team-grid { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px; }
-        .ceo-row { display: flex; justify-content: center; }
-        .staff-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; }
-        
-        .team-card {
-            background: white; padding: 25px; border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s;
-            border-bottom: 4px solid #eee;
-        }
-        .team-card:hover { transform: translateY(-5px); border-bottom-color: #0b3d91; }
-        .ceo-card { background: #0b3d91; color: white; max-width: 400px; width: 100%; border-bottom-color: #ff9900; }
-        
-        .member-img {
-            width: 100%; aspect-ratio: 1/1; background: #e1ecf4; border-radius: 12px;
-            margin-bottom: 15px; background-size: cover; background-position: top center;
+            /* Instant reset to Slide 1 */
+            100% { transform: translateX(0%); } 
         }
 
-        .back-home { display: block; text-align: center; margin: 40px 0; color: #0b3d91; font-weight: bold; text-decoration: none; }
+        
+    /* --- STORY SECTION --- */
+    .section-container { max-width: 1100px; margin: 0 auto; padding: 80px 20px; }
+    .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+    .story-text h2 { color: #0b3d91; margin-bottom: 20px; font-size: clamp(1.8rem, 5vw, 2.5rem); }
+    .story-image img { width: 100%; border-radius: 20px; box-shadow: 15px 15px 0px #0b3d91; }
 
-        /* --- MOBILE RESPONSIVENESS --- */
-        @media (max-width: 768px) {
-            .navbar { height: 70px; padding: 0 10px; }
-            .nav-menu { gap: 2px; }
-            .nav-link { font-size: 11px; padding: 6px 6px; } 
-            .about-hero { padding-top: 120px; }
-            .story-grid, .mv-grid { grid-template-columns: 1fr; text-align: center; }
-            .slider-container { height: 280px; } 
-        }
+    /* --- MISSION & VISION --- */
+    .mission-vision { background: #0b3d91; color: white; padding: 80px 20px; }
+    .mv-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+    .mv-box { padding: 30px; border: 1px solid rgba(255,255,255,0.2); border-radius: 15px; }
+    .mv-box h3 { font-size: 24px; margin-bottom: 15px; color: #ff9900; }
+
+    /* --- TEAM SECTION --- */
+    .team-section { background: #f9f9f9; padding: 80px 20px; text-align: center; }
+    .team-header h2 { font-size: clamp(1.8rem, 5vw, 2.5rem); color: #0b3d91; margin-bottom: 40px; }
+    .team-grid { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px; }
+    .ceo-row { display: flex; justify-content: center; }
+    .staff-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; }
+    .team-card { background: white; padding: 25px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; border-bottom: 4px solid #eee; }
+    .team-card:hover { transform: translateY(-5px); border-bottom-color: #0b3d91; }
+    .ceo-card { background: #0b3d91; color: white; max-width: 400px; width: 100%; border-bottom-color: #ff9900; }
+    .member-img { width: 100%; aspect-ratio: 1/1; background: #e1ecf4; border-radius: 12px; margin-bottom: 15px; background-size: cover; background-position: top center; }
+    .back-home { display: block; text-align: center; margin: 40px 0; color: #0b3d91; font-weight: bold; text-decoration: none; }
+
+    /* --- MOBILE RESPONSIVENESS --- */
+    @media (max-width: 768px) {
+        .navbar { height: 70px; padding: 0 10px; }
+        .nav-menu { gap: 2px; }
+        .nav-link { font-size: 11px; padding: 6px 6px; } 
+        .about-hero { padding-top: 120px; }
+        .story-grid, .mv-grid { grid-template-columns: 1fr; text-align: center; }
+        .slider-container { height: 320px; } 
+            .slide { 
+                /* Ensure heads are visible on mobile even if the image is tall */
+                background-position: top center; 
+                background-size: cover; 
+            }
+        .slide { background-size: contain; background-color: #0b3d91; } /* contain is faster to render */
+    }
+
     </style>
 </head>
 <body>

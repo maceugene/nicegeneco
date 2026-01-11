@@ -70,21 +70,26 @@
         }
         .slider-wrapper {
             width: 100%;
-            height: clamp(300px, 60vh, 500px);
+            /* Increased height for better visibility */
+            height: clamp(350px, 70vh, 600px); 
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-            background: #eee;
+            /* Dark background helps the graphics pop if they don't fill the width */
+            background: #0b3d91; 
             position: relative;
             border: 5px solid white;
         }
         .slider-wrapper img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            /* CHANGED TO CONTAIN: This stops the images from being cut off */
+            object-fit: contain; 
             position: absolute;
             opacity: 0;
             transition: opacity 1s ease-in-out;
+            top: 0;
+            left: 0;
         }
         .slider-wrapper img.active { opacity: 1; }
 
@@ -136,9 +141,12 @@
 
         footer { text-align: center; padding: 40px; color: #888; border-top: 1px solid #eee; }
 
+        /* MOBILE ADJUSTMENTS */
         @media (max-width: 768px) {
-            .hero-section { padding-top: 120px; }
-            .slider-wrapper { height: 250px; }
+            .hero-section { padding-top: 120px; padding-bottom: 80px; }
+            /* Keeping slider tall enough to see design details on mobile */
+            .slider-wrapper { height: 400px; margin-bottom: 10px; }
+            .slider-section p { font-size: 14px; padding: 0 10px; }
         }
     </style>
 </head>

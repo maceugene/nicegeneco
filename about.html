@@ -127,21 +127,30 @@
     .member-img { width: 100%; aspect-ratio: 1/1; background: #e1ecf4; border-radius: 12px; margin-bottom: 15px; background-size: cover; background-position: top center; }
     .back-home { display: block; text-align: center; margin: 40px 0; color: #0b3d91; font-weight: bold; text-decoration: none; }
 
-    /* --- MOBILE RESPONSIVENESS --- */
-    @media (max-width: 768px) {
-        .navbar { height: 70px; padding: 0 10px; }
-        .nav-menu { gap: 2px; }
-        .nav-link { font-size: 11px; padding: 6px 6px; } 
-        .about-hero { padding-top: 120px; }
-        .story-grid, .mv-grid { grid-template-columns: 1fr; text-align: center; }
-        .slider-container { height: 320px; } 
+        /* --- MOBILE RESPONSIVENESS --- */
+        @media (max-width: 768px) {
+            .navbar { height: 70px; padding: 0 10px; }
+            .nav-container { flex-direction: row; justify-content: space-between; }
+            .logo { height: 30px; }
+            .nav-menu { gap: 2px; }
+            .nav-link { font-size: 11px; padding: 6px 6px; } 
+            
+            .about-hero { padding-top: 120px; }
+            .story-grid, .mv-grid { grid-template-columns: 1fr; text-align: center; }
+            
+            /* ADJUSTED SLIDER FOR MOBILE */
+            .slider-container { 
+                height: 280px; /* Reduced height for better mobile framing */
+            } 
+            
             .slide { 
-                /* Ensure heads are visible on mobile even if the image is tall */
-                background-position: top center; 
+                /* FIXED: Use 'cover' to ensure image fills the whole box */
                 background-size: cover; 
+                /* FIXED: Center the focus so people's faces are visible */
+                background-position: center center; 
+                background-color: #051c44; 
             }
-        .slide { background-size: contain; background-color: #0b3d91; } /* contain is faster to render */
-    }
+        }
 
     </style>
 </head>
@@ -212,15 +221,16 @@
                 <div class="ceo-row">
                     <div class="team-card ceo-card">
                         <div class="member-img" style="background-image: url('Eugene.png');"></div>
-                        <h3>Eugene Orji</h3>
+                        <h3>Eugene O. ORJI</h3>
                         <p>MD / CEO</p>
                     </div>
                 </div>
                 <div class="staff-row">
-                    <div class="team-card"><div class="member-img" style="background-image: url('Eugene.png');"></div><h3>Full Name</h3><p>Legal & Compliance</p></div>
-                    <div class="team-card"><div class="member-img" style="background-image: url('Eugene.png');"></div><h3>Full Name</h3><p>HR & Academics</p></div>
-                    <div class="team-card"><div class="member-img" style="background-image: url('Eugene.png');"></div><h3>Full Name</h3><p>Design Lead</p></div>
-                    <div class="team-card"><div class="member-img" style="background-image: url('Eugene.png');"></div><h3>Full Name</h3><p>Finance</p></div>
+                    <div class="team-card"><div class="member-img" style="background-image: url('./images/Ikenna.JPG');"></div><h3>Ikenna C. Okpalaeze (Esq.)</h3><p>Legal & Compliance</p></div>
+                    <div class="team-card"><div class="member-img" style="background-image: url('Eugene.png');"></div><h3>James Victor</h3><p>Academics & Quality Assurrance</p></div>
+                    <div class="team-card"><div class="member-img" style="background-image: url('Eugene.png');"></div><h3>Emmanuel N. Ezenwa-Okoro</h3><p>Head of Media & Publicity</p></div>
+                    <div class="team-card"><div class="member-img" style="background-image: url('Eugene.png');"></div><h3>Chidera James Franklyn</h3><p>Design Lead</p></div>
+                    <div class="team-card"><div class="member-img" style="background-image: url('Eugene.png');"></div><h3>Vivian Maduka</h3><p>Human Resource Manager</p></div>
                 </div>
             </div>
         </section>

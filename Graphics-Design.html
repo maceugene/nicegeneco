@@ -8,7 +8,7 @@
     <style>
         /* --- GLOBAL RESET --- */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', 'Segoe UI', sans-serif; scroll-behavior: smooth; }
-        body { background-color: #fafbfc; color: #333; line-height: 1.6; }
+        body { background-color: #fafbfc; color: #333; line-height: 1.6; overflow-x: hidden; }
 
         /* --- NAVIGATION --- */
         .navbar {
@@ -40,7 +40,6 @@
         }
         .hero-section h1 { font-size: clamp(2.2rem, 6vw, 3.5rem); font-weight: 800; margin-bottom: 20px; }
         
-        /* --- CATEGORY BUTTONS --- */
         .category-nav {
             margin-top: 30px;
             display: flex;
@@ -60,22 +59,20 @@
         }
         .cat-btn:hover { background: white; color: #0b3d91; transform: translateY(-3px); }
 
-        /* --- SLIDER CONTAINER --- */
+        /* --- SLIDER CONTAINER FIXED --- */
         .slider-section {
             max-width: 1100px;
-            margin: -60px auto 60px;
+            margin: -60px auto 40px; /* Adjusted margin */
             position: relative;
             z-index: 10;
             padding: 0 20px;
         }
         .slider-wrapper {
             width: 100%;
-            /* Increased height for better visibility */
-            height: clamp(350px, 70vh, 600px); 
+            height: clamp(300px, 60vh, 500px); 
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-            /* Dark background helps the graphics pop if they don't fill the width */
             background: #0b3d91; 
             position: relative;
             border: 5px solid white;
@@ -83,45 +80,46 @@
         .slider-wrapper img {
             width: 100%;
             height: 100%;
-            /* CHANGED TO CONTAIN: This stops the images from being cut off */
-            object-fit: contain; 
+            object-fit: contain; /* Shows full design without cutting */
             position: absolute;
             opacity: 0;
-            transition: opacity 1s ease-in-out;
+            transition: opacity 0.8s ease-in-out; /* Faster transition for mobile */
             top: 0;
             left: 0;
+            background: #0b3d91;
         }
-        .slider-wrapper img.active { opacity: 1; }
+        .slider-wrapper img.active { opacity: 1; z-index: 2; }
+
+        /* --- TEXT ADJUSTMENT --- */
+        .slider-desc {
+            margin-top: 25px;
+            text-align: center;
+            color: #0b3d91;
+            padding: 0 10px;
+            font-size: 16px;
+        }
 
         /* --- GALLERY SECTIONS --- */
-        .content-container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
-        .work-group { padding: 60px 0; border-bottom: 1px solid #eee; }
-        .section-header { text-align: center; margin-bottom: 40px; }
-        .section-header h2 { color: #0b3d91; font-size: 2.2rem; margin-bottom: 10px; }
-        .underline { width: 60px; height: 4px; background: #ff9900; margin: 0 auto; border-radius: 2px; }
+        .content-container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .work-group { padding: 40px 0; border-bottom: 1px solid #eee; }
+        .section-header { text-align: center; margin-bottom: 30px; }
+        .section-header h2 { color: #0b3d91; font-size: 2rem; }
+        .underline { width: 60px; height: 4px; background: #ff9900; margin: 10px auto; border-radius: 2px; }
 
         .work-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
         }
-        .work-item {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: 0.3s;
-        }
-        .work-item:hover { transform: scale(1.03); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
-        .work-img { width: 100%; height: 250px; background: #ddd; object-fit: cover; }
-        .work-info { padding: 20px; text-align: center; }
-        .work-info h3 { color: #0b3d91; font-size: 1.2rem; }
+        .work-item { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .work-img { width: 100%; height: 250px; object-fit: cover; background: #eee; }
+        .work-info { padding: 15px; text-align: center; }
 
         /* --- CTA --- */
         .cta-section {
             background: #0b3d91;
             color: white;
-            padding: 60px 20px;
+            padding: 50px 20px;
             text-align: center;
             border-radius: 20px;
             margin: 40px 0;
@@ -130,23 +128,26 @@
             display: inline-block;
             background: #25D366;
             color: white;
-            padding: 16px 40px;
+            padding: 14px 35px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 800;
             margin-top: 20px;
-            transition: 0.3s;
         }
-        .cta-btn:hover { transform: scale(1.05); background: #128c7e; }
 
-        footer { text-align: center; padding: 40px; color: #888; border-top: 1px solid #eee; }
+        footer { text-align: center; padding: 30px; color: #888; border-top: 1px solid #eee; }
 
-        /* MOBILE ADJUSTMENTS */
+        /* MOBILE FIXES */
         @media (max-width: 768px) {
-            .hero-section { padding-top: 120px; padding-bottom: 80px; }
-            /* Keeping slider tall enough to see design details on mobile */
-            .slider-wrapper { height: 400px; margin-bottom: 10px; }
-            .slider-section p { font-size: 14px; padding: 0 10px; }
+            .navbar { height: 70px; }
+            .nav-menu { gap: 5px; }
+            .nav-link { font-size: 12px; padding: 5px 8px; }
+            .hero-section { padding-top: 130px; padding-bottom: 80px; }
+            .hero-section h1 { font-size: 1.8rem; }
+            .slider-section { margin-top: -40px; }
+            .slider-wrapper { height: 280px; }
+            .slider-desc { font-size: 14px; line-height: 1.5; }
+            .work-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -167,8 +168,7 @@
 
     <header class="hero-section">
         <h1>Professional Graphics Designs</h1>
-        <p>Premium branding and high-impact visual storytelling for your business.</p>
-        
+        <p>Premium branding and visual storytelling.</p>
         <div class="category-nav">
             <a href="#general-graphics" class="cat-btn">General Graphics</a>
             <a href="#branding-logo" class="cat-btn">Branding & Logos</a>
@@ -177,29 +177,25 @@
 
     <section class="slider-section">
         <div class="slider-wrapper" id="mainSlider">
-            <img src="./images/NICEGENE TECH black.png" class="active" alt="Graphics Showcase 1">
-            <img src="./images/James3.JPG" alt="Graphics Showcase 2">
-            <img src="./images/James.JPG" alt="Graphics Showcase 3">
-            <img src="./images/brand3.JPG" alt="Graphics Showcase 4">
-            <img src="./images/brand5.JPG" alt="Graphics Showcase 5">
-            <img src="./images/brand6.JPG" alt="Graphics Showcase 6">
-            <img src="./images/lulu6.jpg" alt="Graphics Showcase 7">
-             <img src="./images/brand4.JPG" alt="Graphics Showcase 8">
+            <img src="./images/NICEGENE TECH black.png" class="active" alt="Showcase 1">
+            <img src="./images/James3.jpg" alt="Showcase 2">
+            <img src="./images/James.jpg" alt="Showcase 3">
+            <img src="./images/brand3.jpg" alt="Showcase 4">
+            <img src="./images/brand5.jpg" alt="Showcase 5">
+            <img src="./images/brand6.JPG" alt="Showcase 6">
+            <img src="./images/lulu6.jpg" alt="Showcase 7">
+            <img src="./images/brand4.jpg" alt="Showcase 8">
         </div>
-        <p style="margin-top: 15px; text-align: center; color: #0b3d91;">"Your brand deserves the best without breaking the bank. At NICEGENE TECHNOLOGIES, we blend creative excellence with 
-            affordability to give your business the visual edge it deserves. Whether you are building from scratch or scaling up, we deliver the best—every single time. 
-            From <strong>Premium Brochures Designs</strong> to <strong>Logo Designs</strong> to <strong>Luxury high-definition prints</strong>, <strong>NICEGENE CREATIVE TEAM</strong> crafts elite visuals that satisfies your taste. 
-            Excellence is our standard and value remains our solemn commitment to our esteemed clients.."</p>
+        <div class="slider-desc">
+            <p>"Your brand deserves the best without breaking the bank. At <strong>NICEGENE TECHNOLOGIES</strong>, we blend creative excellence with affordability to give your business the visual edge it deserves. Excellence is our standard."</p>
+        </div>
     </section>
-    
 
     <main class="content-container">
-
         <section id="general-graphics" class="work-group">
             <div class="section-header">
                 <h2>General Graphics</h2>
                 <div class="underline"></div>
-                <p style="margin-top: 15px; color: #669;">Nicegene Creative Team offers Premium Flyers, Posters, Social Media Ads, and Corporate Print Designs.</p>
             </div>
             <div class="work-grid">
                 <div class="work-item">
@@ -219,11 +215,8 @@
 
         <section id="branding-logo" class="work-group">
             <div class="section-header">
-                <h2>Branding & Logo Designs</h2>
+                <h2>Branding & Logos</h2>
                 <div class="underline"></div>
-                <p style="margin-top: 15px; color: #669;">Identity creation, Premium Logos, and Brand Guidelines.
-                <br>At NICEGENE TECHNOLOGIES, we bring to life your visions and the output of our creative team will always beat your imaginations. 
-                <br> You will love it!</p>
             </div>
             <div class="work-grid">
                 <div class="work-item">
@@ -243,33 +236,28 @@
 
         <section class="cta-section">
             <h2>Need a Custom Design?</h2>
-            <p>Let's bring your vision to life with our premium design services.</p>
-            <a href="https://wa.me/2348060704412" class="cta-btn">
-                <i class="fab fa-whatsapp"></i> Chat with a Designer
-            </a>
+            <a href="https://wa.me/2348060704412" class="cta-btn"><i class="fab fa-whatsapp"></i> Chat with a Designer</a>
         </section>
-
-        <a href="services.html" style="display: block; text-align: center; text-decoration: none; color: #0b3d91; font-weight: 700;">
-            ← Return to Services
-        </a>
     </main>
 
-    <footer>
-        &copy; 2026 NICEGENE TECHNOLOGIES. <br>All rights reserved.
-    </footer>
+    <footer>&copy; 2026 NICEGENE TECHNOLOGIES.</footer>
 
     <script>
+        // Enhanced script to handle mobile loading better
         let currentSlide = 0;
         const slides = document.querySelectorAll('#mainSlider img');
         
         function showNextSlide() {
+            if(slides.length === 0) return;
             slides[currentSlide].classList.remove('active');
             currentSlide = (currentSlide + 1) % slides.length;
             slides[currentSlide].classList.add('active');
         }
 
-        setInterval(showNextSlide, 4000); // Change image every 4 seconds
+        // Wait for images to load before starting
+        window.onload = function() {
+            setInterval(showNextSlide, 4000);
+        };
     </script>
-
 </body>
 </html>

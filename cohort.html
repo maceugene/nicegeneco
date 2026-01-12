@@ -17,7 +17,7 @@
         .preview-card {
             background: white; padding: 20px; border-radius: 12px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.05); margin-top: -50px; margin-bottom: 40px;
-            display: none; /* Hidden until a course is picked */
+            display: none; 
             animation: fadeIn 0.4s ease;
         }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
@@ -47,32 +47,18 @@
         }
         .submit-btn:hover { background: #e68a00; transform: translateY(-2px); }
 
-        /* --- INFO BOXES --- */
         .info-footer { margin-top: 25px; padding: 20px; background: #fff9f0; border-left: 4px solid var(--secondary); border-radius: 8px; }
-        .info-footer p { font-size: 0.9rem; margin-bottom: 8px; color: #666; }
         .whatsapp-link { display: inline-flex; align-items: center; gap: 8px; color: #25D366; text-decoration: none; font-weight: 700; margin-top: 10px; }
 
         #success-state { display: none; text-align: center; padding: 40px; }
         .success-icon { font-size: 4rem; color: #22c55e; margin-bottom: 15px; }
 
-        /* --- BACK HOME BUTTON --- */
         .back-home {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: 0.3s;
-            text-align: center;
+            display: inline-block; margin-top: 20px; padding: 10px 20px;
+            color: var(--primary); border: 2px solid var(--primary); border-radius: 8px;
+            text-decoration: none; font-weight: 700; transition: 0.3s;
         }
-        .back-home:hover {
-            background-color: var(--primary);
-            color: white;
-        }
+        .back-home:hover { background-color: var(--primary); color: white; }
 
         @media (max-width: 600px) { .form-grid { grid-template-columns: 1fr; } .full-width { grid-column: span 1; } }
     </style>
@@ -85,7 +71,6 @@
     </header>
 
     <div class="container">
-        
         <div id="course-preview" class="preview-card">
             <h4 style="margin-bottom: 12px; color: var(--primary);">Selected Course Details:</h4>
             <div class="table-wrapper">
@@ -98,63 +83,62 @@
                             <th>Description</th>
                         </tr>
                     </thead>
-                    <tbody id="preview-body">
-                    </tbody>
+                    <tbody id="preview-body"></tbody>
                 </table>
             </div>
         </div>
 
         <section class="reg-section">
             <div id="form-ui">
-                <form id="netlify-reg-form" name="nicegene-enrollment" method="POST" data-netlify="true">
-                    <input type="hidden" name="form-name" value="nicegene-enrollment">
-                    
+                <form id="enrollment-form" action="https://formspree.io/f/xjggbzyd" method="POST">
+                 <input type="hidden" name="_subject" value="Digital Academy Enrollment - NICEGENE TECHNOLOGIES">
+                
                     <div class="form-grid">
                         <div class="form-group full-width">
                             <label>Choose Your Course</label>
-                            <select name="selected_course" id="course-dropdown" required onchange="updatePreview()">
-                                <option value="" disabled selected>-- Select a Course to View Details --</option>
+                            <select name="Course_Selected" id="course-dropdown" required onchange="updatePreview()">
+                                <option value="" disabled selected>-- Select a Course --</option>
                                 <option value="Project Management">Project Management</option>
                                 <option value="Data Analytics">Data Analytics</option>
-                                <option value="Video Editing">Video Editing</option>
+                                <option value="Video Editing">Video & Photo Editing</option>
+                                <option value="Introduction to Web3 Technologies">Introduction to Web3 Technologies</option>
                                 <option value="Graphics Design">Graphics Design</option>
                                 <option value="Product Management">Product Management</option>
                                 <option value="YouTube Optimization">YouTube Optimization</option>
                                 <option value="Social Media Optimization">Social Media Optimization</option>
                                 <option value="Professional Excel">Professional Excel</option>
-                                <option value="Corporate Training">Corporate Workplace Training</option>
+                                <option value="Staff Training">Staff Training on use of digital tools</option>
                             </select>
                         </div>
 
-                        <div class="form-group">
-                            <label>Full Name</label>
-                            <input type="text" name="student_name" required placeholder="Full Name">
-                        </div>
-                        <div class="form-group">
-                            <label>WhatsApp Number</label>
-                            <input type="tel" name="whatsapp" required placeholder="+234...">
-                        </div>
-                        <div class="form-group full-width">
-                            <label>Email Address</label>
-                            <input type="email" name="email" required placeholder="example@gmail.com">
-                        </div>
-
-                        <div class="form-group full-width">
-                            <button type="submit" class="submit-btn" id="submit-btn">Submit Registration</button>
-                        </div>
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" name="Student_Name" required placeholder="Full Name">
                     </div>
-                </form>
+                    <div class="form-group">
+                        <label>WhatsApp Number</label>
+                        <input type="tel" name="WhatsApp" required placeholder="+234...">
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Email Address</label>
+                        <input type="email" name="Email" required placeholder="example@gmail.com">
+                    </div>
+
+                    <div class="form-group full-width">
+                        <button type="submit" class="submit-btn" id="submit-btn">Submit Registration</button>
+                    </div>
+                </div>
+            </form>
 
                 <div class="info-footer">
                     <p><strong><i class="fas fa-sync-alt"></i> Rolling Cohorts:</strong> New batches start immediately after current ones conclude.</p>
-                    <p><strong><i class="fas fa-laptop"></i> Class Format:</strong> All classes are 100% virtual, except for Staff Training which is held on-site at an agreed time.</p>
                     <a href="https://wa.me/2348060704412" class="whatsapp-link">
                         <i class="fab fa-whatsapp"></i> Click here to send Payment Details
                     </a>
                 </div>
                 
                 <div style="text-align: center; margin-top: 20px;">
-                    <a href="IT-training.html" class="back-home"><i class="fas fa-home"></i> Bact to our academy</a>
+                    <a href="IT-training.html" class="back-home"><i class="fas fa-home"></i> Back to our academy</a>
                 </div>
             </div>
 
@@ -166,27 +150,27 @@
                     <i class="fab fa-whatsapp"></i> Chat with Admissions
                 </a>
                 <br>
-                <a href="index.html" class="back-home"><i class="fas fa-home"></i> Bact to our academy</a>
+                <a href="index.html" class="back-home"><i class="fas fa-home"></i> Return to Homepage</a>
             </div>
         </section>
     </div>
 
     <footer style="text-align: center; padding: 40px; color: #888; font-size: 0.8rem;">
-        &copy; 2026 NICEGENE TECHNOLOGIES <br> All rights reserved!
+        &copy; 2026 NICEGENE TECHNOLOGIES
     </footer>
 
     <script>
-        // COURSE DATABASE
         const details = {
-            "Project Management": { fee: "₦55,000", time: "4 Weeks", desc: "Master Agile, Waterfall, and team leadership using industry tools." },
-            "Data Analytics": { fee: "₦75,000", time: "6 Weeks", desc: "Learn data visualization, SQL, and PowerBI for business insights." },
-            "Video Editing": { fee: "₦45,000", time: "4 Weeks", desc: "Professional storytelling using Premiere Pro and CapCut desktop." },
-            "Graphics Design": { fee: "₦40,000", time: "4 Weeks", desc: "Master visual branding, typography, and Canva/Photoshop skills." },
-            "Product Management": { fee: "₦60,000", time: "5 Weeks", desc: "From ideation to launch—learn the product lifecycle and roadmapping." },
-            "YouTube Optimization": { fee: "₦30,000", time: "3 Weeks", desc: "SEO, thumbnail strategy, and algorithm mastery to grow your channel." },
-            "Social Media Optimization": { fee: "₦35,000", time: "4 Weeks", desc: "Content strategy and ad management for IG, TikTok, and LinkedIn." },
-            "Professional Excel": { fee: "₦40,000", time: "3 Weeks", desc: "Advanced formulas, pivot tables, and professional data reporting." },
-            "Corporate Training": { fee: "Contact Us", time: "Flexible", desc: "Custom on-site training specifically designed for corporate staff." }
+            "Project Management": { fee: "₦50,000", time: "6 Weeks", desc: "Waterfall, Agile, and Scrum methodologies including team leadership." },
+            "Data Analytics": { fee: "₦50,000", time: "6 Weeks", desc: "Learn data visualization, SQL, and PowerBI for business insights." },
+            "Video Editing": { fee: "₦45,000", time: "6 Weeks", desc: "Professional storytelling using Premiere Pro and CapCut desktop." },
+            "Introduction to Web3 Technologies": { fee: "₦75,000", time: "8 Weeks", desc: "Blockchain fundamentals, Smart Contracts, and the Semantic Web." },
+            "Graphics Design": { fee: "₦40,000", time: "6 Weeks", desc: "Master visual branding, typography, and Canva/Photoshop skills." },
+            "Product Management": { fee: "₦60,000", time: "5 Weeks", desc: "From ideation to launch—learn product lifecycle and roadmapping." },
+            "YouTube Optimization": { fee: "₦30,000", time: "4 Weeks", desc: "SEO, thumbnail strategy, and algorithm mastery." },
+            "Social Media Optimization": { fee: "₦30,000", time: "4 Weeks", desc: "Content strategy and ad management for IG, TikTok, and LinkedIn." },
+            "Professional Excel": { fee: "₦20,000", time: "4 Weeks", desc: "Advanced formulas, pivot tables, and data reporting." },
+            "Staff Training": { fee: "Contact Us", time: "Flexible", desc: "Custom on-site training for corporate organizations and schools." }
         };
 
         function updatePreview() {
@@ -198,35 +182,35 @@
             if(details[selection]) {
                 const item = details[selection];
                 previewCard.style.display = 'block';
-                tbody.innerHTML = `
-                    <tr>
-                        <td class="col-course">${selection}</td>
-                        <td class="col-fee">${item.fee}</td>
-                        <td class="col-time">${item.time}</td>
-                        <td class="col-desc">${item.desc}</td>
-                    </tr>
-                `;
+                tbody.innerHTML = `<tr><td class="col-course">${selection}</td><td class="col-fee">${item.fee}</td><td class="col-time">${item.time}</td><td class="col-desc">${item.desc}</td></tr>`;
             }
         }
 
-        // NETLIFY AJAX SUBMISSION
-        document.getElementById('netlify-reg-form').addEventListener('submit', function(e) {
+        // AJAX SUBMISSION FOR GITHUB PAGES
+        const form = document.getElementById('enrollment-form');
+        form.addEventListener("submit", function(e) {
             e.preventDefault();
             const btn = document.getElementById('submit-btn');
-            btn.innerText = "Submitting...";
+            btn.innerText = "Sending...";
             btn.disabled = true;
 
-            const formData = new FormData(this);
-            fetch("/", {
-                method: "POST",
-                headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                body: new URLSearchParams(formData).toString()
-            }).then(() => {
-                document.getElementById('form-ui').style.display = 'none';
-                document.getElementById('course-preview').style.display = 'none';
-                document.getElementById('success-state').style.display = 'block';
-            }).catch(() => {
-                alert("Error submitting. Please check your connection.");
+            const data = new FormData(form);
+            fetch(form.action, {
+                method: form.method,
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            }).then(response => {
+                if (response.ok) {
+                    document.getElementById('form-ui').style.display = 'none';
+                    document.getElementById('course-preview').style.display = 'none';
+                    document.getElementById('success-state').style.display = 'block';
+                } else {
+                    alert("Submission failed. Please try again.");
+                    btn.innerText = "Submit Registration";
+                    btn.disabled = false;
+                }
+            }).catch(error => {
+                alert("Error connecting to server.");
                 btn.innerText = "Submit Registration";
                 btn.disabled = false;
             });

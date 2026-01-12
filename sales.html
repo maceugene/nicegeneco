@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="icon" href="nicegene-white.png" type="image/png">
     <style>
-                /* --- GLOBAL RESET --- */
+        /* --- GLOBAL RESET --- */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         body { background-color: #f4f7f9; color: #333; line-height: 1.6; }
 
@@ -58,42 +58,25 @@
         .nav-link:hover { background: #e1ecf4; color: #0b3d91; }
         .nav-link.active { background: #0b3d91; color: white; }
 
-        /* --- MOBILE ADJUSTMENTS (Phone Screen) --- */
+        /* --- MOBILE ADJUSTMENTS --- */
         @media (max-width: 768px) {
-            .navbar { height: 70px; } /* Slightly shorter navbar for mobile */
-            
-            /* KEEP LOGO AND MENU ON ONE LINE */
-            .nav-container { 
-                flex-direction: row; 
-                justify-content: space-between; 
-                gap: 0; 
-            }
-
-            .logo { height: 30px; } /* Shrink logo slightly to make room */
-
-            .nav-menu { 
-                gap: 2px; 
-                flex-wrap: nowrap; /* Prevent menu items from wrapping */
-            }
-
-            .nav-link { 
-                font-size: 11px; /* Smaller font for small screens */
-                padding: 6px 8px; 
-            }
-
-            /* Adjust Header for fixed nav */
+            .navbar { height: 70px; }
+            .nav-container { flex-direction: row; justify-content: space-between; }
+            .logo { height: 30px; }
+            .nav-menu { gap: 2px; flex-wrap: nowrap; }
+            .nav-link { font-size: 11px; padding: 6px 8px; }
             .header-section { padding: 110px 15px 40px; }
             .header-section h1 { font-size: 1.6rem; }
-
-            /* Slider mobile fix */
             .slider-wrapper { height: auto; min-height: 400px; padding-bottom: 20px; }
         }
 
-        /* Rest of your page styles... */
         .header-section { padding: 140px 20px 60px; text-align: center; background: linear-gradient(135deg, #0b3d91 0%, #0f6cd9 100%); color: white; }
         .header-section h1 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 15px; font-weight: 800; }
         .header-section p { opacity: 0.9; font-size: 1.2rem; max-width: 800px; margin: 0 auto; }
+        
         .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+        
+        /* --- SLIDER --- */
         .slider-wrapper { position: relative; width: 100%; height: 520px; overflow: hidden; border-radius: 25px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); background: white; margin-bottom: 60px; }
         .slides { display: flex; width: 1000%; height: 100%; animation: slideAnimation 40s infinite; }
         .slide { width: 10%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px; }
@@ -118,17 +101,83 @@
 
         .grid-title { margin-top: 40px; margin-bottom: 30px; color: #0b3d91; border-left: 5px solid #ff9900; padding-left: 15px; font-weight: 800; font-size: 1.8rem; }
         .permanent-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; }
+        
         .product-card { background: white; border-radius: 20px; padding: 15px; text-align: center; border: 1px solid #eee; transition: 0.3s ease; display: flex; flex-direction: column; justify-content: space-between; }
         .product-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.08); border-color: #0f6cd9; }
         .product-card img { width: 100%; height: 180px; object-fit: contain; margin-bottom: 15px; }
         .product-card h4 { color: #333; margin-bottom: 8px; font-size: 1.1rem; }
         .product-card p { font-size: 0.9rem; color: #777; margin-bottom: 10px; }
-        .product-card .price { color: #0b3d91; font-weight: 800; font-size: 1.3rem; margin-top: auto; }
+        
+        /* UPDATED PRICE STYLE FOR CLICKABLE LINK */
+        .product-card .price { 
+            color: #0b3d91; 
+            font-weight: 800; 
+            font-size: 1.1rem; 
+            margin-top: auto; 
+            cursor: pointer; 
+            text-decoration: underline;
+            transition: 0.3s;
+        }
+        .product-card .price:hover { color: #ff9900; }
+
+        /* --- MODAL (MINI-WINDOW) STYLES --- */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: none; /* Hidden by default */
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            max-width: 450px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            animation: modalFade 0.3s ease-out;
+        }
+
+        @keyframes modalFade {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px; right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #888;
+        }
+
+        .modal-content img { width: 150px; height: 150px; object-fit: contain; margin-bottom: 20px; }
+        .modal-content h3 { color: #0b3d91; margin-bottom: 10px; }
+        .modal-content p { color: #555; margin-bottom: 20px; }
+        .modal-content .specs { text-align: left; background: #f8f9fa; padding: 15px; border-radius: 10px; font-size: 0.9rem; margin-bottom: 20px; border-left: 4px solid #ff9900; }
+
         .sales-cta { background: #fff; padding: 50px 20px; border-radius: 25px; text-align: center; margin-top: 60px; border: 2px dashed #0b3d91; }
         .btn-order { display: inline-flex; align-items: center; gap: 10px; background: #25D366; color: white; padding: 15px 35px; text-decoration: none; border-radius: 50px; font-weight: 700; transition: 0.3s; font-size: 1.1rem; }
     </style>
 </head>
 <body>
+    <div class="modal-overlay" id="productModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeBtn">&times;</span>
+            <img src="" id="modalImg" alt="Product">
+            <h3 id="modalTitle">Product Title</h3>
+            <div class="specs" id="modalDesc">Product description goes here.</div>
+            <a href="https://wa.me/2348060704412" class="btn-order" style="padding: 10px 25px; font-size: 0.9rem;">
+                <i class="fab fa-whatsapp"></i> Buy via WhatsApp
+            </a>
+        </div>
+    </div>
+
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html"><img src="nicegene-blue.png" alt="NICEGENE" class="logo"></a>
@@ -166,55 +215,6 @@
                     </div>
                 </div>
                 <div class="slide">
-                    <img src="./images/samsung.jpg" alt="Samsung fold 7">
-                    <div class="slide-info">
-                        <h3>Samsung Fold Series</h3>
-                        <p>Experience the best cameras and processors.</p>
-                    </div>
-                </div>
-                <div class="slide">
-                    <img src="./images/z-book.jpg" alt="Workstation">
-                    <div class="slide-info">
-                        <h3>Engineering Workstations</h3>
-                        <p>Z-Books built for AutoCAD and Revit.</p>
-                    </div>
-                </div>
-                <div class="slide">
-                    <img src="./images/work.png" alt="Workstation">
-                    <div class="slide-info">
-                        <h3>Sleek Designs</h3>
-                        <p>Precision models built for heavy 3D tasks.</p>
-                    </div>
-                </div>
-                <div class="slide">
-                    <img src="./images/omen1.png" alt="Gaming">
-                    <div class="slide-info">
-                        <h3>Gaming PCs</h3>
-                        <p>Custom Gaming PCs and PlayStation 5.</p>
-                    </div>
-                </div>
-                <div class="slide">
-                    <img src="./images/omen2.jpg" alt="Gaming">
-                    <div class="slide-info">
-                        <h3>Omen series</h3>
-                        <p>Zero lag performance gaming.</p>
-                    </div>
-                </div>
-                <div class="slide">
-                    <img src="./images/victus.jpg" alt="Gaming">
-                    <div class="slide-info">
-                        <h3>HP Victus</h3>
-                        <p>Affordable alternative to OMEN series.</p>
-                    </div>
-                </div>
-                <div class="slide">
-                    <img src="./images/victus2.jpg" alt="Gaming">
-                    <div class="slide-info">
-                        <h3>Next-Gen Consoles</h3>
-                        <p>PS5 consoles and accessories.</p>
-                    </div>
-                </div>
-                 <div class="slide">
                     <img src="./images/EliteBook-845.jpg" alt="HP Elitebook 845">
                     <div class="slide-info">
                         <h3>High-Performance Laptops</h3>
@@ -229,33 +229,33 @@
             <div class="product-card">
                 <img src="./images/omen.png" alt="Dell XPS">
                 <div>
-                    <h4><strong>Dell Alienware M18 R1</strong></h4>
-                    <p>i9 13900HX | 32GB RAM | 4TB SSD</p>
-                    <p class="price">Available</p>
+                    <h4>Dell Alienware M18 R1</h4>
+                    <p>High-End Gaming Workstation</p>
+                    <p class="price" onclick="openProduct('Dell Alienware M18 R1', 'i9 13900HX | 32GB RAM | 4TB SSD | RTX 4080 Graphics. Built for extreme gaming and 3D rendering.', './images/omen.png')">Available</p>
                 </div>
             </div>
             <div class="product-card">
                 <img src="./images/victus2.jpg" alt="PS5 Console">
                 <div>
                     <h4>HP 15 Victus Gaming</h4>
-                    <p>RTX 2050 | 12TH GEN i5</p>
-                    <p class="price">Available</p>
+                    <p>Reliable Performance</p>
+                    <p class="price" onclick="openProduct('HP 15 Victus Gaming', 'RTX 2050 | 12TH GEN i5 | 16GB RAM. Perfect for entry-level gaming and creative tasks.', './images/victus2.jpg')">Available</p>
                 </div>
             </div>
             <div class="product-card">
                 <img src="./images/z-book.jpg" alt="HP Z-Book">
                 <div>
                     <h4>HP Z-Book 14 G7</h4>
-                    <p>Core i7 | 16GB RAM | Touchscreen</p>
-                    <p class="price">Available</p>
+                    <p>Portable Powerhouse</p>
+                    <p class="price" onclick="openProduct('HP Z-Book 14 G7', 'Core i7 | 16GB RAM | Touchscreen | 512GB SSD. Lightweight and powerful for business professionals.', './images/z-book.jpg')">Available</p>
                 </div>
             </div>
             <div class="product-card">
                 <img src="./images/iPhone 15.jpg" alt="iPhone 15">
                 <div>
                     <h4>iPhone 15 Pro Max</h4>
-                    <p>256GB | Titanium Natural</p>
-                    <p class="price">Available</p>
+                    <p>Luxury & Precision</p>
+                    <p class="price" onclick="openProduct('iPhone 15 Pro Max', '256GB | Titanium Natural. Features the latest A17 Pro chip and revolutionary camera system.', './images/iPhone 15.jpg')">Available</p>
                 </div>
             </div>
         </div>
@@ -272,5 +272,27 @@
     <footer style="text-align: center; padding: 40px 20px; font-size: 14px; color: #888; border-top: 1px solid #eee;">
         &copy; 2026 NICEGENE TECHNOLOGIES <br> All rights reserved!
     </footer>
+
+    <script>
+        const modal = document.getElementById('productModal');
+        const closeBtn = document.getElementById('closeBtn');
+
+        function openProduct(title, desc, img) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalDesc').innerText = desc;
+            document.getElementById('modalImg').src = img;
+            modal.style.display = 'flex';
+        }
+
+        closeBtn.onclick = function() {
+            modal.style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
 </body>
 </html>

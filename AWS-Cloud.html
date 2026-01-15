@@ -147,7 +147,7 @@
             border-radius: 15px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.05);
             transition: 0.3s ease;
-            border-bottom: 4px solid #eee;
+            border-bottom: 4px solid #eee;        
         }
 
         .solution-card:hover {
@@ -159,12 +159,18 @@
             color: #0b3d91;
             margin-bottom: 15px;
             font-size: 22px;
+            text-align: center;
         }
 
         .solution-card p {
             font-size: 15px;
             color: #555;
             line-height: 1.7;
+             /* This will justify all text inside the card */
+            text-align: justify;
+            /* Optional: This ensures the last line of a paragraph doesn't stretch awkwardly */
+            text-align-last: left;
+
         }
 
         /* --- BENEFITS SECTION --- */
@@ -297,6 +303,10 @@
                 <h3>Cloud Migration</h3>
                 <p>Seamlessly move your on-premise servers and databases to AWS with zero downtime and full data integrity.</p>
             </div>
+           <div class="solution-card">
+                <h3>Digitization & Records Management</h3>
+                <p>Transform physical assets into a secure digital ecosystem. We convert manual workflows into streamlined digital formats, enhancing data accessibility and future-proofing your business records.</p>
+            </div>
             <div class="solution-card">
                 <h3>Cost Optimization</h3>
                 <p>Are your monthly bills too high? We analyze your usage and implement Savings Plans and Reserved Instances.</p>
@@ -308,6 +318,10 @@
             <div class="solution-card">
                 <h3>Disaster Recovery</h3>
                 <p>Protect your business from data loss with automated backups and multi-region failover solutions.</p>
+            </div>
+            <div class="solution-card">
+                <h3>System Networking & Server Set-Up</h3>
+                <p>Engineer a robust, high-speed digital backbone for your business with custom server configurations and secure LAN/WAN deployments designed for maximum uptime.</p>
             </div>
         </div>
 
@@ -329,7 +343,7 @@
             <a href="contact.html" class="cta-btn">Book a Cloud Consultation</a>
         </section>
 
-        <a href="index.html" class="back-home">← Return to Homepage</a>
+        <a href="services.html" class="back-home">← Return to services</a>
     </main>
 
     <footer style="text-align: center; padding: 40px 20px; font-size: 14px; color: #888; border-top: 1px solid #eee; margin-top: 40px;">

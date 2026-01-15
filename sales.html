@@ -26,35 +26,10 @@
             box-shadow: 0 2px 20px rgba(0,0,0,0.05);
         }
 
-        .nav-container { 
-            max-width: 1200px; 
-            margin: 0 auto; 
-            width: 100%; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-        }
-
+        .nav-container { max-width: 1200px; margin: 0 auto; width: 100%; display: flex; justify-content: space-between; align-items: center; }
         .logo { height: 40px; width: auto; }
-
-        .nav-menu { 
-            display: flex; 
-            list-style: none; 
-            gap: 5px; 
-            align-items: center;
-        }
-
-        .nav-link { 
-            text-decoration: none; 
-            color: #0b3d91; 
-            font-weight: 600; 
-            font-size: 15px;
-            padding: 8px 12px; 
-            transition: all 0.3s ease;
-            border-radius: 8px;
-            white-space: nowrap; 
-        }
-
+        .nav-menu { display: flex; list-style: none; gap: 5px; align-items: center; }
+        .nav-link { text-decoration: none; color: #0b3d91; font-weight: 600; font-size: 15px; padding: 8px 12px; transition: all 0.3s ease; border-radius: 8px; white-space: nowrap; }
         .nav-link:hover { background: #e1ecf4; color: #0b3d91; }
         .nav-link.active { background: #0b3d91; color: white; }
 
@@ -76,36 +51,32 @@
         
         .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
         
-        /* --- SLIDER (MODIFIED) --- */
+        /* --- SLIDER (UPDATED FOR 6 SLIDES) --- */
         .slider-wrapper { position: relative; width: 100%; height: 520px; overflow: hidden; border-radius: 25px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); background: white; margin-bottom: 60px; }
         
-        /* Added will-change and improved animation properties for stability */
         .slides { 
             display: flex; 
-            width: 1000%; 
+            width: 600%; /* 6 slides x 100% each */
             height: 100%; 
-            animation: slideAnimation 40s infinite linear; 
+            animation: slideAnimation 24s infinite ease-in-out; 
             will-change: transform;
         }
 
-        .slide { width: 10%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px; }
+        .slide { width: 16.666%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px; flex-shrink: 0; }
         .slide img { max-height: 280px; max-width: 90%; object-fit: contain; margin-bottom: 25px; }
         .slide-info { text-align: center; max-width: 600px; }
         .slide-info h3 { color: #0b3d91; font-size: 1.6rem; margin-bottom: 10px; }
         .slide-info p { color: #555; font-size: 1.05rem; }
 
+        /* Animation Math: (100 / 6 slides) = 16.66% per slide */
         @keyframes slideAnimation {
-            0%, 7% { transform: translateX(0); }
-            10%, 17% { transform: translateX(-10%); }
-            20%, 27% { transform: translateX(-20%); }
-            30%, 37% { transform: translateX(-30%); }
-            40%, 47% { transform: translateX(-40%); }
-            50%, 57% { transform: translateX(-50%); }
-            60%, 67% { transform: translateX(-60%); }
-            70%, 77% { transform: translateX(-70%); }
-            80%, 87% { transform: translateX(-80%); }
-            90%, 97% { transform: translateX(-90%); }
-            100% { transform: translateX(-90%); }
+            0%, 14% { transform: translateX(0); }
+            16.66%, 30% { transform: translateX(-16.666%); }
+            33.33%, 47% { transform: translateX(-33.333%); }
+            50%, 64% { transform: translateX(-50%); }
+            66.66%, 80% { transform: translateX(-66.666%); }
+            83.33%, 98% { transform: translateX(-83.333%); } /* Show slide 6 (repeat of 1) */
+            100% { transform: translateX(-83.333%); } /* Jump back to 0 instantly happens here */
         }
 
         .grid-title { margin-top: 40px; margin-bottom: 30px; color: #0b3d91; border-left: 5px solid #ff9900; padding-left: 15px; font-weight: 800; font-size: 1.8rem; }
@@ -117,58 +88,18 @@
         .product-card h4 { color: #333; margin-bottom: 8px; font-size: 1.1rem; }
         .product-card p { font-size: 0.9rem; color: #777; margin-bottom: 10px; }
         
-        .product-card .price { 
-            color: #0b3d91; 
-            font-weight: 800; 
-            font-size: 1.1rem; 
-            margin-top: auto; 
-            cursor: pointer; 
-            text-decoration: underline;
-            transition: 0.3s;
-        }
+        .product-card .price { color: #0b3d91; font-weight: 800; font-size: 1.1rem; margin-top: auto; cursor: pointer; text-decoration: underline; transition: 0.3s; }
         .product-card .price:hover { color: #ff9900; }
 
         /* --- MODAL STYLES --- */
-        .modal-overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            display: none; 
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
-            backdrop-filter: blur(5px);
-        }
-
-        .modal-content {
-            background: white;
-            padding: 30px;
-            border-radius: 20px;
-            max-width: 450px;
-            width: 90%;
-            text-align: center;
-            position: relative;
-            animation: modalFade 0.3s ease-out;
-        }
-
-        @keyframes modalFade {
-            from { transform: scale(0.8); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 15px; right: 15px;
-            font-size: 24px;
-            cursor: pointer;
-            color: #888;
-        }
-
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); display: none; justify-content: center; align-items: center; z-index: 2000; backdrop-filter: blur(5px); }
+        .modal-content { background: white; padding: 30px; border-radius: 20px; max-width: 450px; width: 90%; text-align: center; position: relative; animation: modalFade 0.3s ease-out; }
+        @keyframes modalFade { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        .close-modal { position: absolute; top: 15px; right: 15px; font-size: 24px; cursor: pointer; color: #888; }
         .modal-content img { width: 150px; height: 150px; object-fit: contain; margin-bottom: 20px; }
         .modal-content h3 { color: #0b3d91; margin-bottom: 10px; }
         .modal-content p { color: #555; margin-bottom: 20px; }
         .modal-content .specs { text-align: left; background: #f8f9fa; padding: 15px; border-radius: 10px; font-size: 0.9rem; margin-bottom: 20px; border-left: 4px solid #ff9900; }
-
         .sales-cta { background: #fff; padding: 50px 20px; border-radius: 25px; text-align: center; margin-top: 60px; border: 2px dashed #0b3d91; }
         .btn-order { display: inline-flex; align-items: center; gap: 10px; background: #25D366; color: white; padding: 15px 35px; text-decoration: none; border-radius: 50px; font-weight: 700; transition: 0.3s; font-size: 1.1rem; }
     </style>
@@ -220,6 +151,27 @@
                     <div class="slide-info">
                         <h3>Flagship Smartphones</h3>
                         <p>Latest iOS and Android flagship devices.</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="./images/z-book.jpg" alt="HP Z-Book">
+                    <div class="slide-info">
+                        <h3>Professional Workstations</h3>
+                        <p>HP Z-Book Series for Creative Professionals.</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="./images/victus2.jpg" alt="HP Victus">
+                    <div class="slide-info">
+                        <h3>Gaming Mastery</h3>
+                        <p>High refresh rates and RTX Power.</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="./images/omen.png" alt="Alienware">
+                    <div class="slide-info">
+                        <h3>Ultimate Computing</h3>
+                        <p>Premium Alienware & Omen configurations.</p>
                     </div>
                 </div>
                 <div class="slide">
@@ -295,21 +247,10 @@
 
         function closeModal() {
             modal.style.display = 'none';
-            
-            // This little trick "re-kicks" the animation
-            // It briefly removes and then re-adds the animation property
-            slides.style.animation = 'none';
-            void slides.offsetWidth; // Trigger a reflow
-            slides.style.animation = 'slideAnimation 40s infinite linear';
         }
 
         closeBtn.onclick = closeModal;
-
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                closeModal();
-            }
-        }
+        window.onclick = function(event) { if (event.target == modal) { closeModal(); } }
     </script>
 </body>
 </html>

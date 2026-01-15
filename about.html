@@ -107,11 +107,20 @@
         .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
         .story-text h2 { color: #0b3d91; margin-bottom: 20px; font-size: clamp(1.8rem, 5vw, 2.5rem); }
         .story-image img { width: 100%; border-radius: 20px; box-shadow: 15px 15px 0px #0b3d91; }
+        .story-text p { color: #0b3d91;
+            /* This will justify all text inside the card */
+            text-align: justify;
+            /* Optional: This ensures the last line of a paragraph doesn't stretch awkwardly */
+            text-align-last: left;
+        }
+
 
         /* --- MISSION & VISION --- */
         .mission-vision { background: #0b3d91; color: white; padding: 80px 20px; }
         .mv-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
-        .mv-box { padding: 30px; border: 1px solid rgba(255,255,255,0.2); border-radius: 15px; }
+        .mv-box { padding: 30px; border: 1px solid rgba(255,255,255,0.2); border-radius: 15px; 
+            text-align: justify;  text-align-last: left;
+        }
         .mv-box h3 { font-size: 24px; margin-bottom: 15px; color: #ff9900; }
 
         /* --- TEAM SECTION --- */

@@ -108,7 +108,14 @@
             display: inline-block; 
         }
         .service-card h3 { color: #0b3d91; font-size: 24px; margin-bottom: 15px; }
-        .service-card p { font-size: 16px; color: #555; margin-bottom: 25px; flex-grow: 1; }
+        .service-card p { 
+            font-size: 16px; color: #555; margin-bottom: 25px; flex-grow: 1; 
+            /* This will justify all text inside the card */
+            text-align: justify;
+            /* Optional: This ensures the last line of a paragraph doesn't stretch awkwardly */
+            text-align-last: left;
+
+        }
 
         .service-btn {
             display: inline-block;
@@ -191,7 +198,7 @@
         <div class="services-grid">
             <div class="service-card cloud-s">
                 <i class="fas fa-cloud service-icon"></i>
-                <h3>Digitization, Cloud Migration <br> & System Networking </h3>
+                <h3>Cloud Services & <br> System Networking </h3>
                 <p>Building secure, scalable AWS cloud architectures and digital operation tailored to efficiently optimize your daily office operations. We handle both on-site server to serverless services.</p>
                 <a href="AWS-Cloud.html" class="service-btn">View Solutions</a>
             </div>

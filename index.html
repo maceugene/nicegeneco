@@ -5,6 +5,7 @@
     <title>NICEGENE TECHNOLOGIES</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="nicegene-white.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         /* --- 1. GLOBAL RESET & BASE --- */
         * {
@@ -78,22 +79,19 @@
             color: white;
         }
 
-        /* --- 3. HERO SECTION (WITH IMAGE BACKGROUND) --- */
+        /* --- 3. HERO SECTION --- */
         .hero {
-            min-height: 85vh; /* Adjusted height to accommodate marquee */
+            min-height: 85vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             padding: 120px 20px 80px;
-            /* Replace 'hero-bg.jpg' with your actual image path */
-            background: linear-gradient(rgba(11, 61, 145, 0.2), rgba(11, 61, 145, 0.3)), 
+            background: linear-gradient(rgba(11, 61, 145, 0.4), rgba(11, 61, 145, 0.5)), 
                         url('./images/background 3.jpg'); 
             background-size: cover;
             background-position: center;
-            background-attachment: scroll;
             position: relative;
-            /* The blue shadow drop-down effect */
             box-shadow: inset 0 -50px 50px -20px rgba(11, 61, 145, 0.5), 0 15px 30px rgba(11, 61, 145, 0.3);
         }
 
@@ -110,7 +108,6 @@
             text-shadow: 0 4px 20px rgba(0,0,0,0.5);
             font-weight: 800;
             line-height: 1.1;
-            letter-spacing: -1px;
         }
 
         .hero-content p {
@@ -120,13 +117,7 @@
             max-width: 750px;
             margin-left: auto;
             margin-right: auto;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.4);
-            font-weight: 500;
-            /* This will justify all text inside the card */
-            text-align: justify;
-            /* Optional: This ensures the last line of a paragraph doesn't stretch awkwardly */
-            text-align-last: left;
-
+            text-align: center; /* Changed to center for hero consistency */
         }
 
         .cta-button {
@@ -142,12 +133,6 @@
             transition: all 0.3s ease;
         }
 
-        .cta-button:hover {
-            transform: translateY(-5px);
-            background: #f0f0f0;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
-        }
-
         /* --- 4. MARQUEE SECTION --- */
         .info-marquee {
             background: #0b3d91;
@@ -155,7 +140,13 @@
             padding: 12px 0;
             font-weight: 600;
             font-size: 16px;
-            border-bottom: 3px solid #ff9900; /* Added a small accent line */
+            border-bottom: 3px solid #ff9900;
+        }
+
+        .marquee-bullet {
+            color: #ff9900;
+            margin: 0 15px;
+            font-weight: 900;
         }
 
         /* --- 5. SERVICES SECTION --- */
@@ -170,12 +161,11 @@
             color: white;
             text-align: center;
             margin-bottom: 60px;
-            text-shadow: 0 4px 20px rgba(0,0,0,0.2);
         }
 
         .cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
 
@@ -184,37 +174,66 @@
             padding: 40px 30px;
             border-radius: 25px;
             box-shadow: 0 15px 45px rgba(0,0,0,0.15);
-            text-align: center;
-            transition: transform 0.4s ease;
+            text-align: center; /* Ensures text is centered */
+            transition: all 0.4s ease;
+            border-top: 5px solid #0b3d91;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centers items horizontally in flex container */
+            justify-content: flex-start;
         }
 
         .card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+        }
+
+        .icon-box {
+            width: 80px;
+            height: 80px;
+            background: #e1ecf4;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+
+        .card:hover .icon-box {
+            background: #0b3d91;
         }
 
         .card-icon {
-            font-size: 3.5rem;
-            margin-bottom: 5px;
-            display: block;
+            font-size: 2rem;
+            color: #0b3d91;
+            transition: 0.3s;
+        }
+
+        .card:hover .card-icon {
+            color: white;
         }
 
         .card h3 {
             color: #0b3d91;
             font-size: 20px;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Centers heading text */
         }
-        .card p {
-           text-align: justify; text-align-last: left;}
 
+        .card p {
+            text-align: center; /* Fully center-aligned paragraph */
+            font-size: 15px;
+            color: #555;
+            width: 100%;
+        }
          
         .service-card-link {
             text-decoration: none;
             color: inherit;
-            transition: color 0.3s;
-        }
-
-        .service-card-link:hover {
-            color: #0f6cd9;
         }
 
         /* --- 6. FOOTER --- */
@@ -226,13 +245,10 @@
             margin-top: 50px;
         }
 
-        /* --- 7. MOBILE SPECIFIC ADJUSTMENTS --- */
         @media (max-width: 768px) {
-            .navbar { height: 70px; padding: 0 10px; }
-            .nav-menu { gap: 2px; }
-            .nav-link { font-size: 11px; padding: 6px 6px; }
-            .hero { padding-top: 140px; min-height: 70vh; }
-            .info-marquee { font-size: 14px; }
+            .navbar { height: 70px; }
+            .nav-link { font-size: 11px; }
+            .hero { padding-top: 140px; }
         }
     </style>
 </head>
@@ -262,7 +278,7 @@
 
     <div class="info-marquee">
         <marquee behavior="scroll" direction="left" scrollamount="8">
-            Admissions are now open for our Upcoming 2026 Q1 Cohorts! | 💻 Learn Cloud Computing, Web Development, Data Analytics and a lot more with us | 🎓 Get Certified and Job Ready | 📍 Visit our Digital Academy today or call +234 806 070 4412 for enquiries.
+            Admissions are now open for our Upcoming 2026 Q1 Cohorts! <span class="marquee-bullet">|</span> Learn Cloud Computing, Web Development, Data Analytics and a lot more with us <span class="marquee-bullet">|</span> Get Certified and Job Ready <span class="marquee-bullet">|</span> Visit our Digital Academy today or call +234 806 070 4412 for enquiries.
         </marquee>
     </div>
 
@@ -270,36 +286,45 @@
         <h2>Our Core Services</h2>
         <div class="cards">
             <div class="card">
-                <span class="card-icon">☁️</span>
-                <h3><a href="AWS-Cloud.html" class="service-card-link">Cloud Migration, Digitization <br>& System Networking</a></h3>
+                <div class="icon-box"><i class="fas fa-cloud-upload-alt card-icon"></i></div>
+                <h3><a href="AWS-Cloud.html" class="service-card-link">Cloud Migration & System Networking</a></h3>
                 <p>Seamless cloud migration, comprehensive digitization, and robust networking solutions designed to scale your digital infrastructure.</p>
             </div>
+
             <div class="card">
-                <span class="card-icon">🎓</span>
+                <div class="icon-box"><i class="fas fa-user-graduate card-icon"></i></div>
                 <h3><a href="IT-training.html" class="service-card-link">Digital Academy</a></h3>
-                <p>We offer hands-on digital trainings & certifications for all Tech-lovers.</p>
+                <p>Empowering the next generation of tech leaders with hands-on digital trainings and global certifications for all tech enthusiasts.</p>
             </div>
+
             <div class="card"> 
-                <span class="card-icon">📱</span>
+                <div class="icon-box"><i class="fas fa-laptop card-icon"></i></div>
                 <h3><a href="sales.html" class="service-card-link">Gadget Sales</a></h3>
-                <p>Premium Laptops and Smartphones from top brands. Quality guaranteed.</p>
+                <p>Access premium laptops, smartphones, and IT hardware from top global brands. High performance and quality guaranteed.</p>
             </div>
+
             <div class="card">
-                <span class="card-icon">🎨</span>
-                <h3><a href="Graphics-Design.html" class="service-card-link">Professional Graphics Design & Video Editing</a></h3>
-                <p>High-impact visual storytelling, from premium branding and logos to professional marketing collateral.</p>
+                <div class="icon-box"><i class="fas fa-clapperboard card-icon"></i></div>
+                <h3><a href="Graphics-Design.html" class="service-card-link">Graphics Design & Video Editing</a></h3>
+                <p>High-impact visual storytelling, from premium branding and corporate logos to professional video marketing collateral.</p>
             </div>
             
             <div class="card">
-                <span class="card-icon">💻</span>
+                <div class="icon-box"><i class="fas fa-code card-icon"></i></div>
                 <h3><a href="Web-Development.html" class="service-card-link">Web & App Development</a></h3>
-                <p>Responsive, secure websites built with modern frameworks.</p>
+                <p>Custom, responsive, and secure websites and applications built with modern frameworks to drive business growth.</p>
             </div>
             
             <div class="card">
-                <span class="card-icon">🛰️</span>
+                <div class="icon-box"><i class="fas fa-helicopter card-icon"></i></div>
                 <h3><a href="Drone-Services.html" class="service-card-link">Drone Services</a></h3>
-                <p>Precision aerial mapping and high-definition cinematography.</p>
+                <p>Precision aerial mapping, industrial inspections, and high-definition cinematography for diverse industry needs.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon-box"><i class="fas fa-cash-register card-icon"></i></div>
+                <h3><a href="pos.html" class="service-card-link">POS & Inventory Management</a></h3>
+                <p>Complete retail automation including hardware installation, real-time stock tracking, and cloud-based sales reporting.</p>
             </div>
         </div>
     </section>

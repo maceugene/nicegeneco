@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POS & Inventory Management | NICEGENE TECHNOLOGIES</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #0044ff;
+            --dark-blue: #002eab;
+            --white: #ffffff;
+            --light-gray: #f4f7f6;
+            --text-dark: #333;
+            --accent-blue: #eef2ff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
+        }
+
+        /* Straightened Header Section */
+        header {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+            color: var(--white);
+            padding: 100px 20px;
+            text-align: center;
+            /* Slur removed by removing clip-path */
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .hero-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: -60px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-bottom: 4px solid var(--primary-blue);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-card i {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+
+        /* Advanced Info Section */
+        .advanced-info {
+            background-color: var(--accent-blue);
+            padding: 40px;
+            border-radius: 20px;
+            margin: 60px 0;
+        }
+
+        .advanced-info h3 {
+            color: var(--dark-blue);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .advanced-info ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .advanced-info li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(0,68,255,0.1);
+            display: flex;
+            align-items: center;
+        }
+
+        .advanced-info li::before {
+            content: "\f058";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            color: var(--primary-blue);
+            margin-right: 15px;
+        }
+
+        /* CTA Section */
+        .cta-box {
+            background: var(--primary-blue);
+            color: white;
+            padding: 60px 20px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,68,255,0.3);
+        }
+
+        .btn-white {
+            display: inline-block;
+            background: white;
+            color: var(--primary-blue);
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-top: 25px;
+            transition: 0.3s;
+        }
+
+        /* Centralized Return Link Styling */
+        .bottom-nav {
+            text-align: center;
+            margin-top: 40px;
+            padding-bottom: 20px;
+        }
+
+        .return-btn {
+            text-decoration: none;
+            color: var(--primary-blue);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 24px;
+            border: 2px solid var(--primary-blue);
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+
+        .return-btn:hover {
+            background: var(--primary-blue);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .return-btn i {
+            margin-right: 8px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background: #fdfdfd;
+            border-top: 1px solid #eee;
+            color: #888;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .hero-title { font-size: 2rem; }
+            .advanced-info { padding: 25px; }
+            .features-grid { margin-top: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1 class="hero-title">POS & Inventory Systems</h1>
+            <p>Empowering Retail Excellence with NICEGENE TECHNOLOGIES</p>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <section class="details-section">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-barcode"></i>
+                    <h3>Smart Inventory</h3>
+                    <p>Stop guessing your stock levels. Our automated tracking ensures you always know what's in your store in real-time.</p>
+                </div>
+
+                <div class="feature-card">
+                    <i class="fas fa-chart-pie"></i>
+                    <h3>Growth Analytics</h3>
+                    <p>Data-driven decisions start here. Track your most profitable items and peak sales hours instantly.</p>
+                </div>
+
+                <div class="feature-card">
+                    <i class="fas fa-credit-card"></i>
+                    <h3>Hardware Synergy</h3>
+                    <p>We install industrial-grade scanners, thermal receipt printers, and secure cash drawers for seamless flow.</p>
+                </div>
+            </div>
+        </section>
+
+        
+
+        <section class="advanced-info">
+            <h3>Enterprise-Grade Management</h3>
+            <p>At <strong>NICEGENE TECHNOLOGIES</strong>, we provide a complete business ecosystem. Our specialized setup includes:</p>
+            <ul>
+                <li><strong>Centralized Multi-Store Control:</strong> Manage several branches from one dashboard.</li>
+                <li><strong>Audit Trails:</strong> Detailed logs of every transaction for maximum security.</li>
+                <li><strong>Loyalty Management:</strong> Integrated customer databases to drive repeat business.</li>
+                <li><strong>Remote Access:</strong> Monitor your store's performance from your smartphone.</li>
+            </ul>
+        </section>
+
+        <div class="cta-box">
+            <h2>Modernize Your Business Today</h2>
+            <p>Join hundreds of smart businesses using NICEGENE digital solutions.</p>
+            <a href="contact.html" class="btn-white">Request a Live Demo</a>
+        </div>
+
+        <div class="bottom-nav">
+            <a href="services.html" class="return-btn">
+                <i class="fas fa-arrow-left"></i> Return to services
+            </a>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 NICEGENE TECHNOLOGIES | All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

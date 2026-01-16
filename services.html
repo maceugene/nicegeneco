@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Services - NICEGENE DIGITAL CENTER</title>
+    <title>Our Services - NICEGENE TECHNOLOGIES</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     
     <style>
@@ -27,150 +27,150 @@
         }
         .nav-container { max-width: 1200px; margin: 0 auto; width: 100%; display: flex; justify-content: space-between; align-items: center; }
         .logo { height: 40px; }
-        
-        .nav-menu { 
-            display: flex; 
-            list-style: none; 
-            gap: 5px; /* Consistent gap */
-        }
-
+        .nav-menu { display: flex; list-style: none; gap: 5px; }
         .nav-link { 
-            text-decoration: none; 
-            color: #0b3d91; 
-            font-weight: 600; 
-            font-size: 15px;
-            padding: 8px 12px; 
-            transition: all 0.3s ease;
-            border-radius: 8px;
+            text-decoration: none; color: #0b3d91; font-weight: 600; font-size: 15px;
+            padding: 8px 12px; transition: all 0.3s ease; border-radius: 8px;
+        }
+        .nav-link:hover { background: #e1ecf4; color: #0b3d91; }
+        .nav-link.active { background: #0b3d91; color: white; }
+
+        /* --- SLIDING HERO HEADER (SQUARE) --- */
+        .services-header { 
+            position: relative;
+            width: 100%;
+            max-width: 800px; 
+            height: 600px;    
+            margin: 0 auto 60px;
+            overflow: hidden;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
         }
 
-        /* LIGHTER BLUE ON HOVER */
-        .nav-link:hover { 
-            background: #e1ecf4; 
-            color: #0b3d91; 
+        .slider-track {
+            display: flex;
+            width: 700%; 
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: slide 25s infinite ease-in-out;
         }
 
-        /* DARK BLUE ACTIVE STATE */
-        .nav-link.active { 
-            background: #0b3d91; 
+        .slider-track img {
+            width: 14.28%; 
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .header-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(11, 61, 145, 0.65); 
+            z-index: 2;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 3;
+            padding: 40px;
+            color: white;
+        }
+
+        .header-content h1 { 
+            font-size: clamp(30px, 6vw, 45px); 
             color: white; 
-        }
-
-        /* --- HERO SECTION --- */
-        .main-content { 
-            padding-top: 140px; 
-            max-width: 1200px; 
-            margin: 0 auto; 
-            padding-left: 20px; 
-            padding-right: 20px;
-            padding-bottom: 80px; 
-        }
-        
-        .services-header { text-align: center; margin-bottom: 60px; }
-        .services-header h1 { 
-            font-size: clamp(30px, 8vw, 45px); 
-            color: #0b3d91; 
             margin-bottom: 15px; 
             font-weight: 800;
         }
-        .services-header p { 
+        .header-content p { 
             font-size: clamp(16px, 3vw, 19px); 
-            color: #666; 
-            max-width: 750px; 
+            color: rgba(255,255,255,0.9); 
+            max-width: 600px; 
             margin: 0 auto; 
         }
 
-        /* --- CENTRALIZED SERVICES GRID --- */
+        @keyframes slide {
+            0% { left: 0%; }
+            14% { left: 0%; }
+            16% { left: -100%; }
+            30% { left: -100%; }
+            32% { left: -200%; }
+            46% { left: -200%; }
+            48% { left: -300%; }
+            62% { left: -300%; }
+            64% { left: -400%; }
+            78% { left: -400%; }
+            80% { left: -500%; }
+            94% { left: -500%; }
+            96% { left: -600%; } 
+            100% { left: -600%; }
+        }
+
+        /* --- CENTERED SERVICES GRID --- */
+        .main-content { padding-top: 120px; max-width: 1200px; margin: 0 auto; padding-left: 20px; padding-right: 20px; padding-bottom: 80px; }
+        
         .services-grid { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
             gap: 30px; 
-            justify-content: center; 
+            justify-items: center; 
         }
 
         .service-card {
-            background: #fff;
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 1px solid #eee;
-            display: flex;
-            flex-direction: column;
-            text-align: center;
+            background: #fff; border-radius: 20px; padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.4s;
+            border: 1px solid #eee; display: flex; flex-direction: column; 
+            text-align: center; 
+            align-items: center;
+            width: 100%;
+            max-width: 380px;
         }
-        .service-card:hover { transform: translateY(-12px); box-shadow: 0 20px 40px rgba(11, 61, 145, 0.12); }
-        
-        .service-icon { 
-            font-size: 50px; 
-            color: #0f6cd9;
-            margin-bottom: 25px; 
-            display: inline-block; 
-        }
-        .service-card h3 { color: #0b3d91; font-size: 24px; margin-bottom: 15px; }
-        .service-card p { 
-            font-size: 16px; color: #555; margin-bottom: 25px; flex-grow: 1; 
-            /* This will justify all text inside the card */
-            text-align: justify;
-            /* Optional: This ensures the last line of a paragraph doesn't stretch awkwardly */
-            text-align-last: left;
 
+        /* Logic to center the 7th card on the last row */
+        .pos-inventory {
+            grid-column: 1 / -1; 
         }
+
+        .service-card:hover { transform: translateY(-12px); box-shadow: 0 20px 40px rgba(11, 61, 145, 0.12); }
+        .service-icon { font-size: 50px; color: #0f6cd9; margin-bottom: 25px; }
+        .service-card h3 { color: #0b3d91; font-size: 24px; margin-bottom: 15px; }
+        .service-card p { font-size: 16px; color: #555; margin-bottom: 25px; flex-grow: 1; text-align: center; }
 
         .service-btn {
-            display: inline-block;
-            padding: 12px 25px;
-            background: #f0f4f8;
-            color: #0b3d91;
-            text-decoration: none;
-            font-weight: 700;
-            border-radius: 10px;
-            transition: 0.3s;
+            display: inline-block; padding: 12px 25px; background: #f0f4f8;
+            color: #0b3d91; text-decoration: none; font-weight: 700; border-radius: 10px; transition: 0.3s;
         }
         .service-card:hover .service-btn { background: #0b3d91; color: white; }
 
-        /* Categorized bottom borders for visual flair */
+        /* Categorized bottom borders */
         .gadget-s { border-bottom: 6px solid #ff9900; }
         .drone-s { border-bottom: 6px solid #0f6cd9; }
         .training-s { border-bottom: 6px solid #e91e63; }
         .cloud-s { border-bottom: 6px solid #4caf50; }
+        .pos-inventory { border-bottom: 6px solid #0044ff; }
 
         /* --- CTA SECTION --- */
         .cta-box {
             background: linear-gradient(135deg, #0b3d91 0%, #0f6cd9 100%);
-            color: white;
-            padding: clamp(40px, 8vw, 70px);
-            border-radius: 25px;
-            text-align: center;
-            margin-top: 80px;
-            box-shadow: 0 15px 35px rgba(11, 61, 145, 0.25);
+            color: white; padding: clamp(40px, 8vw, 70px); border-radius: 25px;
+            text-align: center; margin-top: 80px;
         }
-        .cta-box h2 { font-size: clamp(24px, 5vw, 34px); margin-bottom: 15px; }
         .cta-btn {
-            display: inline-block;
-            background: #ff9900;
-            color: white;
-            padding: 18px 45px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 800;
-            font-size: 18px;
-            margin-top: 25px;
-            transition: 0.3s;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            display: inline-block; background: #ff9900; color: white;
+            padding: 18px 45px; border-radius: 50px; text-decoration: none;
+            font-weight: 800; font-size: 18px; margin-top: 25px; transition: 0.3s;
         }
-        .cta-btn:hover { background: white; color: #0b3d91; transform: scale(1.05); }
-
         .back-home { display: block; text-align: center; margin-top: 50px; color: #0b3d91; text-decoration: none; font-weight: bold; }
-        .back-home:hover { text-decoration: underline; color: #ff9900; }
 
-        /* --- MOBILE RESPONSIVENESS --- */
         @media screen and (max-width: 768px) {
-            .navbar { height: 70px; padding: 0 10px; }
-            .nav-menu { gap: 2px; }
-            .nav-link { font-size: 11px; padding: 6px 6px; }
-            .main-content { padding-top: 110px; }
-            .services-grid { grid-template-columns: 1fr; }
+            .navbar { height: 70px; }
+            .services-header { height: 400px; border-radius: 0; width: 100vw; margin-left: -20px; }
+            .pos-inventory { grid-column: auto; } /* Normal stacking on mobile */
         }
     </style>
 </head>
@@ -191,15 +191,27 @@
 
     <main class="main-content">
         <header class="services-header">
-            <h1>Our Digital Solutions</h1>
-            <p>Empowering businesses and individuals through advanced technology, professional training, and a premium gadget showroom.</p>
+            <div class="slider-track">
+                <img src="./images/NICEGENE cloud migration and digitization.jpg" alt="Work 1">
+                <img src="./images/NICEGENE DIGITAL ACADEMY FLIER-3.jpg" alt="Work 2">
+                <img src="./images/NICEGENE DRONE SERVICES_-2.jpg" alt="Work 3">
+                <img src="./images/NICEGENE GADGETS 2.jpg" alt="Work 4">
+                <img src="./images/NICEGENE system networking and server setup.jpg" alt="Work 5">
+                <img src="./images/Nicegene services.png" alt="Work 6">
+                <img src="./images/NICEGENE cloud migration and digitization.jpg" alt="Work 1 Repeat"> 
+            </div>
+            <div class="header-overlay"></div>
+            <div class="header-content">
+                <h1>Our Digital Solutions</h1>
+                <p>Empowering businesses and individuals through advanced technology, professional training, and a premium gadget showroom.</p>
+            </div>
         </header>
 
         <div class="services-grid">
             <div class="service-card cloud-s">
                 <i class="fas fa-cloud service-icon"></i>
                 <h3>Cloud Services & <br> System Networking </h3>
-                <p>Building secure, scalable AWS cloud architectures and digital operation tailored to efficiently optimize your daily office operations. We handle both on-site server to serverless services.</p>
+                <p>Building secure, scalable AWS cloud architectures and digital operation tailored to efficiently optimize your daily office operations.</p>
                 <a href="AWS-Cloud.html" class="service-btn">View Solutions</a>
             </div>
 
@@ -220,23 +232,24 @@
             <div class="service-card gadget-s">
                 <i class="fas fa-palette service-icon"></i>
                 <h3>Premium Graphic Designs</h3>
-                <p>High-impact visual storytelling, from premium branding and logos to professional marketing collateral. We give you nothing but premium designs.</p>
+                <p>High-impact visual storytelling, from premium branding and logos to professional marketing collateral.</p>
                 <a href="Graphics-Design.html" class="service-btn">Our premium designs</a>
             </div>
 
             <div class="service-card drone-s">
                 <i class="fas fa-helicopter service-icon"></i>
                 <h3>Drone Services</h3>
-                <p>Professional aerial mapping, cinematography, and UAV pilot certification for industries ranging from real estate to agriculture.</p>
+                <p>Professional aerial mapping, cinematography, and UAV pilot certification for various industrial needs.</p>
                 <a href="Drone-Services.html" class="service-btn">Explore Drones</a>
             </div>
-                       
+                        
             <div class="service-card training-s">
                 <i class="fas fa-camera-retro service-icon"></i>
                 <h3>Professional Photos <br> & Videography</h3>
-                <p>Capturing life's most precious moments and corporate events with cinematic precision, high-end equipment, and expert post-production.</p>
+                <p>Capturing life's most precious moments and corporate events with cinematic precision and expert post-production.</p>
                 <a href="photography.html" class="service-btn">View Our Gallery</a>
             </div>
+
             <div class="service-card pos-inventory">
                 <i class="fas fa-cash-register service-icon" style="color: #0044ff;"></i>              
                 <h3>Point of Sales & Inventory Management</h3>             

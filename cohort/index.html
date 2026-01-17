@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Registration - NICEGENE TECHNOLOGIES</title>
+    <link rel="icon" href="/images/nicegene-white.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        /* --- BRANDED COLOR PALETTE (Strictly Blue & White) --- */
+        :root { 
+            --primary: #0b3d91; 
+            --primary-light: #e1ecf4;
+            --secondary: #1a56b9; /* A lighter blue instead of orange */
+            --bg: #f8fafc; 
+            --success: #22c55e;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        body { background-color: var(--bg); color: #333; line-height: 1.6; }
+
+        /* --- HERO SECTION --- */
+        .hero { background: var(--primary); color: white; padding: 120px 20px 60px; text-align: center; }
+        .hero h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 10px; }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+
+        /* --- DYNAMIC TABLE AREA --- */
+        .preview-card {
+            background: white; padding: 20px; border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05); margin-top: -50px; margin-bottom: 40px;
+            display: none; 
+            animation: fadeIn 0.4s ease;
+            border-top: 4px solid var(--primary);
+        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .table-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        table { width: 100%; border-collapse: collapse; font-size: 0.95rem; min-width: 500px; }
+        th { text-align: left; padding: 12px; background: #f1f5f9; color: var(--primary); border-bottom: 2px solid #e2e8f0; white-space: nowrap; }
+        td { padding: 12px; border-bottom: 1px solid #f1f5f9; vertical-align: top; }
+        
+        .col-course { width: 25%; font-weight: 700; color: var(--primary); }
+        .col-fee { width: 15%; font-weight: 700; color: var(--success); }
+        .col-time { width: 15%; }
+        .col-desc { width: 45%; font-size: 0.88rem; color: #555; line-height: 1.4; }
+
+        /* --- FORM STYLES --- */
+        .reg-section { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
+        .full-width { grid-column: span 2; }
+        label { display: block; margin-bottom: 5px; font-weight: 600; font-size: 0.9rem; color: var(--primary); }
+        input, select { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem; transition: 0.3s; }
+        input:focus, select:focus { border-color: var(--primary); outline: none; box-shadow: 0 0 0 3px rgba(11, 61, 145, 0.1); }
+        
+        /* Changed from Orange to Blue */
+        .submit-btn { 
+            width: 100%; background: var(--primary); color: white; padding: 16px; 
+            border: none; border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 1.1rem;
+            margin-top: 10px; transition: 0.3s;
+        }
+        .submit-btn:hover { background: var(--secondary); transform: translateY(-2px); }
+
+        /* Footer info box - removed yellow tint */
+        .info-footer { margin-top: 25px; padding: 20px; background: var(--primary-light); border-left: 4px solid var(--primary); border-radius: 8px; }
+        .whatsapp-link { display: inline-flex; align-items: center; gap: 8px; color: #128C7E; text-decoration: none; font-weight: 700; margin-top: 10px; }
+
+        #success-state { display: none; text-align: center; padding: 40px; }
+        .success-icon { font-size: 4rem; color: var(--success); margin-bottom: 15px; }
+
+        .back-home {
+            display: inline-block; margin-top: 20px; padding: 10px 20px;
+            color: var(--primary); border: 2px solid var(--primary); border-radius: 8px;
+            text-decoration: none; font-weight: 700; transition: 0.3s;
+        }
+        .back-home:hover { background-color: var(--primary); color: white; }
+
+        @media (max-width: 600px) { .form-grid { grid-template-columns: 1fr; } .full-width { grid-column: span 1; } }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <h1>Course Enrollment Portal</h1>
+        <p>Select a course below to view full details and register.</p>
+    </header>
+
+    <div class="container">
+        <div id="course-preview" class="preview-card">
+            <h4 style="margin-bottom: 12px; color: var(--primary);">Selected Course Details:</h4>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Course</th>
+                            <th>Fee</th>
+                            <th>Duration</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody id="preview-body"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <section class="reg-section">
+            <div id="form-ui">
+                <form id="enrollment-form" action="https://formspree.io/f/xjggbzyd" method="POST">
+                    <input type="hidden" name="_subject" value="Digital Academy Enrollment - NICEGENE TECHNOLOGIES">
+                    <input type="hidden" name="_next" value="https://nicegeneco.com/success/">
+                    <div class="form-grid">
+                        <div class="form-group full-width">
+                            <label>Choose Your Course</label>
+                            <select name="Course_Selected" id="course-dropdown" required onchange="updatePreview()">
+                                <option value="" disabled selected>-- Select a Course --</option>
+                                <option value="Project Management">Project Management</option>
+                                <option value="Data Analytics">Data Analytics</option>
+                                <option value="Video Editing">Video & Photo Editing</option>
+                                <option value="Introduction to Web3 Technologies">Introduction to Web3 Technologies</option>
+                                <option value="Graphics Design">Graphics Design</option>
+                                <option value="Product Management">Product Management</option>
+                                <option value="YouTube Optimization">YouTube Optimization</option>
+                                <option value="Social Media Optimization">Social Media Optimization</option>
+                                <option value="Professional Excel">Professional Excel</option>
+                                <option value="Staff Training">Staff Training on use of digital tools</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" name="Student_Name" required placeholder="Full Name">
+                        </div>
+                        <div class="form-group">
+                            <label>WhatsApp Number</label>
+                            <input type="tel" name="WhatsApp" required placeholder="+234...">
+                        </div>
+                        <div class="form-group full-width">
+                            <label>Email Address</label>
+                            <input type="email" name="Email" required placeholder="example@gmail.com">
+                        </div>
+
+                        <div class="form-group full-width">
+                            <button type="submit" class="submit-btn" id="submit-btn">Submit Registration</button>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="info-footer">
+                    <p style="color: var(--primary);"><strong><i class="fas fa-sync-alt"></i> Rolling Cohorts:</strong> New batches start immediately after current ones conclude.</p>
+                    <a href="https://wa.me/2348060704412" class="whatsapp-link">
+                        <i class="fab fa-whatsapp"></i> Click here to send Payment Details
+                    </a>
+                </div>
+                
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="/IT-training" class="back-home"><i class="fas fa-arrow-left"></i> Back to our academy</a>
+                </div>
+            </div>
+
+            <div id="success-state">
+                <i class="fas fa-check-circle success-icon"></i>
+                <h2>Application Sent!</h2>
+                <p>Thank you for choosing NICEGENE. Please click the WhatsApp link below to provide your proof of payment.</p>
+                <a href="https://wa.me/2348060704412" class="whatsapp-link" style="font-size: 1.2rem; margin-top: 20px;">
+                    <i class="fab fa-whatsapp"></i> Chat with Admissions
+                </a>
+                <br>
+                <a href="/cohort/" class="back-home"><i class="fas fa-home"></i> Return to Application</a>
+            </div>
+        </section>
+    </div>
+
+    <footer style="text-align: center; padding: 40px; color: #888; font-size: 0.8rem;">
+        &copy; 2026 NICEGENE TECHNOLOGIES
+    </footer>
+
+    <script>
+        const details = {
+            "Project Management": { fee: "₦50,000", time: "6 Weeks", desc: "Waterfall, Agile, and Scrum methodologies including team leadership." },
+            "Data Analytics": { fee: "₦50,000", time: "6 Weeks", desc: "Learn data visualization, SQL, and PowerBI for business insights." },
+            "Video Editing": { fee: "₦45,000", time: "6 Weeks", desc: "Professional storytelling using Premiere Pro and CapCut desktop." },
+            "Introduction to Web3 Technologies": { fee: "₦75,000", time: "8 Weeks", desc: "Blockchain fundamentals, Smart Contracts, and the Semantic Web." },
+            "Graphics Design": { fee: "₦40,000", time: "6 Weeks", desc: "Master visual branding, typography, and Canva/Photoshop skills." },
+            "Product Management": { fee: "₦60,000", time: "5 Weeks", desc: "From ideation to launch—learn product lifecycle and roadmapping." },
+            "YouTube Optimization": { fee: "₦30,000", time: "4 Weeks", desc: "SEO, thumbnail strategy, and algorithm mastery." },
+            "Social Media Optimization": { fee: "₦30,000", time: "4 Weeks", desc: "Content strategy and ad management for IG, TikTok, and LinkedIn." },
+            "Professional Excel": { fee: "₦20,000", time: "4 Weeks", desc: "Advanced formulas, pivot tables, and data reporting." },
+            "Staff Training": { fee: "Contact Us", time: "Flexible", desc: "Custom on-site training for corporate organizations and schools." }
+        };
+
+        function updatePreview() {
+            const dropdown = document.getElementById('course-dropdown');
+            const previewCard = document.getElementById('course-preview');
+            const tbody = document.getElementById('preview-body');
+            const selection = dropdown.value;
+
+            if(details[selection]) {
+                const item = details[selection];
+                previewCard.style.display = 'block';
+                tbody.innerHTML = `<tr><td class="col-course">${selection}</td><td class="col-fee">${item.fee}</td><td class="col-time">${item.time}</td><td class="col-desc">${item.desc}</td></tr>`;
+            }
+        }
+
+        const form = document.getElementById('enrollment-form');
+        form.addEventListener("submit", function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('submit-btn');
+            btn.innerText = "Sending...";
+            btn.disabled = true;
+
+            const data = new FormData(form);
+            fetch(form.action, {
+                method: form.method,
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            }).then(response => {
+                if (response.ok) {
+                    document.getElementById('form-ui').style.display = 'none';
+                    document.getElementById('course-preview').style.display = 'none';
+                    document.getElementById('success-state').style.display = 'block';
+                    window.scrollTo(0, 0);
+                } else {
+                    alert("Submission failed. Please try again.");
+                    btn.innerText = "Submit Registration";
+                    btn.disabled = false;
+                }
+            }).catch(error => {
+                alert("Error connecting to server.");
+                btn.innerText = "Submit Registration";
+                btn.disabled = false;
+            });
+        });
+    </script>
+</body>
+</html>

@@ -56,7 +56,7 @@
         .nav-menu {
             display: flex;
             list-style: none;
-            gap: 5px;
+            gap: 5px; /* Spacing between buttons */
         }
 
         .nav-link {
@@ -64,7 +64,7 @@
             color: #0b3d91;
             font-weight: 600;
             font-size: 15px;
-            padding: 8px 12px;
+            padding: 8px 12px; /* Internal button padding */
             border-radius: 8px;
             transition: all 0.3s ease;
         }
@@ -87,7 +87,6 @@
             justify-content: center;
             text-align: center;
             padding: 120px 20px 80px;
-            /* Absolute path for hero background */
             background: linear-gradient(rgba(11, 61, 145, 0.5), rgba(11, 61, 145, 0.5)), 
                         url('/images/cloud.png'); 
             background-size: cover;
@@ -147,12 +146,11 @@
             padding: 12px 0;
             font-weight: 600;
             font-size: 16px;
-            /* Changed border from orange to white for Blue/White scheme */
             border-bottom: 3px solid #ffffff;
         }
 
         .marquee-bullet {
-            color: #ffffff; /* Changed from orange */
+            color: #ffffff;
             margin: 0 15px;
             font-weight: 1000;
         }
@@ -208,9 +206,7 @@
             transition: 0.3s;
         }
 
-        .card:hover .icon-box {
-            background: #0b3d91;
-        }
+        .card:hover .icon-box { background: #0b3d91; }
 
         .card-icon {
             font-size: 2rem;
@@ -218,9 +214,7 @@
             transition: 0.3s;
         }
 
-        .card:hover .card-icon {
-            color: white;
-        }
+        .card:hover .card-icon { color: white; }
 
         .card h3 {
             color: #0b3d91;
@@ -238,7 +232,7 @@
             color: #555;
             width: 100%;
         }
-         
+          
         .service-card-link {
             text-decoration: none;
             color: inherit;
@@ -253,9 +247,19 @@
             margin-top: 50px;
         }
 
+        /* --- MOBILE ADJUSTMENTS --- */
         @media (max-width: 768px) {
-            .navbar { height: 70px; }
-            .nav-link { font-size: 11px; }
+            .navbar { height: 70px; padding: 0 10px; }
+            .nav-container { justify-content: space-between; }
+            .logo { height: 30px; }
+            
+            /* Tightened spacing and padding for mobile navigation */
+            .nav-menu { gap: 2px; } 
+            .nav-link { 
+                font-size: 11px; 
+                padding: 6px 6px; /* Closely adjusted padding */
+                border-radius: 4px;
+            }
             .hero { padding-top: 140px; }
         }
     </style>
@@ -267,10 +271,10 @@
             <a href="/"><img src="/images/nicegene-blue.png" alt="NICEGENE LOGO" class="logo"></a>
             <ul class="nav-menu">
                 <li><a href="/" class="nav-link active">Home</a></li>
-                <li><a href="/about" class="nav-link">About</a></li>
-                <li><a href="/services" class="nav-link">Services</a></li>
-                <li><a href="/sales" class="nav-link">Gadgets</a></li>
-                <li><a href="/contact" class="nav-link">Contact</a></li>
+                <li><a href="/about/" class="nav-link">About</a></li>
+                <li><a href="/services/" class="nav-link">Services</a></li>
+                <li><a href="/sales/" class="nav-link">Gadgets</a></li>
+                <li><a href="/contact/" class="nav-link">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -279,8 +283,8 @@
         <div class="hero-content">
             <h1>NICEGENE TECHNOLOGIES</h1>
             <p><strong>Nicegene Technologies is a leading IT & Digital Services firm based in Lagos, Nigeria. Our services cut across</strong> <strong>Cloud Migration, Digitization & Records Management</strong>, <strong>IT Consulting & Digital Solutions</strong>, 
-               <strong>System Networking, Web Development</strong>, <strong>Point of Sales & Inventory Management Services,</strong> <strong>Drone Services</strong>, <strong>Sales of high-end Phones & Laptops</strong>, <strong>Digital Academy and a lot more...</strong>.</p>
-            <a href="/services" class="cta-button">Explore Services →</a>
+                <strong>System Networking, Web Development</strong>, <strong>Point of Sales & Inventory Management Services,</strong> <strong>Drone Services</strong>, <strong>Sales of high-end Phones & Laptops</strong>, <strong>Digital Academy and a lot more...</strong>.</p>
+            <a href="/services/" class="cta-button">Explore Services →</a>
         </div>
     </section>
 
@@ -295,53 +299,53 @@
         <div class="cards">
             <div class="card">
                 <div class="icon-box"><i class="fas fa-cloud-upload-alt card-icon"></i></div>
-                <h3><a href="/AWS-Cloud" class="service-card-link">Cloud Migration & System Networking</a></h3>
+                <h3><a href="/AWS-Cloud/" class="service-card-link">Cloud Migration & System Networking</a></h3>
                 <p>Seamless cloud migration, comprehensive digitization, and robust networking solutions designed to scale your digital infrastructure.</p>
             </div>
 
             <div class="card">
                 <div class="icon-box"><i class="fas fa-user-graduate card-icon"></i></div>
-                <h3><a href="/IT-training" class="service-card-link">Digital Academy</a></h3>
+                <h3><a href="/IT-training/" class="service-card-link">Digital Academy</a></h3>
                 <p>Empowering the next generation of tech leaders with hands-on digital trainings and global certifications for all tech enthusiasts.</p>
             </div>
 
             <div class="card"> 
                 <div class="icon-box"><i class="fas fa-laptop card-icon"></i></div>
-                <h3><a href="/sales" class="service-card-link">Gadget Sales</a></h3>
+                <h3><a href="/sales/" class="service-card-link">Gadget Sales</a></h3>
                 <p>Access premium laptops, smartphones, and IT hardware from top global brands. High performance and quality guaranteed.</p>
             </div>
 
             <div class="card">
                 <div class="icon-box"><i class="fas fa-clapperboard card-icon"></i></div>
-                <h3><a href="/Graphics-Design" class="service-card-link">Graphics Design & Video Editing</a></h3>
+                <h3><a href="/Graphics-Design/" class="service-card-link">Graphics Design & Video Editing</a></h3>
                 <p>High-impact visual storytelling, from premium branding and corporate logos to professional video marketing collateral.</p>
             </div>
             
             <div class="card">
                 <div class="icon-box"><i class="fas fa-code card-icon"></i></div>
-                <h3><a href="/Web-Development" class="service-card-link">Web & App Development</a></h3>
+                <h3><a href="/Web-Development/" class="service-card-link">Web & App Development</a></h3>
                 <p>Custom, responsive, and secure websites and applications built with modern frameworks to drive business growth.</p>
             </div>
             
             <div class="card">
                 <div class="icon-box"><i class="fas fa-helicopter card-icon"></i></div>
-                <h3><a href="/Drone-Services" class="service-card-link">Drone Services</a></h3>
+                <h3><a href="/Drone-Services/" class="service-card-link">Drone Services</a></h3>
                 <p>Precision aerial mapping, industrial inspections, and high-definition cinematography for diverse industry needs.</p>
             </div>
 
             <div class="card">
                 <div class="icon-box"><i class="fas fa-cash-register card-icon"></i></div>
-                <h3><a href="/pos" class="service-card-link">POS & Inventory Management</a></h3>
+                <h3><a href="/pos/" class="service-card-link">POS & Inventory Management</a></h3>
                 <p>Complete retail automation including hardware installation, real-time stock tracking, and cloud-based sales reporting.</p>
             </div>
         </div>
     </section>
 
     <footer style="text-align: center; padding: 40px 20px; font-size: 14px; color: #666; background: #fff; border-top: 1px solid #eee;">
-            <p>&copy; 2026 NICEGENE TECHNOLOGIES || ALL RIGHTS RESERVED! <br> 
+        <p>&copy; 2026 NICEGENE TECHNOLOGIES || ALL RIGHTS RESERVED! <br> 
             Powered by: Nicegene Technologies
         </p>
-        </footer>
+    </footer>
 
 </body>
 </html>

@@ -238,7 +238,334 @@
             color: inherit;
         }
 
-        /* --- 6. FOOTER --- */
+        /* --- 6. TESTIMONIALS SECTION --- */
+        .testimonials {
+            padding: 0 20px 80px;
+            max-width: 1300px;
+            margin: 0 auto;
+            margin-bottom: 80px;
+        }
+
+        .testimonials-header {
+            text-align: center;
+            position: relative;
+            background: white;
+            border-radius: 30px;
+            padding: 70px 60px;
+            box-shadow: 0 10px 40px rgba(11, 61, 145, 0.1);
+            margin-bottom: 80px;
+            border: 2px solid #f0f5fa;
+        }
+
+        .testimonials-header-main {
+            position: relative;
+            display: block;
+            width: 100%;
+        }
+
+        .testimonials-header h2 {
+            font-size: clamp(2.2rem, 6vw, 3.2rem);
+            color: #0b3d91;
+            font-weight: 900;
+            letter-spacing: -1px;
+            margin-bottom: 10px;
+            margin: 0 0 15px 0;
+            text-transform: capitalize;
+            word-spacing: normal;
+        }
+
+        .testimonials-header .highlight {
+            color: #0f6cd9;
+            font-weight: 900;
+        }
+
+        .testimonials-header::before {
+            content: '';
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, rgba(11, 61, 145, 0.1) 0%, rgba(15, 108, 217, 0.1) 100%);
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .testimonials-header::after {
+            content: '';
+            display: block;
+            width: 140px;
+            height: 6px;
+            background: linear-gradient(90deg, #0f6cd9 0%, #0b3d91 50%, #00a8e8 100%);
+            margin: 20px auto 0;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(15, 108, 217, 0.4);
+        }
+
+        .testimonials-subtitle {
+            font-size: 17px;
+            color: #333;
+            margin-top: 25px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            line-height: 1.6;
+        }
+
+        .testimonials-subtitle strong {
+            color: #0b3d91;
+            font-weight: 800;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+        }
+
+        /* 3D FLIP CARD STYLES */
+        .flip-card-container {
+            background-color: transparent;
+            width: 100%;
+            height: 100%;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .flip-card {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            transform-style: preserve-3d;
+            min-height: 500px;
+        }
+
+        .flip-card-container.flipped .flip-card {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            padding: 50px;
+            border-radius: 25px;
+            box-shadow: 0 15px 50px rgba(11, 61, 145, 0.12);
+            border: 2px solid #f0f5fa;
+            justify-content: space-between;
+        }
+
+        .flip-card-front {
+            background: white;
+            z-index: 2;
+        }
+
+        .flip-card-back {
+            background: linear-gradient(135deg, #0b3d91 0%, #0f6cd9 100%);
+            color: white;
+            transform: rotateY(180deg);
+            z-index: 1;
+            padding: 40px;
+        }
+
+        .flip-card-container:hover .flip-card-front {
+            box-shadow: 0 20px 70px rgba(11, 61, 145, 0.15);
+        }
+
+        .flip-indicator {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 15px;
+            font-size: 12px;
+            color: #999;
+            font-weight: 600;
+        }
+
+        .flip-indicator-icon {
+            display: inline-block;
+            animation: rotate 2s infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotateY(0deg); }
+            100% { transform: rotateY(360deg); }
+        }
+
+        .testimonial-header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .stars {
+            font-size: 16px;
+            color: #ffc107;
+            letter-spacing: 3px;
+            font-weight: bold;
+        }
+
+        .service-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #0b3d91 0%, #0f6cd9 100%);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .service-badge.cloud {
+            background: linear-gradient(135deg, #0f6cd9 0%, #00a8e8 100%);
+        }
+
+        .service-badge.inventory {
+            background: linear-gradient(135deg, #0b3d91 0%, #1a5bb8 100%);
+        }
+
+        .service-badge.academy {
+            background: linear-gradient(135deg, #2e7db8 0%, #00a8e8 100%);
+        }
+
+        .testimonial-text {
+            font-size: 16px;
+            color: #444;
+            line-height: 1.9;
+            margin-bottom: 30px;
+            flex-grow: 1;
+            font-weight: 500;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .flip-card-back .testimonial-text {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        .testimonial-text::before {
+            content: '"';
+            position: absolute;
+            left: 0;
+            top: -10px;
+            font-size: 50px;
+            color: #e1ecf4;
+            opacity: 0.5;
+            font-weight: bold;
+        }
+
+        .flip-card-back .testimonial-text::before {
+            color: rgba(255, 255, 255, 0.2);
+        }
+
+        .flip-text-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            color: #0f6cd9;
+            margin-bottom: 15px;
+        }
+
+        .flip-card-back .flip-text-label {
+            color: #e1ecf4;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            border-top: 2px solid #f0f5fa;
+            padding-top: 25px;
+        }
+
+        .flip-card-back .testimonial-author {
+            border-top: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .author-avatar {
+            width: 65px;
+            height: 65px;
+            background: linear-gradient(135deg, #0b3d91 0%, #0f6cd9 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 900;
+            font-size: 22px;
+            box-shadow: 0 8px 25px rgba(11, 61, 145, 0.3);
+            flex-shrink: 0;
+        }
+
+        .flip-card-back .author-avatar {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.2) 100%);
+            color: white;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .author-details h4 {
+            color: #0b3d91;
+            font-size: 17px;
+            margin-bottom: 6px;
+            font-weight: 700;
+        }
+
+        .flip-card-back .author-details h4 {
+            color: white;
+        }
+
+        .author-details .role {
+            color: #0f6cd9;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        .flip-card-back .author-details .role {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        @media (max-width: 768px) {
+            .testimonials {
+                padding: 70px 15px;
+                margin-bottom: 60px;
+            }
+
+            .testimonials-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .testimonials-header::after {
+                width: 100px;
+                height: 5px;
+            }
+
+            .flip-card-front, .flip-card-back {
+                padding: 35px;
+                min-height: 450px;
+            }
+
+            .author-avatar {
+                width: 55px;
+                height: 55px;
+                font-size: 18px;
+            }
+
+            .testimonial-text {
+                font-size: 15px;
+            }
+        }
+
+        /* --- 7. FOOTER --- */
         .footer {
             background: rgba(0,0,0,0.9);
             color: white;
@@ -341,11 +668,290 @@
         </div>
     </section>
 
+    <!-- TESTIMONIALS SECTION -->
+    <section class="testimonials">
+        <div class="testimonials-header">
+            <div class="testimonials-header-main">
+                <h2>What Our <span class="highlight">Clients Say</span></h2>
+                <p class="testimonials-subtitle">Hear from <strong>businesses and individuals</strong> who've transformed their operations with NICEGENE Technologies</p>
+            </div>
+        </div>
+        <div class="testimonials-grid">
+            <!-- Cloud Migration & Digitization - School 1 -->
+            <div class="flip-card-container">
+                <div class="flip-card">
+                    <!-- FRONT -->
+                    <div class="flip-card-front">
+                        <div>
+                            <div class="testimonial-header-top">
+                                <div class="stars">★★★★★</div>
+                                <span class="service-badge cloud">Cloud Services</span>
+                            </div>
+                            <p class="testimonial-text">NICEGENE's cloud migration service transformed our school's operations. Our data is now secure, accessible from anywhere, and our staff has experienced a significant boost in productivity.</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">LS</div>
+                            <div class="author-details">
+                                <h4>St. Gregory's College, Owerri</h4>
+                                <div class="role">Cloud Migration & Digitization</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- BACK -->
+                    <div class="flip-card-back">
+                        <div>
+                            <div class="flip-text-label">📌 More Details</div>
+                            <p class="testimonial-text">The team was incredibly professional and handled our entire transition seamlessly. They managed data security, staff training, and provided ongoing support. Our administrative efficiency increased by 40% within the first month!</p>
+                        </div>
+                        <div class="flip-indicator">
+                            <span class="flip-indicator-icon">↻</span>
+                            <span>Click to flip</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cloud Migration & Digitization - School 2 -->
+            <div class="flip-card-container">
+                <div class="flip-card">
+                    <!-- FRONT -->
+                    <div class="flip-card-front">
+                        <div>
+                            <div class="testimonial-header-top">
+                                <div class="stars">★★★★★</div>
+                                <span class="service-badge cloud">Cloud Services</span>
+                            </div>
+                            <p class="testimonial-text">The digitization process at our institution was smooth and impactful. NICEGENE's expertise in records management and cloud solutions helped us streamline our administrative workflows completely.</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">VU</div>
+                            <div class="author-details">
+                                <h4>St. Theresa's Comprehensive Secondary School, Alike </h4>
+                                <div class="role">Cloud Migration & Digitization</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- BACK -->
+                    <div class="flip-card-back">
+                        <div>
+                            <div class="flip-text-label">📌 More Details</div>
+                            <p class="testimonial-text">We went from paper-based records to a fully digital system in just 3 months. Their team provided comprehensive training, and now our staff can access records instantly from anywhere. The ROI was incredible!</p>
+                        </div>
+                        <div class="flip-indicator">
+                            <span class="flip-indicator-icon">↻</span>
+                            <span>Click to flip</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Inventory Management - Pharmacy -->
+            <div class="flip-card-container">
+                <div class="flip-card">
+                    <!-- FRONT -->
+                    <div class="flip-card-front">
+                        <div>
+                            <div class="testimonial-header-top">
+                                <div class="stars">★★★★★</div>
+                                <span class="service-badge inventory">POS & Inventory</span>
+                            </div>
+                            <p class="testimonial-text">NICEGENE installed a professional POS and inventory system at our pharmacy and it's been transformative. Real-time stock tracking and sales reporting have reduced our operational costs by 30%!</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">CP</div>
+                            <div class="author-details">
+                                <h4>Care Plus Pharmacy, Ilaje, Lagos</h4>
+                                <div class="role">POS & Inventory Installation</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- BACK -->
+                    <div class="flip-card-back">
+                        <div>
+                            <div class="flip-text-label">💰 Business Impact</div>
+                            <p class="testimonial-text">The system installation was quick and professional. We've eliminated stockouts, reduced expired inventory loss, and improved customer service. Their technical support team is always responsive and helpful!</p>
+                        </div>
+                        <div class="flip-indicator">
+                            <span class="flip-indicator-icon">↻</span>
+                            <span>Click to flip</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Inventory Management - School -->
+            <div class="flip-card-container">
+                <div class="flip-card">
+                    <!-- FRONT -->
+                    <div class="flip-card-front">
+                        <div>
+                            <div class="testimonial-header-top">
+                                <div class="stars">★★★★★</div>
+                                <span class="service-badge inventory">POS & Inventory</span>
+                            </div>
+                            <p class="testimonial-text">NICEGENE's professional installation and setup of inventory management in our school's bookstore eliminated manual counting errors and saved us countless hours. The system is very intuitive.</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">ES</div>
+                            <div class="author-details">
+                                <h4>St. Finbarr's College, Offa</h4>
+                                <div class="role">POS & Inventory Installation</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- BACK -->
+                    <div class="flip-card-back">
+                        <div>
+                            <div class="flip-text-label">🎓 Student Benefit</div>
+                            <p class="testimonial-text">Our students can now quickly check book availability online. The support team conducts regular training sessions for our staff. We've reduced checkout time by 50% and eliminated double-counting mistakes!</p>
+                        </div>
+                        <div class="flip-indicator">
+                            <span class="flip-indicator-icon">↻</span>
+                            <span>Click to flip</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Digital Academy - Student 1 -->
+            <div class="flip-card-container">
+                <div class="flip-card">
+                    <!-- FRONT -->
+                    <div class="flip-card-front">
+                        <div>
+                            <div class="testimonial-header-top">
+                                <div class="stars">★★★★★</div>
+                                <span class="service-badge academy">Digital Academy</span>
+                            </div>
+                            <p class="testimonial-text">The Digital Academy bootcamp at NICEGENE was incredibly well-structured and practical. The instructors are true experts, and I landed a high-paying job within 3 months of completing the program!</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">AJ</div>
+                            <div class="author-details">
+                                <h4>Famous Adeniji</h4>
+                                <div class="role">Academy Graduate - Web Development</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- BACK -->
+                    <div class="flip-card-back">
+                        <div>
+                            <div class="flip-text-label">🚀 Career Journey</div>
+                            <p class="testimonial-text">The curriculum is practical and industry-relevant. I learned not just coding, but real-world problem solving. The job placement team helped me interview prep, and I now work as a Full-Stack Developer at a tech company!</p>
+                        </div>
+                        <div class="flip-indicator">
+                            <span class="flip-indicator-icon">↻</span>
+                            <span>Click to flip</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Digital Academy - Student 2 -->
+            <div class="flip-card-container">
+                <div class="flip-card">
+                    <!-- FRONT -->
+                    <div class="flip-card-front">
+                        <div>
+                            <div class="testimonial-header-top">
+                                <div class="stars">★★★★★</div>
+                                <span class="service-badge academy">Digital Academy</span>
+                            </div>
+                            <p class="testimonial-text">I was completely new to tech, but NICEGENE's Digital Academy made learning accessible and incredibly fun. The hands-on projects prepared me perfectly for the competitive job market. Best investment ever!</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">KC</div>
+                            <div class="author-details">
+                                <h4>Chuks Chibuzor</h4>
+                                <div class="role">Academy Graduate - Data Analytics</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- BACK -->
+                    <div class="flip-card-back">
+                        <div>
+                            <div class="flip-text-label">📊 Success Story</div>
+                            <p class="testimonial-text">From zero experience to landing a Data Analyst role! The mentorship was invaluable. I now analyze data for a major corporation and earn 3x what I made before. NICEGENE changed my life!</p>
+                        </div>
+                        <div class="flip-indicator">
+                            <span class="flip-indicator-icon">↻</span>
+                            <span>Click to flip</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Digital Academy - Student 3 -->
+            <div class="flip-card-container">
+                <div class="flip-card">
+                    <!-- FRONT -->
+                    <div class="flip-card-front">
+                        <div>
+                            <div class="testimonial-header-top">
+                                <div class="stars">★★★★★</div>
+                                <span class="service-badge academy">Digital Academy</span>
+                            </div>
+                            <p class="testimonial-text">The instructors at NICEGENE's Digital Academy genuinely care about student success. The curriculum is cutting-edge, the learning environment is incredibly supportive, and the job placement support is outstanding!</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">ER</div>
+                            <div class="author-details">
+                                <h4>Charlse Chukwueze</h4>
+                                <div class="role">Academy Graduate - Cloud Computing</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- BACK -->
+                    <div class="flip-card-back">
+                        <div>
+                            <div class="flip-text-label">☁️ Technical Growth</div>
+                            <p class="testimonial-text">I'm now AWS certified and working as a Cloud Infrastructure Engineer. The bootcamp taught me real cloud architecture patterns. The alumni community is also very supportive and collaborative!</p>
+                        </div>
+                        <div class="flip-indicator">
+                            <span class="flip-indicator-icon">↻</span>
+                            <span>Click to flip</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer style="text-align: center; padding: 40px 20px; font-size: 14px; color: #666; background: #fff; border-top: 1px solid #eee;">
         <p>&copy; 2026 NICEGENE TECHNOLOGIES || ALL RIGHTS RESERVED! <br> 
             Powered by: Nicegene Technologies
         </p>
     </footer>
+
+    <!-- FLIP CARD JAVASCRIPT -->
+    <script>
+        // Get all flip card containers
+        const flipContainers = document.querySelectorAll('.flip-card-container');
+
+        // Add click event listener to each container
+        flipContainers.forEach(container => {
+            container.addEventListener('click', function() {
+                // Toggle the 'flipped' class
+                this.classList.toggle('flipped');
+            });
+        });
+
+        // Optional: Auto-flip back after 8 seconds if you want
+        flipContainers.forEach(container => {
+            let flipTimeout;
+            
+            container.addEventListener('click', function() {
+                // Clear any existing timeout
+                clearTimeout(flipTimeout);
+                
+                // Set a new timeout to flip back after 8 seconds
+                flipTimeout = setTimeout(() => {
+                    // Optional: Remove this if you want cards to stay flipped
+                    // this.classList.remove('flipped');
+                }, 8000);
+            });
+        });
+    </script>
 
 </body>
 </html>

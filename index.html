@@ -189,6 +189,10 @@
             justify-content: flex-start;
         }
 
+        .card:last-child {
+            justify-self: center;
+        }
+
         .card:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 50px rgba(0,0,0,0.25);
@@ -323,6 +327,10 @@
             gap: 35px;
         }
 
+        .flip-card-container:last-child {
+            justify-self: center;
+        }
+
         /* 3D FLIP CARD STYLES */
         .flip-card-container {
             background-color: transparent;
@@ -338,7 +346,7 @@
             height: 100%;
             transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
             transform-style: preserve-3d;
-            min-height: 500px;
+            min-height: 420px;
         }
 
         .flip-card-container.flipped .flip-card {
@@ -352,7 +360,7 @@
             backface-visibility: hidden;
             display: flex;
             flex-direction: column;
-            padding: 50px;
+            padding: 35px;
             border-radius: 25px;
             box-shadow: 0 15px 50px rgba(11, 61, 145, 0.12);
             border: 2px solid #f0f5fa;
@@ -369,7 +377,7 @@
             color: white;
             transform: rotateY(180deg);
             z-index: 1;
-            padding: 40px;
+            padding: 35px;
         }
 
         .flip-card-container:hover .flip-card-front {
@@ -382,7 +390,7 @@
             gap: 8px;
             margin-top: 15px;
             font-size: 12px;
-            color: #999;
+            color: #f9f9f9;
             font-weight: 600;
         }
 
@@ -484,7 +492,7 @@
             align-items: center;
             gap: 18px;
             border-top: 2px solid #f0f5fa;
-            padding-top: 25px;
+            padding-top: 5px;
         }
 
         .flip-card-back .testimonial-author {
@@ -565,7 +573,108 @@
             }
         }
 
-        /* --- 7. FOOTER --- */
+        /* --- 7. STORY & FOUNDER SECTION --- */
+        .section-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 160px 20px 80px;
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .story-text h2 {
+            color: white;
+            margin-bottom: 0px;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+        }
+
+        .story-text h5 {
+            color: white;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 0px;
+        }
+
+        .story-text h4 {
+            color: white;
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .story-text p {
+            color: white;
+            background: linear-gradient(135deg, #0b3d91 0%, #0f6cd9 100%);
+            text-align: justify;
+            text-align-last: left;
+            margin-bottom: 20px;
+            line-height: 1.8;
+            padding: 25px 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(11, 61, 145, 0.25);
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+        .story-text p:hover {
+            box-shadow: 0 12px 35px rgba(11, 61, 145, 0.35);
+            transform: translateY(-2px);
+        }
+
+        .intro-quote {
+            font-size: 18px;
+            color: white;
+            font-style: italic;
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: block;
+            background: linear-gradient(135deg, #0f6cd9 0%, #00a8e8 100%);
+            padding: 25px 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(15, 108, 217, 0.25);
+            transition: all 0.3s ease;
+        }
+
+        .intro-quote:hover {
+            box-shadow: 0 12px 35px rgba(15, 108, 217, 0.35);
+            transform: translateY(-2px);
+        }
+
+        .founder-signature {
+            margin-top: 30px;
+            padding: 25px 30px;
+            background: linear-gradient(135deg, #0b3d91 0%, #0f6cd9 100%);
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(11, 61, 145, 0.25);
+            transition: all 0.3s ease;
+        }
+
+        .founder-signature:hover {
+            box-shadow: 0 12px 35px rgba(11, 61, 145, 0.35);
+            transform: translateY(-2px);
+        }
+
+        .founder-signature p {
+            margin-bottom: 8px;
+            color: white;
+        }
+
+        .story-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 15px 15px 0px #f1f7f9;
+        }
+
+        /* --- 8. FOOTER --- */
         .footer {
             background: rgba(0,0,0,0.9);
             color: white;
@@ -588,6 +697,21 @@
                 border-radius: 4px;
             }
             .hero { padding-top: 140px; }
+            
+            /* Story & Founder section mobile */
+            .section-container {
+                padding: 100px 20px;
+            }
+            
+            .story-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                text-align: center;
+            }
+            
+            .story-text p {
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -620,6 +744,30 @@
             Admissions are now open for our Upcoming 2026 Q1 Cohorts! <span class="marquee-bullet">|</span> Learn Cloud Computing, Web Development, Data Analytics & a lot more...<span class="marquee-bullet">|</span> Get Certified and Job Ready <span class="marquee-bullet">|</span> Visit our Digital Academy today or call +234 8060704412 for more enquiries.
         </marquee>
     </div>
+
+                    <section class="section-container founder-section">
+                        <div class="story-grid">
+                            <div class="story-text">
+                                <h5>A MESSAGE FROM OUR FOUNDER</h5>
+                                <h4>The Dawn of a Transgenerational Empire</h4>
+                                <p class="intro-quote">"A journey of a thousand miles has just begun with a step today!"</p>
+                                
+                                <p>Today, <strong>20th January, 2026</strong>, NICEGENE TECHNOLOGIES begins a journey that will eventually become that which only the Almighty God can foretell. We are stepping into a great empire yet to unfold. Nicegene Technologies is not just a business name; it is a transgenerational brand that has come to change the narrative in the world of Technology.</p>
+                                
+                                <p>Though we set out as a handful set of young minds, our humble beginning shall never be despised. We have come to offer technological solutions and to unfold even rare and deeper technological dimensions that exist within realms beyond here. As long as God lives, we will tap into realities where technological mysteries are unraveled, that the Almighty God who giveth wisdom and governs Science & Technological be glorified.</p>
+                                
+                                <p>We are set to redefine business through deeper knowledge, integrity, and genuine service. Entrust us with your IT problems and watch us seamlessly bring solutions to them through knowledge & technical expertise and by the whisperings of God who is at work in us.</p>
+
+                                <div class="founder-signature">
+                                    <p><strong>NICEGENE TECHNOLOGIES LIMITED</strong></p>
+                                    <p><em>In God we trust </em></p>
+                                </div>
+                            </div>
+                            <div class="story-image">
+                                <img src="/images/NICEGENE GRAND LAUNCH.jpg" alt="Founder of Nicegene Technologies">
+                            </div>
+                        </div>
+                    </section>
 
     <section class="services">
         <h2>Our Core Services</h2>
@@ -672,8 +820,8 @@
     <section class="testimonials">
         <div class="testimonials-header">
             <div class="testimonials-header-main">
-                <h2>What Our <span class="highlight">Clients Say</span></h2>
-                <p class="testimonials-subtitle">Hear from <strong>businesses and individuals</strong> who've transformed their operations with NICEGENE Technologies</p>
+                <h4>What Our <span class="highlight">Clients Say about Nicegene Technologies</span></h4>
+                <p class="testimonials-subtitle">Hear from <strong>businesses, institutions and individuals</strong> whose organizational & individual operations were transformed by Nicegene Technologies</p>
             </div>
         </div>
         <div class="testimonials-grid">
@@ -687,21 +835,24 @@
                                 <div class="stars">★★★★★</div>
                                 <span class="service-badge cloud">Cloud Services</span>
                             </div>
-                            <p class="testimonial-text">NICEGENE's cloud migration service transformed our school's operations. Our data is now secure, accessible from anywhere, and our staff has experienced a significant boost in productivity.</p>
+                            <p class="testimonial-text">This team transformed our operations long before their official launch. Their cloud migration expertise brought our institution from manual systems to modern efficiency.</p>
                         </div>
                         <div class="testimonial-author">
                             <div class="author-avatar">LS</div>
                             <div class="author-details">
                                 <h4>St. Gregory's College, Owerri</h4>
-                                <div class="role">Cloud Migration & Digitization</div>
+                                <div class="role">Cloud Migration & Digitization
+                                   <br> <span class="flip-indicator-icon">↻</span>
+                                    <span>Click to flip</span>
+                                </div>    
                             </div>
                         </div>
                     </div>
                     <!-- BACK -->
                     <div class="flip-card-back">
                         <div>
-                            <div class="flip-text-label">📌 More Details</div>
-                            <p class="testimonial-text">The team was incredibly professional and handled our entire transition seamlessly. They managed data security, staff training, and provided ongoing support. Our administrative efficiency increased by 40% within the first month!</p>
+                            <div class="flip-text-label">📌 Our Trust in Nicegene Technologies</div>
+                            <p class="testimonial-text">Even before their official launch, Nicegene Technologies has demonstrated unparalleled professionalism. Their team managed our data security flawlessly, trained our staff comprehensively, and provided ongoing support. We trusted them then, and we trust them now!</p>
                         </div>
                         <div class="flip-indicator">
                             <span class="flip-indicator-icon">↻</span>
@@ -721,21 +872,24 @@
                                 <div class="stars">★★★★★</div>
                                 <span class="service-badge cloud">Cloud Services</span>
                             </div>
-                            <p class="testimonial-text">The digitization process at our institution was smooth and impactful. NICEGENE's expertise in records management and cloud solutions helped us streamline our administrative workflows completely.</p>
+                            <p class="testimonial-text">Nicegene Technologies Limited digitization expertise revolutionized our records management. From paper to digital - a seamless transition that solidified our trust in their vision.</p>
                         </div>
                         <div class="testimonial-author">
                             <div class="author-avatar">VU</div>
                             <div class="author-details">
-                                <h4>St. Theresa's Comprehensive Secondary School, Alike </h4>
-                                <div class="role">Cloud Migration & Digitization</div>
+                                <h4>St. Theresa's College, Awka</h4>
+                                <div class="role">Digitization & System Networking
+                                    <br> <span class="flip-indicator-icon">↻</span>
+                                    <span>Click to flip</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <!-- BACK -->
                     <div class="flip-card-back">
                         <div>
-                            <div class="flip-text-label">📌 More Details</div>
-                            <p class="testimonial-text">We went from paper-based records to a fully digital system in just 3 months. Their team provided comprehensive training, and now our staff can access records instantly from anywhere. The ROI was incredible!</p>
+                            <div class="flip-text-label">🤝 Building Confidence</div>
+                            <p class="testimonial-text">Before their official launch, this great team has proved they were built for excellence. Their system architecture is robust, their support is reliable, and their commitment to our success is unwavering. We're proud to endorse them as they officially unfold!</p>
                         </div>
                         <div class="flip-indicator">
                             <span class="flip-indicator-icon">↻</span>
@@ -755,21 +909,24 @@
                                 <div class="stars">★★★★★</div>
                                 <span class="service-badge inventory">POS & Inventory</span>
                             </div>
-                            <p class="testimonial-text">NICEGENE installed a professional POS and inventory system at our pharmacy and it's been transformative. Real-time stock tracking and sales reporting have reduced our operational costs by 30%!</p>
+                            <p class="testimonial-text">Their Point of Sales and inventory system installation was a game-changer for our pharmacy. Their system expertise demonstrated why we should trust them with our critical operations.</p>
                         </div>
                         <div class="testimonial-author">
                             <div class="author-avatar">CP</div>
                             <div class="author-details">
                                 <h4>Care Plus Pharmacy, Ilaje, Lagos</h4>
-                                <div class="role">POS & Inventory Installation</div>
+                                <div class="role">POS & Inventory Management
+                                    <br> <span class="flip-indicator-icon">↻</span>
+                                    <span>Click to flip</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <!-- BACK -->
                     <div class="flip-card-back">
                         <div>
-                            <div class="flip-text-label">💰 Business Impact</div>
-                            <p class="testimonial-text">The system installation was quick and professional. We've eliminated stockouts, reduced expired inventory loss, and improved customer service. Their technical support team is always responsive and helpful!</p>
+                            <div class="flip-text-label">💼 Proven Excellence</div>
+                            <p class="testimonial-text">I knew Mr Eugene who is the CEO of Nicegene Technologies to be an IT guy but after the inventory management setup he did for us, I began to address him as IT baba. Since after the setup of VendLoop system in our store, we've eliminated inventory losses, improved customer services, and increased our bottom line significantly. As they officially launch, we're confident they'll serve many more organizations with the same excellence!</p>
                         </div>
                         <div class="flip-indicator">
                             <span class="flip-indicator-icon">↻</span>
@@ -779,7 +936,7 @@
                 </div>
             </div>
 
-            <!-- Inventory Management - School -->
+            <!-- System Networking - Institution -->
             <div class="flip-card-container">
                 <div class="flip-card">
                     <!-- FRONT -->
@@ -787,125 +944,26 @@
                         <div>
                             <div class="testimonial-header-top">
                                 <div class="stars">★★★★★</div>
-                                <span class="service-badge inventory">POS & Inventory</span>
+                                <span class="service-badge cloud">System Networking</span>
                             </div>
-                            <p class="testimonial-text">NICEGENE's professional installation and setup of inventory management in our school's bookstore eliminated manual counting errors and saved us countless hours. The system is very intuitive.</p>
+                            <p class="testimonial-text">These guys are really wonderful. Their commitment to solving problems is top-notch. Their networking solutions have been the backbone of our institution's IT infrastructure. Their expertise ensures our systems run flawlessly every single day.</p>
                         </div>
                         <div class="testimonial-author">
                             <div class="author-avatar">ES</div>
                             <div class="author-details">
                                 <h4>St. Finbarr's College, Offa</h4>
-                                <div class="role">POS & Inventory Installation</div>
+                                <div class="role">System Networking & Infrastructure
+                                    <br> <span class="flip-indicator-icon">↻</span>
+                                    <span>Click to flip</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <!-- BACK -->
                     <div class="flip-card-back">
                         <div>
-                            <div class="flip-text-label">🎓 Student Benefit</div>
-                            <p class="testimonial-text">Our students can now quickly check book availability online. The support team conducts regular training sessions for our staff. We've reduced checkout time by 50% and eliminated double-counting mistakes!</p>
-                        </div>
-                        <div class="flip-indicator">
-                            <span class="flip-indicator-icon">↻</span>
-                            <span>Click to flip</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Digital Academy - Student 1 -->
-            <div class="flip-card-container">
-                <div class="flip-card">
-                    <!-- FRONT -->
-                    <div class="flip-card-front">
-                        <div>
-                            <div class="testimonial-header-top">
-                                <div class="stars">★★★★★</div>
-                                <span class="service-badge academy">Digital Academy</span>
-                            </div>
-                            <p class="testimonial-text">The Digital Academy bootcamp at NICEGENE was incredibly well-structured and practical. The instructors are true experts, and I landed a high-paying job within 3 months of completing the program!</p>
-                        </div>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">AJ</div>
-                            <div class="author-details">
-                                <h4>Famous Adeniji</h4>
-                                <div class="role">Academy Graduate - Web Development</div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- BACK -->
-                    <div class="flip-card-back">
-                        <div>
-                            <div class="flip-text-label">🚀 Career Journey</div>
-                            <p class="testimonial-text">The curriculum is practical and industry-relevant. I learned not just coding, but real-world problem solving. The job placement team helped me interview prep, and I now work as a Full-Stack Developer at a tech company!</p>
-                        </div>
-                        <div class="flip-indicator">
-                            <span class="flip-indicator-icon">↻</span>
-                            <span>Click to flip</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Digital Academy - Student 2 -->
-            <div class="flip-card-container">
-                <div class="flip-card">
-                    <!-- FRONT -->
-                    <div class="flip-card-front">
-                        <div>
-                            <div class="testimonial-header-top">
-                                <div class="stars">★★★★★</div>
-                                <span class="service-badge academy">Digital Academy</span>
-                            </div>
-                            <p class="testimonial-text">I was completely new to tech, but NICEGENE's Digital Academy made learning accessible and incredibly fun. The hands-on projects prepared me perfectly for the competitive job market. Best investment ever!</p>
-                        </div>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">KC</div>
-                            <div class="author-details">
-                                <h4>Chuks Chibuzor</h4>
-                                <div class="role">Academy Graduate - Data Analytics</div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- BACK -->
-                    <div class="flip-card-back">
-                        <div>
-                            <div class="flip-text-label">📊 Success Story</div>
-                            <p class="testimonial-text">From zero experience to landing a Data Analyst role! The mentorship was invaluable. I now analyze data for a major corporation and earn 3x what I made before. NICEGENE changed my life!</p>
-                        </div>
-                        <div class="flip-indicator">
-                            <span class="flip-indicator-icon">↻</span>
-                            <span>Click to flip</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Digital Academy - Student 3 -->
-            <div class="flip-card-container">
-                <div class="flip-card">
-                    <!-- FRONT -->
-                    <div class="flip-card-front">
-                        <div>
-                            <div class="testimonial-header-top">
-                                <div class="stars">★★★★★</div>
-                                <span class="service-badge academy">Digital Academy</span>
-                            </div>
-                            <p class="testimonial-text">The instructors at NICEGENE's Digital Academy genuinely care about student success. The curriculum is cutting-edge, the learning environment is incredibly supportive, and the job placement support is outstanding!</p>
-                        </div>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">ER</div>
-                            <div class="author-details">
-                                <h4>Charlse Chukwueze</h4>
-                                <div class="role">Academy Graduate - Cloud Computing</div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- BACK -->
-                    <div class="flip-card-back">
-                        <div>
-                            <div class="flip-text-label">☁️ Technical Growth</div>
-                            <p class="testimonial-text">I'm now AWS certified and working as a Cloud Infrastructure Engineer. The bootcamp taught me real cloud architecture patterns. The alumni community is also very supportive and collaborative!</p>
+                            <div class="flip-text-label">🌐 Industry Trust</div>
+                            <p class="testimonial-text">I love the fact that they have tasted the waters before the official launch. NICEGENE earned our absolute trust through consistent delivery. Their networking infrastructure is rock-solid, their technical team is responsive, and their vision for digital transformation aligns perfectly with ours. We're honored to stand with them as they officially unfold to the world!</p>
                         </div>
                         <div class="flip-indicator">
                             <span class="flip-indicator-icon">↻</span>

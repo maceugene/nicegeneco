@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- Homepage - Highest Priority -->
+    <url>
+        <loc>https://nicegeneco.com/</loc>
+        <lastmod>2026-01-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- Main Service Pages - High Priority -->
+    <url>
+        <loc>https://nicegeneco.com/services/</loc>
+        <lastmod>2026-01-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://nicegeneco.com/AWS-Cloud/</loc>
+        <lastmod>2026-01-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.85</priority>
+    </url>
+
+    <url>
+        <loc>https://nicegeneco.com/IT-training/</loc>
+        <lastmod>2026-01-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+
+    <url>
+        <loc>https://nicegeneco.com/Drone-Services/</loc>
+        <lastmod>2026-01-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.85</priority>
+    </url>
+
+    <url>
+        <loc>https://nicegeneco.com/Web-Development/</loc>
+        <lastmod>2026-01-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.85</priority>
+    </url>
+
+    <url>
+        <loc>https://nicegeneco.com/Graphics-Design/</loc>
+        <lastmod>2026-01-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://nicegeneco.com/photography/</loc>
+        <lastmod>2026-01-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://nicegeneco.com/pos/</loc>
+        <lastmod>2026-01-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://nicegeneco.com/sales/</loc>
+        <lastmod>2026-01-19</lastmod>
+        <changefreq>bi-weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Company & Information Pages - Medium Priority -->
+    <url>
+        <loc>https://nicegeneco.com/about/</loc>
+        <lastmod>2026-01-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.75</priority>
+    </url>
+
+    <url>
+        <loc>https://nicegeneco.com/contact/</loc>
+        <lastmod>2026-01-19</lastmod>
+        <changefreq>never</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Educational & Program Pages -->
+    <url>
+        <loc>https://nicegeneco.com/cohort/</loc>
+        <lastmod>2026-01-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.75</priority>
+    </url>
+
+    <url>
+        <loc>https://nicegeneco.com/success/</loc>
+        <lastmod>2026-01-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+</urlset>

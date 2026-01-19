@@ -170,8 +170,6 @@
     <section class="showcase-section">
         <div class="photo-video-banner">
             <video id="photoPlaylist" autoplay muted playsinline>
-                <source src="/images/drone-video.mp4" type="video/mp4">
-                <source src="/images/drone-video-2.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
@@ -230,23 +228,25 @@
         const videoElement = document.getElementById('photoPlaylist');
         
         const videos = [
-            "drone-video.mp4", 
-            "drone-video-2.mp4",
-            "team-at-work.mp4"
+            "/images/drone-video.mp4", 
+            "/images/drone-video-2.mp4"
         ];
         
         let videoIndex = 0;
 
-        videoElement.addEventListener('ended', function() {
-            videoIndex++;
-            if (videoIndex >= videos.length) {
-                videoIndex = 0;
-            }
+        // Play the first video on page load
+        window.addEventListener('load', () => {
             videoElement.src = videos[videoIndex];
-            videoElement.play();
+            videoElement.play().catch(error => {
+                console.log('Autoplay prevented:', error);
+                // Fallback: user may need to interact to start
+            });
         });
 
-        window.addEventListener('load', () => {
+        // Switch to next video when current ends
+        videoElement.addEventListener('ended', function() {
+            videoIndex = (videoIndex + 1) % videos.length;
+            videoElement.src = videos[videoIndex];
             videoElement.play();
         });
     </script>

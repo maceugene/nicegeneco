@@ -240,7 +240,6 @@
             
             <div class="drone-banner">
                 <video id="dronePlaylist" autoplay muted playsinline>
-                    <source src="/images/drone-video.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
@@ -293,15 +292,21 @@
 
     <script>
         const videoElement = document.getElementById('dronePlaylist');
-        // Corrected paths to point to your 'images' folder
         const videos = ["/images/drone-video.mp4", "/images/drone-video-2.mp4"];
         let videoIndex = 0;
 
+        // Ensure first video plays on page load
+        window.addEventListener('load', () => {
+            videoElement.src = videos[videoIndex];
+            videoElement.play().catch(error => {
+                console.log('Autoplay prevented:', error);
+                // Fallback: user may need to interact to start
+            });
+        });
+
+        // Switch to next video when current ends - seamless looping
         videoElement.addEventListener('ended', function() {
-            videoIndex++;
-            if (videoIndex >= videos.length) {
-                videoIndex = 0;
-            }
+            videoIndex = (videoIndex + 1) % videos.length;
             videoElement.src = videos[videoIndex];
             videoElement.play();
         });

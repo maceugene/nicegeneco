@@ -114,14 +114,16 @@
                             <select name="Course_Selected" id="course-dropdown" required onchange="updatePreview()">
                                 <option value="" disabled selected>-- Select a Course --</option>
                                 <option value="Project Management">Project Management</option>
+                                <option value="Cloud Computing">Cloud Computing</option>                                                                                               
+                                <option value="Cyber Security">Cyber Security</option>
                                 <option value="Data Analytics">Data Analytics</option>
-                                <option value="Video Editing">Video & Photo Editing</option>
+                                <option value="Video Editing">Video Editing</option>
                                 <option value="Introduction to Web3 Technologies">Introduction to Web3 Technologies</option>
-                                <option value="Graphics Design">Graphics Design</option>
+                                <option value="Graphics Design">Professional Graphics Design</option>
                                 <option value="Product Management">Product Management</option>
-                                <option value="YouTube Optimization">YouTube Optimization</option>
+                                <option value="YouTube Optimization">YouTube Develoment & Optimization</option>
                                 <option value="Social Media Optimization">Social Media Optimization</option>
-                                <option value="Professional Excel">Professional Excel</option>
+                                <option value="Professional Excel">Professional Use of Excel</option>
                                 <option value="Staff Training">Staff Training on use of digital tools</option>
                             </select>
                         </div>
@@ -178,15 +180,17 @@
 
     <script>
         const details = {
-            "Project Management": { fee: "₦50,000", time: "6 Weeks", desc: "Waterfall, Agile, and Scrum methodologies including team leadership." },
+            "Project Management": { fee: "₦60,000", time: "6 Weeks", desc: "Waterfall, Agile, and Scrum methodologies including team leadership." },
+            "Cloud Computing": { fee: "₦100,000", time: "8 Weeks",  desc: "Master AWS, cloud architecture, and deployment strategies." },
             "Data Analytics": { fee: "₦50,000", time: "6 Weeks", desc: "Learn data visualization, SQL, and PowerBI for business insights." },
             "Video Editing": { fee: "₦45,000", time: "6 Weeks", desc: "Professional storytelling using Premiere Pro and CapCut desktop." },
             "Introduction to Web3 Technologies": { fee: "₦75,000", time: "8 Weeks", desc: "Blockchain fundamentals, Smart Contracts, and the Semantic Web." },
-            "Graphics Design": { fee: "₦40,000", time: "6 Weeks", desc: "Master visual branding, typography, and Canva/Photoshop skills." },
+            "Graphics Design": { fee: "₦50,000", time: "6 Weeks", desc: "Master visual branding, typography, and Canva/Photoshop skills." },
             "Product Management": { fee: "₦60,000", time: "5 Weeks", desc: "From ideation to launch—learn product lifecycle and roadmapping." },
-            "YouTube Optimization": { fee: "₦30,000", time: "4 Weeks", desc: "SEO, thumbnail strategy, and algorithm mastery." },
-            "Social Media Optimization": { fee: "₦30,000", time: "4 Weeks", desc: "Content strategy and ad management for IG, TikTok, and LinkedIn." },
-            "Professional Excel": { fee: "₦20,000", time: "4 Weeks", desc: "Advanced formulas, pivot tables, and data reporting." },
+            "Cyber Security": { fee: "₦80,000", time: "8 Weeks", desc: "Ethical hacking, threat intelligence, network security, and digital forensics." },
+            "YouTube Development & Optimization": { fee: "₦30,000", time: "4 Weeks", desc: "SEO, thumbnail strategy, and algorithm mastery." },
+            "Social Media Optimization": { fee: "₦30,000", time: "3 Weeks", desc: "Content strategy and ad management for IG, TikTok, and LinkedIn." },
+            "Professional Excel": { fee: "₦20,000", time: "2 Weeks", desc: "Advanced formulas, pivot tables, and data reporting." },
             "Staff Training": { fee: "Contact Us", time: "Flexible", desc: "Custom on-site training for corporate organizations and schools." }
         };
 

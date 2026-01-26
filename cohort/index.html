@@ -30,6 +30,22 @@
             --success: #22c55e;
         }
 
+        /* --- 4. MARQUEE SECTION --- */
+        .info-marquee {
+            background: #0b3d91;
+            color: white;
+            padding: 12px 0;
+            font-weight: 600;
+            font-size: 16px;
+            border-bottom: 3px solid #ffffff;
+        }
+
+        .marquee-bullet {
+            color: #ffffff;
+            margin: 0 15px;
+            font-weight: 1000;
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
         body { background-color: var(--bg); color: #333; line-height: 1.6; }
 
@@ -108,8 +124,14 @@
 
         <header class="hero">
             <h1>Course Enrollment Portal</h1>
-            <p>Select a course below to view full details and register.</p>
+            <p>Select a course below to view full details and register. Payment can be made in two installments.</p>
         </header>
+
+        <div class="info-marquee">
+            <marquee behavior="scroll" direction="left" scrollamount="6">
+                Admissions are now open for our Upcoming 2026 Q1 Cohorts! Payments can be made in two installments <span class="marquee-bullet">|</span> Learn Cloud Computing, Web Development, Data Analytics & a lot more...<span class="marquee-bullet">|</span> Get Certified and Job Ready <span class="marquee-bullet">|</span> Visit our Digital Academy today or call +234 8060704412 for more enquiries.
+            </marquee>
+        </div>
 
         <div class="container">
             <div id="course-preview" class="preview-card">

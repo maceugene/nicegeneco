@@ -124,8 +124,8 @@
 
         <header class="hero">
             <h1>Course Enrollment Portal</h1>
-            <p><strong>Payment can be made in two installments. <br> Select a course below to view full details and register.</strong> <br>
-                <strong>Note:</strong> Students will have access to the video recordings of their classes even after training. <br> Our platform is designed to ensure you can revisit and reinforce your learning at any time. 
+            <p><strong>Payment can be made in two installments. <br> Select a course below to view course details before registeration.</strong> <br>
+                <strong>Note:</strong> Students will have access to the video recordings of their classes even after training. <br> Our platform is designed to ensure you can revisit and reinforce your learning at any time. Enjoy! 
             </p>
         </header>
 
@@ -164,25 +164,28 @@
                                 <label>Choose Your Course</label>
                                 <select name="Course_Selected" id="course-dropdown" required onchange="updatePreview()">
                                     <option value="" disabled selected>-- Select a Course --</option>
+                                    <option value="Web Development">Web Development</option>
+                                    <option value="Product Design">Product Design</option>
                                     <option value="Project Management">Project Management</option>
                                     <option value="Cloud Computing">Cloud Computing</option>                                                                                                                
-                                    <option value="Cyber Security">Cyber Security</option>
+                                    <option value="Cyber Security">Cybersecurity</option>
                                     <option value="Data Analytics">Data Analytics</option>
+                                    <option value="Digital Marketing">Digital Marketing</option>
                                     <option value="Video Editing">Video Editing</option>
                                     <option value="Introduction to Web3 Technologies">Introduction to Web3 Technologies</option>
                                     <option value="Graphics Design">Professional Graphics Design</option>
                                     <option value="Product Management">Product Management</option>
-                                    <option value="Forex Trading">Forex Trading</option>
+                                    <option value="Introduction to Forex Trading">Introduction to Forex Trading</option>
                                     <option value="Architectural Design">Architectural Design & 3D Visualization</option>
-                                    <option value="Structural Engineering">Structural Engineering Designs & Analysis</option>
+                                    <option value="Structural Engineering">Structural Engineering Design & Analysis</option>
                                     <option value="MEP Design">MEP (Mechanical, Electrical & Plumbing) Design</option>
                                     <option value="Digital Productivity">Digital Productivity & Collaboration</option>
                                     <option value="YouTube Optimization">YouTube Development & Optimization</option>
                                     <option value="Social Media Optimization">Social Media Optimization</option>
                                     <option value="Professional Excel">Professional Use of Excel</option>
-                                    <option value="Staff Training">Staff Training on use of digital tools</option>
+                                    <option value="Staff Training">Staff Training on use of digital workspace & tools</option>
                                 </select>
-                            </div>
+                            </div>                    
                             
 
                             <div class="form-group">
@@ -246,24 +249,27 @@
         <script>
             const details = {
                 "Project Management": { fee: "₦120,000", time: "8 Weeks", status: "On Going", desc: "Waterfall, Agile, and Scrum methodologies including team leadership." },
-                "Cloud Computing": { fee: "₦215,000", time: "8 Weeks", status: "On Going", desc: "Master AWS, cloud architecture, and deployment strategies." },
-                "Data Analytics": { fee: "₦180,000", time: "8 Weeks", status: "On Going", desc: "Learn data visualization, SQL, and PowerBI for business insights." },
+                "Cloud Computing": { fee: "₦215,000", time: "12 Weeks", status: "On Going", desc: "Master AWS, cloud architecture, and deployment strategies." },
+                "Data Analytics": { fee: "₦180,000", time: "12 Weeks", status: "On Going", desc: "Learn data visualization, SQL, and PowerBI for business insights." },
                 "Video Editing": { fee: "₦50,000", time: "5 Weeks", status: "On Going", desc: "Professional storytelling using Premiere Pro and CapCut desktop." },
                 "Introduction to Web3 Technologies": { fee: "₦80,000", time: "8 Weeks", status: "On Going", desc: "Blockchain fundamentals, Smart Contracts, and the Semantic Web." },
-                "Graphics Design": { fee: "₦50,000", time: "5 Weeks", status: "On Going", desc: "Master visual branding, typography, and Canva/Photoshop skills." },
+                "Graphics Design": { fee: "₦50,000", time: "6 Weeks", status: "On Going", desc: "Master visual branding, typography, and Canva/Photoshop skills." },
                 "Product Management": { fee: "₦120,000", time: "8 Weeks", status: "On Going", desc: "From ideation to launch—learn product lifecycle and roadmapping." },
-                "Cyber Security": { fee: "₦150,000", time: "8 Weeks", status: "On Hold", desc: "Ethical hacking, threat intelligence, network security, and digital forensics." },
+                "Cyber Security": { fee: "₦150,000", time: "8 Weeks", status: "On Going", desc: "Ethical hacking, threat intelligence, network security, and digital forensics." },
                 "YouTube Optimization": { fee: "₦50,000", time: "4 Weeks", status: "On Going", desc: "Channel growth architecture, SEO, thumbnail psychology, and algorithm mastery." },
                 "Social Media Optimization": { fee: "₦50,000", time: "4 Weeks", status: "On Going", desc: "Content strategy and ad management for IG, TikTok, and LinkedIn." },
                 "Digital Productivity": { fee: "₦50,000", time: "4 Weeks", status: "On Going", desc: "Master Microsoft 365 and Google Workspace for enterprise-level cloud collaboration." },
                 "Professional Excel": { fee: "₦40,000", time: "4 Weeks", status: "On Going", desc: "Advanced Data Modeling: Mastery of Power Query, Pivot Architecture, and complex logic." },
-                "Forex Trading": {  fee: "₦100,000", time: "8 Weeks", status: "On Going", desc: "Technical and Fundamental analysis, Risk Management strategies, and Price Action trading for global currency markets." },
+                "Introduction to Forex Trading": {  fee: "₦100,000", time: "8 Weeks", status: "On Going", desc: "Technical and Fundamental analysis, Risk Management strategies, and Price Action trading for global currency markets." },
                 "Architectural Design": { fee: "₦150,000", time: "8 Weeks", status: "On Going", desc: "2D drafting, using Archicad, AutoCAD, Revit Architecture or using Sketch up Realistic 3D rendering & building aesthetics using Luminion, Twinmotion, Excape, or Vray ." },
                 "Structural Engineering": { fee: "₦150,000", time: "8 Weeks", status: "On Going", desc: "Modeling, Analysis, Design and Detailing of reinforced concrete and steel structural members using Orion, ProtaStructure, or STAAD.Pro."  },
                 "MEP Design": { fee: "₦100,000", time: "8 Weeks", status: "On Going", desc: "Mechanical, Electrical, and Plumbing system design for buildings including load calculations and piping layout." }, 
+                "Product Design": { fee: "₦100,000", time: "8 Weeks", status: "On Going", desc: "Master UI/UX principles, wireframing, and high-fidelity prototyping using Figma and Adobe XD." },
+                "Digital Marketing": {  fee: "₦80,000", time: "8 Weeks", status: "On Going",  desc: "Strategic SEO, Social Media Management, and High-ROI Ad Campaign optimization for brands." },
+                "Web Development": { fee: "₦120,000", time: "12 Weeks", status: "On Going", desc: "Full-stack development: Mastering HTML5, CSS3, JavaScript, and modern frameworks like React." },
                 "Staff Training": { fee: "Contact Us", time: "Flexible", status: "On Going", desc: "Custom on-site training for corporate organizations and schools." }
             };
-
+                    
             function updatePreview() {
                 const dropdown = document.getElementById('course-dropdown');
                 const previewCard = document.getElementById('course-preview');

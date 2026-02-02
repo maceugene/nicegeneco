@@ -29,7 +29,7 @@
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             height: 80px;
-            padding: 0 15px;
+            padding: 0 20px;
             position: fixed;
             top: 0;
             width: 100%;
@@ -38,13 +38,41 @@
             align-items: center;
             box-shadow: 0 2px 20px rgba(0,0,0,0.05);
         }
+        
+        .nav-container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            width: 100%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
+        
+        .logo { height: 40px; display: block; }
+        
+        .nav-menu { 
+            display: flex; 
+            list-style: none; 
+            gap: 5px; 
+            align-items: center;
+        }
 
-        .nav-container { max-width: 1200px; margin: 0 auto; width: 100%; display: flex; justify-content: space-between; align-items: center; }
-        .logo { height: 40px; width: auto; }
-        .nav-menu { display: flex; list-style: none; gap: 5px; align-items: center; }
-        .nav-link { text-decoration: none; color: #0b3d91; font-weight: 600; font-size: 15px; padding: 8px 12px; transition: all 0.3s ease; border-radius: 8px; white-space: nowrap; }
-        .nav-link:hover { background: #e1ecf4; color: #0b3d91; }
-        .nav-link.active { background: #0b3d91; color: white; }
+        .nav-link { 
+            text-decoration: none; 
+            color: #0b3d91; 
+            font-weight: 600; 
+            font-size: 15px;
+            padding: 8px 12px; 
+            transition: all 0.3s ease;
+            border-radius: 8px;
+        }
+
+        .nav-link:hover { 
+            background: #e1ecf4; 
+            color: #0b3d91; 
+        }
+
+        .bottom-nav { text-align: center; margin-top: 40px; padding-bottom: 20px; }
 
         /* --- HERO SECTION WITH BACKGROUND IMAGE --- */
         .header-section { 
@@ -348,6 +376,12 @@
             <p>Looking for a specific high-end system or a particular phone brand? Our sales team are here to serve you better.</p>
             <a href="https://wa.me/2348060704412" class="btn-order">
                 <i class="fab fa-whatsapp"></i> Chat our sales team
+            </a>
+        </div>
+        
+        <div class="bottom-nav">
+            <a href="/services/" class="return-btn">
+                <i class="fas fa-arrow-left"></i><strong> Return to services</strong>
             </a>
         </div>
     </div>

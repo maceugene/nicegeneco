@@ -34,6 +34,7 @@
         body { background-color: #fdfdfd; color: var(--text-dark); line-height: 1.7; overflow-x: hidden; }
 
         /* --- NAVIGATION --- */
+        /* --- NAVIGATION --- */
         .navbar {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -47,6 +48,7 @@
             align-items: center;
             box-shadow: 0 2px 20px rgba(0,0,0,0.05);
         }
+        
         .nav-container { 
             max-width: 1200px; 
             margin: 0 auto; 
@@ -54,23 +56,31 @@
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
-            flex-wrap: nowrap; 
         }
-        .logo { height: 40px; flex-shrink: 0; }
-        .nav-menu { display: flex; list-style: none; gap: 5px; align-items: center; }
+        
+        .logo { height: 40px; display: block; }
+        
+        .nav-menu { 
+            display: flex; 
+            list-style: none; 
+            gap: 5px; 
+            align-items: center;
+        }
 
         .nav-link { 
             text-decoration: none; 
-            color: var(--primary); 
+            color: #0b3d91; 
             font-weight: 600; 
             font-size: 15px;
             padding: 8px 12px; 
-            transition: all 0.3s ease; 
-            border-radius: 6px;
-            white-space: nowrap; 
+            transition: all 0.3s ease;
+            border-radius: 8px;
         }
-        .nav-link:hover { background: var(--accent-blue); color: var(--primary); }
-        .nav-link.active { background: var(--primary); color: var(--white); }
+
+        .nav-link:hover { 
+            background: #e1ecf4; 
+            color: #0b3d91; 
+        }
 
         /* --- SLIDER LOGIC --- */
         .services-header { 

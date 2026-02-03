@@ -1,3 +1,5 @@
+// <button onclick="closePopup()" title="Close"><i class="fas fa-times"></i></button> - Close button removed as per request
+
 // 1. ADD THE STYLES (CSS) 
 const style = document.createElement('style');
 style.textContent = `
@@ -82,7 +84,7 @@ style.textContent = `
         100% { opacity: 1; transform: translateY(0); }
     }
     @media (max-width: 480px) { .remote-popup { width: 90%; right: 5%; left: 5%; } 
-                // <button onclick="closePopup()" title="Close"><i class="fas fa-times"></i></button>
+                
     }
 `;
 document.head.appendChild(style);

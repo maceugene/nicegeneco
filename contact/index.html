@@ -179,7 +179,16 @@
         .social-icon.whatsapp-hover:hover { background: var(--whatsapp-green); }
 
         /* --- MOBILE RESPONSIVENESS --- */
-        @media (max-width: 768px) {
+        @media screen and (max-width: 850px) { .contact-container { grid-template-columns: 1fr; } }
+        @media screen and (max-width: 768px) {
+            .navbar { padding: 0 10px; height: 70px; }
+            .nav-menu { gap: 2px; }
+            .nav-link { font-size: 11px; padding: 6px 6px; }
+            .contact-hero { padding-top: 130px; padding-bottom: 50px; }
+            .form-container { padding: 30px 20px; }
+        }
+
+         @media (max-width: 768px) {
             .navbar { height: 70px; padding: 0 10px; }
             .logo { height: 28px; } 
             .nav-link { font-size: 11px; padding: 6px 8px; } 

@@ -114,11 +114,11 @@ const popupHTML = `
 </div>`;
 document.body.insertAdjacentHTML('beforeend', popupHTML);
 
-// 3. LOGIC (FUNCTIONS)
-window.closePopup = function() {
-    document.getElementById('remote-popup').style.display = 'none';
-    document.getElementById('popup-launcher-container').style.display = 'none';
-};
+// 3. LOGIC (FUNCTIONS) 
+            //window.closePopup = function() {
+            // document.getElementById('remote-popup').style.display = 'none';
+                //document.getElementById('popup-launcher-container').style.display = 'none';
+            //}; - I intentionally struck this close button out.
 
 window.minimizePopup = function() {
     document.getElementById('remote-popup').style.transform = 'translateY(150%)';

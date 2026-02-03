@@ -729,6 +729,24 @@
                 text-align: justify;
             }
         }
+
+        /* --- MOBILE MEDIA QUERIES: FORCING THE FIT --- */
+        @media (max-width: 768px) {
+            .navbar { height: 70px; padding: 0 10px; }
+            .logo { height: 28px; } 
+            .nav-link { font-size: 11px; padding: 6px 8px; } 
+            .nav-menu { gap: 2px; }
+            .about-hero { padding-top: 120px; }
+            .story-grid, .mv-grid { grid-template-columns: 1fr; text-align: center; }
+            .slider-container { height: 280px; margin-bottom: -50px; } 
+            .section-container { padding-top: 100px; }
+        }
+
+        @media (max-width: 480px) {
+            .logo { height: 22px; }
+            .nav-link { font-size: 10px; padding: 4px 6px; letter-spacing: -0.3px; }
+            .nav-menu { gap: 1px; }
+        }
     </style>
 </head>
 <body>
@@ -765,7 +783,7 @@
                     <section class="section-container founder-section">
                         <div class="story-grid">
                             <div class="story-text">
-                                <p><strong>THE DAWN OF A TRANSGENERATIONAL EMPIRE</strong></p>
+                                <p text-align: center><strong>THE DAWN OF A TRANSGENERATIONAL EMPIRE</strong></p>
                                 
                                 <p><strong>The journey of a thousand miles begins with a step,</strong> they say, and today, <strong>NICEGENE TECHNOLOGIES</strong> takes that bold step forward. We have not just launched a business nor mere digital services; but we are birthing a transgenerational legacy that will redefine the narrative of the global technological landscape. We are stepping into a great empire yet to unfold in the world of IT. This is a journey that only the Almighty God can foretell its reach. This is your one-stop <strong>IT Consulting & Digital Solution</strong> center.</p>
                                 
@@ -812,7 +830,7 @@
             </div>
             
             <div class="card">
-                <div class="icon-box"><i class="fas fa-code card-icon"></i></div>
+                <div class="icon-box"><i class="fas fa-laptop card-icon"></i></div>
                 <h3><a href="/Web-Development/" class="service-card-link">Web & App Development</a></h3>
                 <p>Custom, responsive, and secure websites and applications built with modern frameworks to drive business growth.</p>
             </div>

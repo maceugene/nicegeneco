@@ -1,4 +1,4 @@
-// 1. ADD THE STYLES (CSS)
+// 1. ADD THE STYLES (CSS) 
 const style = document.createElement('style');
 style.textContent = `
     .remote-popup {
@@ -81,7 +81,9 @@ style.textContent = `
         50% { opacity: 0.2; transform: translateY(5px); }
         100% { opacity: 1; transform: translateY(0); }
     }
-    @media (max-width: 480px) { .remote-popup { width: 90%; right: 5%; left: 5%; } }
+    @media (max-width: 480px) { .remote-popup { width: 90%; right: 5%; left: 5%; } 
+                // <button onclick="closePopup()" title="Close"><i class="fas fa-times"></i></button>
+    }
 `;
 document.head.appendChild(style);
 
@@ -92,7 +94,7 @@ const popupHTML = `
         <span><i class="fas fa-desktop"></i> Special Service for you...</span>
         <div class="popup-controls">
             <button onclick="minimizePopup()" title="Minimize"><i class="fas fa-minus"></i></button>
-            <button onclick="closePopup()" title="Close"><i class="fas fa-times"></i></button>
+            
         </div>
     </div>
     <div id="popup-content" class="popup-body">

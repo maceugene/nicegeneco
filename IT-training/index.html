@@ -4,21 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digital Academy - NICEGENE TECHNOLOGIES</title>
-     <link rel="icon" href="/images/nicegene_logo.png" type="image/png">
+    <link rel="icon" href="/images/nicegene_logo.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://nicegeneco.com/contact/">
-    <meta property="og:title" content="NICEGENE DIGITAL ACADEMY">
-    <meta property="og:description" content="Nicegene Digital Academy is open and accepting enrollments for our hands-on digital bootcamps in Cloud Computing, Web Development, Data Analysis and lot more.">
-    <meta property="og:image" content="https://nicegeneco.com/images/cloud.png">
-
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://nicegeneco.com/contact/">
-    <meta property="twitter:title" content="NICEGENE DIGITAL ACADEMY">
-    <meta property="twitter:description" content="Nicegene Digital Academy is open and accepting enrollments for our hands-on digital bootcamps in Cloud Computing, Web Development, Data Analysis and lot more.">
-    <meta property="twitter:image" content="https://nicegeneco.com/images/cloud.png">
-
     <style>
         /* --- GLOBAL RESET --- */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
@@ -31,8 +19,7 @@
             height: 80px;
             padding: 0 20px;
             position: fixed;
-            top: 0;
-            width: 100%;
+            top: 0; width: 100%;
             z-index: 1000;
             display: flex;
             align-items: center;
@@ -40,50 +27,30 @@
         }
         
         .nav-container { 
-            max-width: 1200px; 
-            margin: 0 auto; 
-            width: 100%; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
+            max-width: 1200px; margin: 0 auto; width: 100%; 
+            display: flex; justify-content: space-between; align-items: center; 
         }
         
         .logo { height: 40px; display: block; }
         
-        .nav-menu { 
-            display: flex; 
-            list-style: none; 
-            gap: 5px; 
-            align-items: center;
-        }
+        .nav-menu { display: flex; list-style: none; gap: 5px; align-items: center; }
 
         .nav-link { 
-            text-decoration: none; 
-            color: #0b3d91; 
-            font-weight: 600; 
-            font-size: 15px;
-            padding: 8px 12px; 
-            transition: all 0.3s ease;
-            border-radius: 8px;
+            text-decoration: none; color: #0b3d91; font-weight: 600; font-size: 15px;
+            padding: 8px 12px; transition: all 0.3s ease; border-radius: 8px;
         }
 
-        .nav-link:hover { 
-            background: #e1ecf4; 
-            color: #0b3d91; 
-        }
+        .nav-link:hover { background: #e1ecf4; color: #0b3d91; }
 
-        /* --- HERO SECTION (Digital Academy Header) --- */
+        /* --- HERO SECTION --- */
         .academy-hero { 
             padding: 180px 20px 100px; 
             text-align: center; 
-            /* BACKGROUND IMAGE LOGIC */
-            background: linear-gradient(rgba(11, 61, 145, 0.2), rgba(15, 108, 217, 0.2)), 
+            background: linear-gradient(rgba(11, 61, 145, 0.7), rgba(15, 108, 217, 0.7)), 
                         url('/images/background 3.jpg'); 
             background-size: cover;
             background-position: center;
-            background-attachment: scroll;
             color: white;
-            margin-bottom: 0;
         }
 
         .academy-hero h1 { 
@@ -93,98 +60,98 @@
             text-shadow: 2px 2px 15px rgba(0,0,0,0.3);
         }
 
-        .academy-hero p { 
-            font-size: clamp(18px, 3vw, 22px); 
-            max-width: 850px; 
-            margin: 0 auto; 
-            opacity: 1;
-            text-shadow: 1px 1px 8px rgba(0,0,0,0.2);
-            line-height: 1.5;
+        /* --- FLIP CARD STYLES --- */
+        .section-title {
+            text-align: center;
+            color: #0b3d91;
+            margin-bottom: 50px;
+            font-size: 32px;
+            font-weight: 800;
         }
 
-        /* --- MAIN CONTENT --- */
-        .main-content { 
-            max-width: 1100px; 
-            margin: 0 auto; 
-            padding: 80px 20px;
+        .course-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 20px;
+            max-width: 1300px;
+            margin: 0 auto;
         }
 
-        /* --- TRAINING TRACKS GRID --- */
-        .track-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 25px; 
+        .flip-card {
+            background-color: transparent;
+            height: 380px;
+            perspective: 1000px;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        .track-card {
-            background: #fff;
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        /* Logic for Click Flip */
+        .flip-card.is-flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
             border-radius: 20px;
-            padding: 35px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            transition: 0.3s;
-            border: 1px solid #eee;
+            padding: 40px 30px;
             display: flex;
             flex-direction: column;
-        }
-        .track-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(11, 61, 145, 0.15); }
-        
-        .track-icon { font-size: 40px; margin-bottom: 20px; display: inline-block; }
-        .track-card h3 { color: #0b3d91; font-size: 22px; margin-bottom: 15px; }
-        .track-card p { font-size: 15px; color: #666; margin-bottom: 15px; }
-        .track-card ul { list-style: none; margin-top: auto; }
-        .track-card li { font-size: 15px; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
-        .track-card li::before { 
-            content: "\f058"; 
-            font-family: "Font Awesome 6 Free"; 
-            font-weight: 900;
-            color: #0f6cd9; 
-            font-size: 14px;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
-        /* Category Colors */
-        .tech { border-top: 6px solid #0f6cd9; }
-        .creative { border-top: 6px solid #e91e63; }
-        .business { border-top: 6px solid #4caf50; }
+        .flip-card-front {
+            background-color: white;
+            color: #0b3d91;
+            border: 2px solid #e1ecf4;
+        }
 
-        /* --- CTA SECTION --- */
-        .enroll-box {
+        .flip-card-back {
             background: linear-gradient(135deg, #0b3d91 0%, #0f6cd9 100%);
             color: white;
-            padding: clamp(35px, 7vw, 60px);
-            border-radius: 25px;
-            text-align: center;
-            margin-top: 80px;
-            box-shadow: 0 15px 35px rgba(11, 61, 145, 0.3);
+            transform: rotateY(180deg);
         }
-        .enroll-box h2 { font-size: clamp(24px, 5vw, 32px); margin-bottom: 15px; }
+
+        .flip-card-front i { font-size: 50px; margin-bottom: 20px; color: #0f6cd9; }
+        .flip-card-front h3 { font-size: 22px; margin-bottom: 15px; }
+        .flip-card-front p { color: #666; font-size: 15px; }
+        .click-hint { margin-top: auto; color: #0f6cd9; font-size: 12px; font-weight: bold; text-transform: uppercase; }
+
+        .flip-card-back h3 { font-size: 20px; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 10px; width: 100%; }
+        .info-row { display: flex; justify-content: space-between; width: 100%; margin: 8px 0; font-size: 14px; }
+        .info-label { font-weight: bold; opacity: 0.9; }
+        .course-desc { font-size: 13px; margin-top: 15px; font-style: italic; line-height: 1.5; text-align: center; }
+
+        .enroll-box {
+            background: linear-gradient(135deg, #0b3d91 0%, #0f6cd9 100%);
+            color: white; padding: 60px 20px; border-radius: 25px;
+            text-align: center; margin: 80px auto; max-width: 1100px;
+        }
+
         .enroll-btn {
-            display: inline-block;
-            background: #fff;
-            color: #0b3d91;
-            padding: 16px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 800;
-            font-size: 18px;
-            margin-top: 20px;
-            transition: 0.3s;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            display: inline-block; background: #fff; color: #0b3d91;
+            padding: 16px 40px; border-radius: 50px; text-decoration: none;
+            font-weight: 800; margin-top: 20px; transition: 0.3s;
         }
         .enroll-btn:hover { background: #ff9900; color: white; transform: scale(1.05); }
 
-        .back-home { display: block; text-align: center; margin-top: 50px; color: #0b3d91; text-decoration: none; font-weight: bold; }
-        .back-home:hover { color: #ff9900; }
-
-        /* --- MOBILE RESPONSIVENESS --- */
         @media screen and (max-width: 768px) {
-            .navbar { height: 70px; padding: 0 10px; }
-            .nav-menu { gap: 2px; }
-            .nav-link { font-size: 11px; padding: 6px 6px; }
-            .academy-hero { padding: 130px 15px 60px; }
-            .main-content { padding-top: 40px; }
-            .track-grid { grid-template-columns: 1fr; }
-            .enroll-box { padding: 40px 20px; }
+            .course-container { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
         }
     </style>
 </head>
@@ -195,9 +162,8 @@
             <a href="/"><img src="/images/nicegene-blue.png" alt="NICEGENE" class="logo"></a>
             <ul class="nav-menu">
                 <li><a href="/index" class="nav-link">Home</a></li>
-                <li><a href="/IT-training/" class="nav-link">Academy</a></li>
+                <li><a href="/IT-training/" class="nav-link active">Academy</a></li>
                 <li><a href="/services" class="nav-link">Services</a></li>
-                <li><a href="/sales" class="nav-link">Gadgets</a></li>
                 <li><a href="/contact" class="nav-link">Contact</a></li>
             </ul>
         </div>
@@ -205,61 +171,394 @@
 
     <header class="academy-hero">
         <h1>NICEGENE DIGITAL ACADEMY</h1>
-        <p><strong>Master the skills that power the modern economy. From Cloud Engineering to Creative Content, we provide hands-on training for the digital age.</strong></p>
+        <p>Master the skills that power the modern economy. Click a course to see details.</p>
     </header>
 
-    <main class="main-content">
-        <div class="track-grid">
-            <div class="track-card tech">
-                <span class="track-icon">☁️</span>
-                <h3>Cloud & Development</h3>
-                <p>High-end technical training for global career roles.</p>
-                <ul>
-                    <li>AWS Cloud Architecture</li>
-                    <li>Full-Stack Development (MERN)</li>
-                    <li>AI Optimization & Automation</li>
-                    <li>DevOps Engineering</li>
-                </ul>
+    <main style="padding: 80px 20px;">
+        <h2 class="section-title">Professional Certification Courses</h2>
+        
+        <div class="course-container">
+            
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <i class="fas fa-code"></i>
+                        <h3>Front-end Web Development</h3>
+                        <p>Modern HTML, CSS, JS, and React.</p>
+                        <span class="click-hint">Click to see pricing</span>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>Web Dev Track</h3>
+                        <div class="info-row"><span class="info-label">Fee:</span><span>₦120,000</span></div>
+                        <div class="info-row"><span class="info-label">Time:</span><span>12 Weeks</span></div>
+                        <div class="info-row"><span class="info-label">Status:</span><span>On Going</span></div>
+                        <p class="course-desc">Mastering HTML5, CSS3, JavaScript, and introduction to modern frameworks like React.</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="track-card creative">
-                <span class="track-icon">🎨</span>
-                <h3>Creative Design & Media</h3>
-                <p>Master the tools of visual storytelling and digital art.</p>
-                <ul>
-                    <li>Product Design (UI/UX)</li>
-                    <li>Professional Video Editing</li>
-                    <li>Cinematic Picture Editing</li>
-                    <li>YouTube Channel Growth</li>
-                </ul>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <i class="fas fa-cloud"></i>
+                        <h3>Cloud Computing</h3>
+                        <p>AWS, Cloud Architecture & Deployment.</p>
+                        <span class="click-hint">Click to see pricing</span>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>Cloud Track</h3>
+                        <div class="info-row"><span class="info-label">Fee:</span><span>₦215,000</span></div>
+                        <div class="info-row"><span class="info-label">Time:</span><span>12 Weeks</span></div>
+                        <div class="info-row"><span class="info-label">Status:</span><span>On Going</span></div>
+                        <p class="course-desc">Master AWS, cloud architecture, and deployment strategies for enterprise solutions.</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="track-card business">
-                <span class="track-icon">📈</span>
-                <h3>Business & Data</h3>
-                <p>Become a leader in data-driven decision making.</p>
-                <ul>
-                    <li>Data Analysis & Visualization</li>
-                    <li>Agile Project Management</li>
-                    <li>Social Media Optimization</li>
-                    <li>Digital Strategy & SEO</li>
-                </ul>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <i class="fas fa-pen-nib"></i>
+                        <h3>Product Design</h3>
+                        <p>UI/UX principles & Figma prototyping.</p>
+                        <span class="click-hint">Click to see pricing</span>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>UI/UX Track</h3>
+                        <div class="info-row"><span class="info-label">Fee:</span><span>₦100,000</span></div>
+                        <div class="info-row"><span class="info-label">Time:</span><span>8 Weeks</span></div>
+                        <div class="info-row"><span class="info-label">Status:</span><span>On Going</span></div>
+                        <p class="course-desc">Master UI/UX principles, wireframing, and high-fidelity prototyping using Figma and Adobe XD.</p>
+                    </div>
+                </div>
             </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <i class="fas fa-tasks"></i>
+                        <h3>Project Management</h3>
+                        <p>Agile, Scrum, and Team Leadership.</p>
+                        <span class="click-hint">Click to see pricing</span>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>Management Track</h3>
+                        <div class="info-row"><span class="info-label">Fee:</span><span>₦120,000</span></div>
+                        <div class="info-row"><span class="info-label">Time:</span><span>8 Weeks</span></div>
+                        <div class="info-row"><span class="info-label">Status:</span><span>On Going</span></div>
+                        <p class="course-desc">Waterfall, Agile, and Scrum methodologies including team leadership and risk management.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Cybersecurity</h3>
+                        <p>Ethical Hacking & Threat Intelligence.</p>
+                        <span class="click-hint">Click to see pricing</span>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>Security Track</h3>
+                        <div class="info-row"><span class="info-label">Fee:</span><span>₦150,000</span></div>
+                        <div class="info-row"><span class="info-label">Time:</span><span>8 Weeks</span></div>
+                        <div class="info-row"><span class="info-label">Status:</span><span>On Going</span></div>
+                        <p class="course-desc">Ethical hacking, threat intelligence, network security, and digital forensics.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <i class="fas fa-chart-pie"></i>
+                        <h3>Data Analytics</h3>
+                        <p>SQL, PowerBI & Data Visualization.</p>
+                        <span class="click-hint">Click to see pricing</span>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>Data Track</h3>
+                        <div class="info-row"><span class="info-label">Fee:</span><span>₦180,000</span></div>
+                        <div class="info-row"><span class="info-label">Time:</span><span>12 Weeks</span></div>
+                        <div class="info-row"><span class="info-label">Status:</span><span>On Going</span></div>
+                        <p class="course-desc">Learn data visualization, SQL, and PowerBI for high-level business insights.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <i class="fas fa-bullhorn"></i>
+                        <h3>Digital Marketing</h3>
+                        <p>SEO, SEM, and Ad Optimization.</p>
+                        <span class="click-hint">Click to see pricing</span>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>Marketing Track</h3>
+                        <div class="info-row"><span class="info-label">Fee:</span><span>₦80,000</span></div>
+                        <div class="info-row"><span class="info-label">Time:</span><span>8 Weeks</span></div>
+                        <div class="info-row"><span class="info-label">Status:</span><span>On Going</span></div>
+                        <p class="course-desc">Strategic SEO, Social Media Management, and High-ROI Ad Campaign optimization.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <i class="fas fa-video"></i>
+                        <h3>Video Editing</h3>
+                        <p>Premiere Pro & CapCut storytelling.</p>
+                        <span class="click-hint">Click to see pricing</span>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>Content Track</h3>
+                        <div class="info-row"><span class="info-label">Fee:</span><span>₦50,000</span></div>
+                        <div class="info-row"><span class="info-label">Time:</span><span>5 Weeks</span></div>
+                        <div class="info-row"><span class="info-label">Status:</span><span>On Going</span></div>
+                        <p class="course-desc">Professional storytelling using Premiere Pro and CapCut desktop for creators.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <i class="fas fa-link"></i>
+                        <h3>Web3 Technologies</h3>
+                        <p>Blockchain & Smart Contracts.</p>
+                        <span class="click-hint">Click to see pricing</span>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>Web3 Track</h3>
+                        <div class="info-row"><span class="info-label">Fee:</span><span>₦80,000</span></div>
+                        <div class="info-row"><span class="info-label">Time:</span><span>8 Weeks</span></div>
+                        <div class="info-row"><span class="info-label">Status:</span><span>On Going</span></div>
+                        <p class="course-desc">Blockchain fundamentals, Smart Contracts, and the future of the Semantic Web.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <i class="fas fa-palette"></i>
+                        <h3>Graphics Design</h3>
+                        <p>Branding, Typography & Photoshop.</p>
+                        <span class="click-hint">Click to see pricing</span>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>Graphics Track</h3>
+                        <div class="info-row"><span class="info-label">Fee:</span><span>₦50,000</span></div>
+                        <div class="info-row"><span class="info-label">Time:</span><span>6 Weeks</span></div>
+                        <div class="info-row"><span class="info-label">Status:</span><span>On Going</span></div>
+                        <p class="course-desc">Master visual branding, typography, and professional Canva/Photoshop skills.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <i class="fas fa-box-open"></i>
+                        <h3>Product Management</h3>
+                        <p>Ideation, Roadmap & Launch.</p>
+                        <span class="click-hint">Click to see pricing</span>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>Product Track</h3>
+                        <div class="info-row"><span class="info-label">Fee:</span><span>₦120,000</span></div>
+                        <div class="info-row"><span class="info-label">Time:</span><span>8 Weeks</span></div>
+                        <div class="info-row"><span class="info-label">Status:</span><span>On Going</span></div>
+                        <p class="course-desc">From ideation to launch—learn product lifecycle, strategy, and roadmapping.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Forex Trading</h3>
+                        <p>Technical & Fundamental Analysis.</p>
+                        <span class="click-hint">Click to see pricing</span>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>Trading Track</h3>
+                        <div class="info-row"><span class="info-label">Fee:</span><span>₦100,000</span></div>
+                        <div class="info-row"><span class="info-label">Time:</span><span>8 Weeks</span></div>
+                        <div class="info-row"><span class="info-label">Status:</span><span>On Going</span></div>
+                        <p class="course-desc">Analysis, Risk Management, and Price Action trading for global markets.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <i class="fas fa-hotel"></i>
+                        <h3>Architectural Design</h3>
+                        <p>2D Drafting & 3D Visualization.</p>
+                        <span class="click-hint">Click to see pricing</span>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>Architecture Track</h3>
+                        <div class="info-row"><span class="info-label">Fee:</span><span>₦150,000</span></div>
+                        <div class="info-row"><span class="info-label">Time:</span><span>8 Weeks</span></div>
+                        <div class="info-row"><span class="info-label">Status:</span><span>On Going</span></div>
+                        <p class="course-desc">Using AutoCAD, Revit, and rendering with Lumion, Twinmotion, or Vray.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <i class="fas fa-drafting-compass"></i>
+                        <h3>Structural Engineering</h3>
+                        <p>Design & Member Detailing.</p>
+                        <span class="click-hint">Click to see pricing</span>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>Engineering Track</h3>
+                        <div class="info-row"><span class="info-label">Fee:</span><span>₦150,000</span></div>
+                        <div class="info-row"><span class="info-label">Time:</span><span>8 Weeks</span></div>
+                        <div class="info-row"><span class="info-label">Status:</span><span>On Going</span></div>
+                        <p class="course-desc">Modeling and analysis of steel/concrete using Orion, ProtaStructure, or STAAD.Pro.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <i class="fas fa-bolt"></i>
+                        <h3>MEP Design</h3>
+                        <p>Mechanical & Electrical Systems.</p>
+                        <span class="click-hint">Click to see pricing</span>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>MEP Track</h3>
+                        <div class="info-row"><span class="info-label">Fee:</span><span>₦100,000</span></div>
+                        <div class="info-row"><span class="info-label">Time:</span><span>8 Weeks</span></div>
+                        <div class="info-row"><span class="info-label">Status:</span><span>On Going</span></div>
+                        <p class="course-desc">Building system design including load calculations and piping layout.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <i class="fas fa-laptop-house"></i>
+                        <h3>Digital Productivity</h3>
+                        <p>Microsoft 365 & Google Workspace.</p>
+                        <span class="click-hint">Click to see pricing</span>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>Productivity Track</h3>
+                        <div class="info-row"><span class="info-label">Fee:</span><span>₦50,000</span></div>
+                        <div class="info-row"><span class="info-label">Time:</span><span>4 Weeks</span></div>
+                        <div class="info-row"><span class="info-label">Status:</span><span>On Going</span></div>
+                        <p class="course-desc">Master Microsoft 365 and Google Workspace for enterprise-level collaboration.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <i class="fab fa-youtube"></i>
+                        <h3>YouTube Optimization</h3>
+                        <p>SEO & Algorithm Mastery.</p>
+                        <span class="click-hint">Click to see pricing</span>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>Growth Track</h3>
+                        <div class="info-row"><span class="info-label">Fee:</span><span>₦50,000</span></div>
+                        <div class="info-row"><span class="info-label">Time:</span><span>4 Weeks</span></div>
+                        <div class="info-row"><span class="info-label">Status:</span><span>On Going</span></div>
+                        <p class="course-desc">Channel growth architecture, SEO, and thumbnail psychology.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <i class="fas fa-hashtag"></i>
+                        <h3>SMO</h3>
+                        <p>IG, TikTok, and LinkedIn Strategy.</p>
+                        <span class="click-hint">Click to see pricing</span>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>Social Track</h3>
+                        <div class="info-row"><span class="info-label">Fee:</span><span>₦50,000</span></div>
+                        <div class="info-row"><span class="info-label">Time:</span><span>4 Weeks</span></div>
+                        <div class="info-row"><span class="info-label">Status:</span><span>On Going</span></div>
+                        <p class="course-desc">Content strategy and ad management for IG, TikTok, and LinkedIn engagement.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <i class="fas fa-users-cog"></i>
+                        <h3>Staff Training</h3>
+                        <p>Corporate Workspace Solutions.</p>
+                        <span class="click-hint">Click to see pricing</span>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>Corporate Track</h3>
+                        <div class="info-row"><span class="info-label">Fee:</span><span>Contact Us</span></div>
+                        <div class="info-row"><span class="info-label">Time:</span><span>Flexible</span></div>
+                        <div class="info-row"><span class="info-label">Status:</span><span>Available</span></div>
+                        <p class="course-desc">Custom on-site training for corporate organizations and schools.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <i class="fas fa-child"></i>
+                        <h3>Tech for Kids</h3>
+                        <p>Coding & Digital Literacy for young minds.</p>
+                        <span class="click-hint">Click to see pricing</span>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>Junior Track</h3>
+                        <div class="info-row"><span class="info-label">Fee:</span><span>₦40,000</span></div>
+                        <div class="info-row"><span class="info-label">Time:</span><span>6 Weeks</span></div>
+                        <div class="info-row"><span class="info-label">Status:</span><span>Open</span></div>
+                        <p class="course-desc">Empowering children with early coding, logic, and safe internet navigation.</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
         <section class="enroll-box">
-            <h2>Start Your Learning Journey Today</h2>
-            <p>Join over 500+ students who have transformed their careers through our practical bootcamps.</p>
-            <a href="/cohort/" class="enroll-btn">View Upcoming Classes</a>
+            <h2>Ready to start your journey?</h2>
+            <p>Join over 500+ successful alumni today.</p>
+            <a href="/cohort/" class="enroll-btn">Apply Now</a>
         </section>
-
-        <a href="/services/" class="back-home">← Return to services</a>
     </main>
 
-    <footer style="text-align: center; padding: 40px 20px; font-size: 14px; color: #888; border-top: 1px solid #eee; margin-top: 40px;">
-        <p>&copy; 2026 NICEGENE TECHNOLOGIES || ALL RIGHTS RESERVED! <br> 
-            Powered by: Nicegene Technologies
-        </p>
+    <script>
+        // JavaScript to toggle the flip class on click
+        document.querySelectorAll('.flip-card').forEach(card => {
+            card.addEventListener('click', function() {
+                this.classList.toggle('is-flipped');
+            });
+        });
+    </script>
+
+    <footer style="text-align: center; padding: 40px 20px; font-size: 14px; color: #888; border-top: 1px solid #eee;">
+        <p>&copy; 2026 NICEGENE TECHNOLOGIES || ALL RIGHTS RESERVED!</p>
     </footer>
 
 </body>

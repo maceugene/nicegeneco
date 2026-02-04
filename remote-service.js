@@ -1,5 +1,3 @@
-// <button onclick="closePopup()" title="Close"><i class="fas fa-times"></i></button> - Close button removed as per request
-
 // 1. ADD THE STYLES (CSS) 
 const style = document.createElement('style');
 style.textContent = `
@@ -83,9 +81,7 @@ style.textContent = `
         50% { opacity: 0.2; transform: translateY(5px); }
         100% { opacity: 1; transform: translateY(0); }
     }
-    @media (max-width: 480px) { .remote-popup { width: 90%; right: 5%; left: 5%; } 
-                
-    }
+    @media (max-width: 480px) { .remote-popup { width: 90%; right: 5%; left: 5%; } }
 `;
 document.head.appendChild(style);
 
@@ -96,8 +92,7 @@ const popupHTML = `
         <span><i class="fas fa-desktop"></i> Special Service for you...</span>
         <div class="popup-controls">
             <button onclick="minimizePopup()" title="Minimize"><i class="fas fa-minus"></i></button>
-            
-        </div>
+            </div>
     </div>
     <div id="popup-content" class="popup-body">
         <p><strong>Hi, do you care about Remote System Configuration and Software Installation services? </strong></p>
@@ -115,10 +110,12 @@ const popupHTML = `
 document.body.insertAdjacentHTML('beforeend', popupHTML);
 
 // 3. LOGIC (FUNCTIONS) 
-            //window.closePopup = function() {
-            // document.getElementById('remote-popup').style.display = 'none';
-                //document.getElementById('popup-launcher-container').style.display = 'none';
-            //}; - I intentionally struck this close button out.
+/* window.closePopup = function() {
+    document.getElementById('remote-popup').style.display = 'none';
+    document.getElementById('popup-launcher-container').style.display = 'none';
+}; 
+-- Function disabled to ensure visitors cannot remove the support prompt.
+*/
 
 window.minimizePopup = function() {
     document.getElementById('remote-popup').style.transform = 'translateY(150%)';
